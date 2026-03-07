@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render simple SVG charts for the lead paper from CSV inputs."""
+"""Render SVG charts for the lead paper from CSV inputs."""
 
 from __future__ import annotations
 
@@ -12,11 +12,7 @@ FIGURES = ROOT / "paper" / "figures"
 
 
 def escape(text: str) -> str:
-    return (
-        text.replace("&", "&amp;")
-        .replace("<", "&lt;")
-        .replace(">", "&gt;")
-    )
+    return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
 def scale(value: float, min_v: float, max_v: float, out_min: float, out_max: float) -> float:
@@ -24,6 +20,81 @@ def scale(value: float, min_v: float, max_v: float, out_min: float, out_max: flo
         return out_min
     ratio = (value - min_v) / (max_v - min_v)
     return out_min + ratio * (out_max - out_min)
+
+
+def render_theory_map() -> None:
+    width, height = 1040, 620
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+        '<rect width="100%" height="100%" fill="#faf8f2"/>',
+        '<text x="64" y="42" font-family="Georgia, serif" font-size="24" fill="#111">Figure 1. Theoretical Framework and Group-Chat Game</text>',
+        '<text x="64" y="62" font-family="Arial, sans-serif" font-size="12" fill="#555">Reply latency is modeled as a visible signal inside a heterogeneous multi-person coordination problem.</text>',
+        '<rect x="62" y="98" width="250" height="410" rx="12" fill="#efe5d4" stroke="#c9b79d"/>',
+        '<rect x="394" y="98" width="252" height="410" rx="12" fill="#f3eee5" stroke="#c9b79d"/>',
+        '<rect x="730" y="98" width="248" height="410" rx="12" fill="#efe5d4" stroke="#c9b79d"/>',
+        '<text x="88" y="134" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111">Theory stack</text>',
+        '<text x="420" y="134" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111">Group-chat game</text>',
+        '<text x="756" y="134" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111">Observed outcomes</text>',
+    ]
+
+    left_boxes = [
+        ("Signaling and reputation", "hidden busyness, diligence, and availability become inferable from delay"),
+        ("Chronemics in CMC", "timestamps operate as socioemotional cues rather than empty intervals"),
+        ("Communication visibility", "advisor + peers jointly witness order, delay, and tone"),
+        ("Volunteer's dilemma", "someone must answer first, but nobody wants the cost too often"),
+        ("Expectation states", "status and ownership decide who is actually allowed to wait"),
+    ]
+    center_boxes = [
+        ("Inputs", "group size, sender hierarchy, urgency, visibility"),
+        ("Heterogeneity", "first-author junior, procurement steward, postdoc proxy, generic bystander"),
+        ("State changes", "someone replied already? ownership explicit? holiday fog active?"),
+        ("Choice", "pick a delay that signals diligence without inviting extraction"),
+    ]
+    right_boxes = [
+        ("Perceived diligence", "inverse-U over latency"),
+        ("Reliability", "falls when delay looks like disappearance"),
+        ("Assignment hazard", "rises when speed looks like free capacity"),
+        ("Blame and suspicion", "compressed windows under hierarchy and visibility"),
+    ]
+
+    def box(x: int, y: int, w: int, h: int, title: str, body: str, fill: str) -> None:
+        parts.extend(
+            [
+                f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="10" fill="{fill}" stroke="#b7a58c"/>',
+                f'<text x="{x + 16}" y="{y + 28}" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#111">{escape(title)}</text>',
+                f'<text x="{x + 16}" y="{y + 52}" font-family="Arial, sans-serif" font-size="12" fill="#3f3a33">{escape(body)}</text>',
+            ]
+        )
+
+    y = 160
+    for title, body in left_boxes:
+        box(84, y, 206, 58, title, body, "#fbf7ee")
+        y += 68
+
+    y = 174
+    for title, body in center_boxes:
+        box(418, y, 204, 66, title, body, "#fffdf8")
+        y += 82
+
+    y = 174
+    for title, body in right_boxes:
+        box(754, y, 200, 66, title, body, "#fbf7ee")
+        y += 82
+
+    for y in [189, 257, 325, 393, 461]:
+        parts.append(f'<line x1="290" y1="{y}" x2="394" y2="{y}" stroke="#8b5e34" stroke-width="2.5"/>')
+        parts.append(f'<polygon points="394,{y} 382,{y-6} 382,{y+6}" fill="#8b5e34"/>')
+    for y in [207, 289, 371, 453]:
+        parts.append(f'<line x1="646" y1="{y}" x2="730" y2="{y}" stroke="#8b5e34" stroke-width="2.5"/>')
+        parts.append(f'<polygon points="730,{y} 718,{y-6} 718,{y+6}" fill="#8b5e34"/>')
+
+    parts.extend(
+        [
+            '<text x="420" y="560" font-family="Arial, sans-serif" font-size="12" fill="#555">Key modifiers: first-responder discount, task ownership, holiday fog, and visible audience composition.</text>',
+            '</svg>',
+        ]
+    )
+    (FIGURES / "theory_framework_map.svg").write_text("\n".join(parts))
 
 
 def render_latency_curve() -> None:
@@ -50,8 +121,8 @@ def render_latency_curve() -> None:
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
         '<rect width="100%" height="100%" fill="#faf8f2"/>',
-        '<text x="90" y="38" font-family="Georgia, serif" font-size="24" fill="#111">Figure 1. Latency-Diligence Curve</text>',
-        '<text x="90" y="58" font-family="Arial, sans-serif" font-size="12" fill="#555">Reply timing balances diligence, reliability, and task accretion risk.</text>',
+        '<text x="90" y="38" font-family="Georgia, serif" font-size="24" fill="#111">Figure 2. Latency-Diligence Curve</text>',
+        '<text x="90" y="58" font-family="Arial, sans-serif" font-size="12" fill="#555">Reply timing balances diligence, reliability, and assignment hazard.</text>',
     ]
 
     for value in range(0, 11, 2):
@@ -75,11 +146,11 @@ def render_latency_curve() -> None:
             '<line x1="700" y1="90" x2="730" y2="90" stroke="#111" stroke-width="4"/>',
             '<text x="740" y="120" font-family="Arial, sans-serif" font-size="13" fill="#3d6e70">Reliability</text>',
             '<line x1="700" y1="115" x2="730" y2="115" stroke="#3d6e70" stroke-width="4"/>',
-            '<text x="740" y="145" font-family="Arial, sans-serif" font-size="13" fill="#b35c1e">Task risk</text>',
+            '<text x="740" y="145" font-family="Arial, sans-serif" font-size="13" fill="#b35c1e">Assignment hazard</text>',
             '<line x1="700" y1="140" x2="730" y2="140" stroke="#b35c1e" stroke-width="4"/>',
         ]
     )
-    parts.append('</svg>')
+    parts.append("</svg>")
     (FIGURES / "latency_diligence_curve.svg").write_text("\n".join(parts))
 
 
@@ -94,15 +165,15 @@ def render_hierarchy_chart() -> None:
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
         '<rect width="100%" height="100%" fill="#faf8f2"/>',
-        '<text x="210" y="38" font-family="Georgia, serif" font-size="24" fill="#111">Figure 2. Hierarchy-Specific Acceptable Delay Window</text>',
+        '<text x="210" y="38" font-family="Georgia, serif" font-size="24" fill="#111">Figure 3. Hierarchy-Specific Acceptable Delay Window</text>',
         '<text x="210" y="58" font-family="Arial, sans-serif" font-size="12" fill="#555">Direct hierarchy compresses the reply window; peer-only contexts permit wider drift.</text>',
-        f'<line x1="{margin_left}" y1="{margin_top + 6* (bar_h + gap)}" x2="{margin_left + chart_w}" y2="{margin_top + 6* (bar_h + gap)}" stroke="#333" stroke-width="2"/>',
+        f'<line x1="{margin_left}" y1="{margin_top + 6 * (bar_h + gap)}" x2="{margin_left + chart_w}" y2="{margin_top + 6 * (bar_h + gap)}" stroke="#333" stroke-width="2"/>',
     ]
 
     for t in [0, 30, 60, 120, 180, 240]:
         x = scale(float(t), 0, 240, margin_left, margin_left + chart_w)
-        parts.append(f'<line x1="{x:.1f}" y1="{margin_top - 18}" x2="{x:.1f}" y2="{margin_top + 6*(bar_h+gap)-4}" stroke="#e2ddd2" stroke-width="1"/>')
-        parts.append(f'<text x="{x:.1f}" y="{margin_top + 6*(bar_h+gap) + 24}" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">{t}</text>')
+        parts.append(f'<line x1="{x:.1f}" y1="{margin_top - 18}" x2="{x:.1f}" y2="{margin_top + 6 * (bar_h + gap) - 4}" stroke="#e2ddd2" stroke-width="1"/>')
+        parts.append(f'<text x="{x:.1f}" y="{margin_top + 6 * (bar_h + gap) + 24}" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">{t}</text>')
 
     for i, row in enumerate(rows):
         y = margin_top + i * (bar_h + gap)
@@ -112,7 +183,7 @@ def render_hierarchy_chart() -> None:
         fill = "#9d8f7a" if penalty < 2 else "#b35c1e" if penalty < 4 else "#7a1f1f"
         label = row["sender_hierarchy"].replace("_", " ")
         parts.append(f'<text x="{margin_left - 18}" y="{y + 22}" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#222">{escape(label)}</text>')
-        parts.append(f'<rect x="{x1:.1f}" y="{y:.1f}" width="{max(6.0, x2-x1):.1f}" height="{bar_h}" rx="6" fill="{fill}"/>')
+        parts.append(f'<rect x="{x1:.1f}" y="{y:.1f}" width="{max(6.0, x2 - x1):.1f}" height="{bar_h}" rx="6" fill="{fill}"/>')
         parts.append(f'<text x="{x2 + 8:.1f}" y="{y + 22}" font-family="Arial, sans-serif" font-size="12" fill="#444">{row["optimal_window_low_min"]}-{row["optimal_window_high_min"]} min</text>')
 
     parts.extend(
@@ -125,6 +196,7 @@ def render_hierarchy_chart() -> None:
 
 
 def main() -> None:
+    render_theory_map()
     render_latency_curve()
     render_hierarchy_chart()
     print("Rendered SVG figures to paper/figures/")

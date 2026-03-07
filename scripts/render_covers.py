@@ -70,6 +70,12 @@ def main() -> None:
         "论文正文我已经写出来了",
         "现在它真的越来越像能投的东西。",
     )
+    draw_cover(
+        "post-06-theory-upgrade-cover.svg",
+        "PHASE 05 / THEORY",
+        "我把这篇厕刊补成理论模型了",
+        "信号理论、多人博弈、实验室政治，现在都进来了。",
+    )
     print("Rendered covers to assets/covers/")
 
 

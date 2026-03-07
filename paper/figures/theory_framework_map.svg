@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="620" viewBox="0 0 1040 620">
+<rect width="100%" height="100%" fill="#faf8f2"/>
+<text x="64" y="42" font-family="Georgia, serif" font-size="24" fill="#111">Figure 1. Theoretical Framework and Group-Chat Game</text>
+<text x="64" y="62" font-family="Arial, sans-serif" font-size="12" fill="#555">Reply latency is modeled as a visible signal inside a heterogeneous multi-person coordination problem.</text>
+<rect x="62" y="98" width="250" height="410" rx="12" fill="#efe5d4" stroke="#c9b79d"/>
+<rect x="394" y="98" width="252" height="410" rx="12" fill="#f3eee5" stroke="#c9b79d"/>
+<rect x="730" y="98" width="248" height="410" rx="12" fill="#efe5d4" stroke="#c9b79d"/>
+<text x="88" y="134" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111">Theory stack</text>
+<text x="420" y="134" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111">Group-chat game</text>
+<text x="756" y="134" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111">Observed outcomes</text>
+<rect x="84" y="160" width="206" height="58" rx="10" fill="#fbf7ee" stroke="#b7a58c"/>
+<text x="100" y="188" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#111">Signaling and reputation</text>
+<text x="100" y="212" font-family="Arial, sans-serif" font-size="12" fill="#3f3a33">hidden busyness, diligence, and availability become inferable from delay</text>
+<rect x="84" y="228" width="206" height="58" rx="10" fill="#fbf7ee" stroke="#b7a58c"/>
+<text x="100" y="256" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#111">Chronemics in CMC</text>
+<text x="100" y="280" font-family="Arial, sans-serif" font-size="12" fill="#3f3a33">timestamps operate as socioemotional cues rather than empty intervals</text>
+<rect x="84" y="296" width="206" height="58" rx="10" fill="#fbf7ee" stroke="#b7a58c"/>
+<text x="100" y="324" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#111">Communication visibility</text>
+<text x="100" y="348" font-family="Arial, sans-serif" font-size="12" fill="#3f3a33">advisor + peers jointly witness order, delay, and tone</text>
+<rect x="84" y="364" width="206" height="58" rx="10" fill="#fbf7ee" stroke="#b7a58c"/>
+<text x="100" y="392" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#111">Volunteer's dilemma</text>
+<text x="100" y="416" font-family="Arial, sans-serif" font-size="12" fill="#3f3a33">someone must answer first, but nobody wants the cost too often</text>
+<rect x="84" y="432" width="206" height="58" rx="10" fill="#fbf7ee" stroke="#b7a58c"/>
+<text x="100" y="460" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#111">Expectation states</text>
+<text x="100" y="484" font-family="Arial, sans-serif" font-size="12" fill="#3f3a33">status and ownership decide who is actually allowed to wait</text>
+<rect x="418" y="174" width="204" height="66" rx="10" fill="#fffdf8" stroke="#b7a58c"/>
+<text x="434" y="202" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#111">Inputs</text>
+<text x="434" y="226" font-family="Arial, sans-serif" font-size="12" fill="#3f3a33">group size, sender hierarchy, urgency, visibility</text>
+<rect x="418" y="256" width="204" height="66" rx="10" fill="#fffdf8" stroke="#b7a58c"/>
+<text x="434" y="284" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#111">Heterogeneity</text>
+<text x="434" y="308" font-family="Arial, sans-serif" font-size="12" fill="#3f3a33">first-author junior, procurement steward, postdoc proxy, generic bystander</text>
+<rect x="418" y="338" width="204" height="66" rx="10" fill="#fffdf8" stroke="#b7a58c"/>
+<text x="434" y="366" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#111">State changes</text>
+<text x="434" y="390" font-family="Arial, sans-serif" font-size="12" fill="#3f3a33">someone replied already? ownership explicit? holiday fog active?</text>
+<rect x="418" y="420" width="204" height="66" rx="10" fill="#fffdf8" stroke="#b7a58c"/>
+<text x="434" y="448" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#111">Choice</text>
+<text x="434" y="472" font-family="Arial, sans-serif" font-size="12" fill="#3f3a33">pick a delay that signals diligence without inviting extraction</text>
+<rect x="754" y="174" width="200" height="66" rx="10" fill="#fbf7ee" stroke="#b7a58c"/>
+<text x="770" y="202" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#111">Perceived diligence</text>
+<text x="770" y="226" font-family="Arial, sans-serif" font-size="12" fill="#3f3a33">inverse-U over latency</text>
+<rect x="754" y="256" width="200" height="66" rx="10" fill="#fbf7ee" stroke="#b7a58c"/>
+<text x="770" y="284" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#111">Reliability</text>
+<text x="770" y="308" font-family="Arial, sans-serif" font-size="12" fill="#3f3a33">falls when delay looks like disappearance</text>
+<rect x="754" y="338" width="200" height="66" rx="10" fill="#fbf7ee" stroke="#b7a58c"/>
+<text x="770" y="366" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#111">Assignment hazard</text>
+<text x="770" y="390" font-family="Arial, sans-serif" font-size="12" fill="#3f3a33">rises when speed looks like free capacity</text>
+<rect x="754" y="420" width="200" height="66" rx="10" fill="#fbf7ee" stroke="#b7a58c"/>
+<text x="770" y="448" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#111">Blame and suspicion</text>
+<text x="770" y="472" font-family="Arial, sans-serif" font-size="12" fill="#3f3a33">compressed windows under hierarchy and visibility</text>
+<line x1="290" y1="189" x2="394" y2="189" stroke="#8b5e34" stroke-width="2.5"/>
+<polygon points="394,189 382,183 382,195" fill="#8b5e34"/>
+<line x1="290" y1="257" x2="394" y2="257" stroke="#8b5e34" stroke-width="2.5"/>
+<polygon points="394,257 382,251 382,263" fill="#8b5e34"/>
+<line x1="290" y1="325" x2="394" y2="325" stroke="#8b5e34" stroke-width="2.5"/>
+<polygon points="394,325 382,319 382,331" fill="#8b5e34"/>
+<line x1="290" y1="393" x2="394" y2="393" stroke="#8b5e34" stroke-width="2.5"/>
+<polygon points="394,393 382,387 382,399" fill="#8b5e34"/>
+<line x1="290" y1="461" x2="394" y2="461" stroke="#8b5e34" stroke-width="2.5"/>
+<polygon points="394,461 382,455 382,467" fill="#8b5e34"/>
+<line x1="646" y1="207" x2="730" y2="207" stroke="#8b5e34" stroke-width="2.5"/>
+<polygon points="730,207 718,201 718,213" fill="#8b5e34"/>
+<line x1="646" y1="289" x2="730" y2="289" stroke="#8b5e34" stroke-width="2.5"/>
+<polygon points="730,289 718,283 718,295" fill="#8b5e34"/>
+<line x1="646" y1="371" x2="730" y2="371" stroke="#8b5e34" stroke-width="2.5"/>
+<polygon points="730,371 718,365 718,377" fill="#8b5e34"/>
+<line x1="646" y1="453" x2="730" y2="453" stroke="#8b5e34" stroke-width="2.5"/>
+<polygon points="730,453 718,447 718,459" fill="#8b5e34"/>
+<text x="420" y="560" font-family="Arial, sans-serif" font-size="12" fill="#555">Key modifiers: first-responder discount, task ownership, holiday fog, and visible audience composition.</text>
+</svg>

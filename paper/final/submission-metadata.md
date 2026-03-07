@@ -43,7 +43,7 @@ An academic satire paper modeling advisor-group-chat reply delay as a signaling 
 - html preview: `read-seen-ignored_submission-ready.html`
 - references: `../references/read-seen-ignored-references.md`
 - figures: `../figures/*.csv`
-- rendered figures: `../figures/latency_diligence_curve.svg`, `../figures/hierarchy_window_chart.svg`
+- rendered figures: `../figures/theory_framework_map.svg`, `../figures/latency_diligence_curve.svg`, `../figures/hierarchy_window_chart.svg`
 
 ## Safety Statement / 安全说明
 

@@ -34,7 +34,9 @@
 - Proposal: [paper/proposal/read-seen-ignored-proposal.md](paper/proposal/read-seen-ignored-proposal.md)
 - Final manuscript: [paper/final/read-seen-ignored_submission-ready.md](paper/final/read-seen-ignored_submission-ready.md)
 - HTML preview: [paper/final/read-seen-ignored_submission-ready.html](paper/final/read-seen-ignored_submission-ready.html)
+- Theory framework figure: [paper/figures/theory_framework_map.svg](paper/figures/theory_framework_map.svg)
 - Submission metadata: [paper/final/submission-metadata.md](paper/final/submission-metadata.md)
+- Latest social draft: [social/xiaohongshu/post-06-theory-upgrade.md](social/xiaohongshu/post-06-theory-upgrade.md)
 
 当前主稿已经从选题推进到可提交草稿。  
 The lead paper has already moved from topic selection to a submission-ready draft.
