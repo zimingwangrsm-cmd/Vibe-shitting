@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate that the canonical submission pack is complete and self-consistent."""
+"""Validate that the active submission pack is complete and internally coherent."""
 
 from __future__ import annotations
 
@@ -11,30 +11,26 @@ FINAL = ROOT / "paper" / "final"
 FIGURES = ROOT / "paper" / "figures"
 
 REQUIRED_FILES = [
-    FINAL / "read-seen-ignored_submission_en.md",
-    FINAL / "read-seen-ignored_submission_zh.md",
-    FINAL / "read-seen-ignored_submission_en.html",
-    FINAL / "read-seen-ignored_submission_zh.html",
+    ROOT / "PROJECT_STRUCTURE.md",
+    FINAL / "read-seen-ignored_submission-ready.md",
     FINAL / "read-seen-ignored_submission-ready.html",
     FINAL / "submission-metadata.md",
     FINAL / "submission-checklist.md",
     ROOT / "paper" / "review" / "shit-fit-review-2026-03-07.md",
-    ROOT / "paper" / "review" / "named-effects-glossary-2026-03-07.md",
     ROOT / "paper" / "figures" / "visual-explainer-plan.md",
+    ROOT / "paper" / "figures" / "banana-prompt-pack.md",
+    ROOT / "social" / "xiaohongshu" / "README.md",
 ]
 
 REQUIRED_FIGURES = [
-    FIGURES / "performative_presence_bias.svg",
     FIGURES / "theory_framework_map.svg",
     FIGURES / "latency_diligence_curve.svg",
     FIGURES / "hierarchy_window_chart.svg",
     FIGURES / "first_responder_discount.svg",
     FIGURES / "role_obligation_matrix.svg",
-]
-
-FORBIDDEN_PATTERNS = [
-    "Full references:",
-    "完整参考文献见：",
+    FIGURES / "role_species_windows.svg",
+    FIGURES / "publication_burden_u_curve.svg",
+    FIGURES / "red_envelope_shock.svg",
 ]
 
 
@@ -47,28 +43,29 @@ def check_exists() -> bool:
     return ok
 
 
-def check_canonical_manuscripts() -> bool:
+def check_main_manuscript() -> bool:
+    path = FINAL / "read-seen-ignored_submission-ready.md"
+    text = path.read_text()
     ok = True
-    for name in ["read-seen-ignored_submission_en.md", "read-seen-ignored_submission_zh.md"]:
-        path = FINAL / name
-        text = path.read_text()
-        if "## References" not in text and "## 参考文献" not in text:
-            print(f"[MISSING_SECTION] {path.relative_to(ROOT)} lacks a references section")
+    required_snippets = [
+        "## Abstract",
+        "## 中文摘要",
+        "## References",
+        "## Context Materials for Meme and Scene Language",
+    ]
+    for snippet in required_snippets:
+        if snippet not in text:
+            print(f"[MISSING_SECTION] {path.relative_to(ROOT)} lacks {snippet}")
             ok = False
-        for pattern in FORBIDDEN_PATTERNS:
-            if pattern in text:
-                print(f"[FORBIDDEN_POINTER] {path.relative_to(ROOT)} still contains: {pattern}")
-                ok = False
     return ok
 
 
 def check_metadata() -> bool:
     text = (FINAL / "submission-metadata.md").read_text()
     required_snippets = [
-        "read-seen-ignored_submission_en.md",
-        "read-seen-ignored_submission_zh.md",
-        "read-seen-ignored_submission_en.html",
-        "read-seen-ignored_submission_zh.html",
+        "read-seen-ignored_submission-ready.md",
+        "read-seen-ignored_submission-ready.html",
+        "../archive/2026-03-retired-snapshots/",
     ]
     ok = True
     for snippet in required_snippets:
@@ -81,11 +78,11 @@ def check_metadata() -> bool:
 def main() -> None:
     checks = [
         check_exists(),
-        check_canonical_manuscripts(),
+        check_main_manuscript(),
         check_metadata(),
     ]
     if all(checks):
-        print("[OK] canonical submission pack")
+        print("[OK] active submission pack")
         return
     raise SystemExit(1)
 

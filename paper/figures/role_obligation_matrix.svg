@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
 <rect width="100%" height="100%" fill="#faf8f2"/>
-<text x="120" y="40" font-family="Georgia, serif" font-size="24" fill="#111">Figure 5. Role Obligation Matrix</text>
+<text x="120" y="40" font-family="Georgia, serif" font-size="24" fill="#111">Figure 7. Role Obligation Matrix</text>
 <text x="120" y="60" font-family="Arial, sans-serif" font-size="12" fill="#555">The funniest roles often combine high obligation with low veto power.</text>
 <rect x="120" y="90" width="660" height="320" fill="#fffdf8" stroke="#d9d0c2"/>
 <line x1="450.0" y1="90" x2="450.0" y2="410" stroke="#d4c5ae" stroke-width="1.5" stroke-dasharray="6 6"/>
@@ -14,7 +14,7 @@
 <circle cx="265.2" cy="118.8" r="9" fill="#7a1f1f" stroke="#111" stroke-width="1.2"/>
 <text x="279.2" y="108.8" font-family="Arial, sans-serif" font-size="12" fill="#222">First-author junior</text>
 <circle cx="588.6" cy="147.6" r="9" fill="#8b5e34" stroke="#111" stroke-width="1.2"/>
-<text x="602.6" y="137.6" font-family="Arial, sans-serif" font-size="12" fill="#222">Procurement steward</text>
+<text x="602.6" y="137.6" font-family="Arial, sans-serif" font-size="12" fill="#222">Procurement-reimbursement bottleneck</text>
 <circle cx="384.0" cy="128.4" r="9" fill="#3d6e70" stroke="#111" stroke-width="1.2"/>
 <text x="398.0" y="118.4" font-family="Arial, sans-serif" font-size="12" fill="#222">Experiment operator</text>
 <circle cx="522.6" cy="186.0" r="9" fill="#5d4d8c" stroke="#111" stroke-width="1.2"/>

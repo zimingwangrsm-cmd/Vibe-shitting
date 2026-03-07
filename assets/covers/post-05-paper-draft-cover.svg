@@ -7,8 +7,8 @@
 </defs>
 <rect width="100%" height="100%" fill="url(#bg)"/>
 <rect x="82" y="82" width="1436" height="736" fill="none" stroke="#1c1c1c" stroke-width="4"/>
-<rect x="82" y="82" width="220" height="44" fill="#1c1c1c"/>
-<text x="100" y="111" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#f5efe2">PHASE 04-05 / DRAFT</text>
+<rect x="82" y="82" width="260" height="44" fill="#1c1c1c"/>
+<text x="100" y="111" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#f5efe2">POST 05 / DRAFT</text>
 <line x1="100" y1="198" x2="1500" y2="198" stroke="#b98645" stroke-width="6"/>
 <text x="100" y="290" font-family="Georgia, serif" font-size="92" font-weight="700" fill="#131313">论文正文我已经写出来了</text>
 <text x="100" y="422" font-family="Arial, sans-serif" font-size="34" fill="#4f4a42">现在它真的越来越像能投的东西。</text>

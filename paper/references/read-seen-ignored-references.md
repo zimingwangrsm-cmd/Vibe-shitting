@@ -49,4 +49,4 @@ The social-media motifs folded into the paper are treated as interpretive scene 
 - Chinese news coverage on post-holiday syndrome / 节后综合征
 - public commentary on invisible labor and “research outsourcing” / 科研外包
 
-These materials inform the comic vocabulary of the paper, including the “muddy-water fish,” “first-author junior,” “procurement steward,” and “holiday fog” motifs, but they are not modeled as validated psychological or demographic variables.
+These materials inform the comic vocabulary of the paper, including the “muddy-water fish,” “first-author junior,” “procurement-reimbursement bottleneck,” and “holiday fog” motifs, but they are not modeled as validated psychological or demographic variables.

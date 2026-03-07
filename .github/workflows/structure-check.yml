@@ -22,10 +22,16 @@ jobs:
       - name: Run submission-pack check
         run: python scripts/check_submission_pack.py
 
-      - name: Rebuild canonical HTML previews
+      - name: Rebuild active HTML preview
         run: python scripts/build_submission_html.py
 
-      - name: Ensure generated previews are committed
+      - name: Rebuild figures
+        run: python scripts/render_figures.py
+
+      - name: Rebuild covers
+        run: python scripts/render_covers.py
+
+      - name: Ensure generated assets are committed
         run: git diff --exit-code
 
       - name: Compile helper scripts

@@ -2,8 +2,7 @@
 
 ## Primary files
 
-- `paper/final/read-seen-ignored_submission_en.md`
-- `paper/final/read-seen-ignored_submission_zh.md`
+- `paper/final/read-seen-ignored_submission-ready.md`
 - `paper/review/shit-fit-review-2026-03-07.md`
 - `paper/review/named-effects-glossary-2026-03-07.md`
 

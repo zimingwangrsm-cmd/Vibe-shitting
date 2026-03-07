@@ -113,7 +113,7 @@ Group size widens the initial waiting game only when ownership is ambiguous.
 
 ### H5
 
-Ownership-bearing actors such as first authors, experiment operators, and procurement stewards face earlier optimal windows than generic bystanders.  
+Ownership-bearing actors such as first authors, experiment operators, and procurement-reimbursement bottlenecks face earlier optimal windows than generic bystanders.  
 一作、实验操作者和采购报销负责人等“背着活的人”，比普通围观者拥有更早的最优回复窗口。
 
 ### H6

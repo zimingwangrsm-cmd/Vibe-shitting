@@ -1,6 +1,6 @@
 ---
 name: canonical-submission-pack
-description: Maintain bilingual canonical manuscript packs with synchronized Markdown, HTML previews, metadata, figures, and validation checks. Use when Codex needs to canonicalize EN/ZH paper artifacts, rebuild previews, update submission metadata or README links, or enforce consistency across the submission pack.
+description: Maintain the active manuscript pack with synchronized Markdown, HTML preview, metadata, figures, archive boundaries, and validation checks. Use when Codex needs to keep the current paper artifact model coherent after content or structure changes.
 ---
 
 # Canonical Submission Pack
@@ -9,20 +9,20 @@ Use this skill to keep the public paper artifacts coherent.
 
 ## Workflow
 
-1. Treat the canonical manuscripts as the source of truth.
-   In this repo, the canonical files are:
-   - `paper/final/read-seen-ignored_submission_en.md`
-   - `paper/final/read-seen-ignored_submission_zh.md`
+1. Treat the active manuscript as the source of truth.
+   In this repo, the active file is:
+   - `paper/final/read-seen-ignored_submission-ready.md`
 
-2. Treat `paper/final/read-seen-ignored_submission-ready.md` as editorial support only.
-   Do not promote the working draft back into the public primary artifact unless the project explicitly changes its artifact model.
+2. Treat the active HTML preview as the primary rendered artifact.
+   Keep `paper/final/read-seen-ignored_submission-ready.html` in sync with the working manuscript.
 
 3. Sync every pack-level file after content changes.
    Review at minimum:
    - `paper/final/submission-metadata.md`
    - `paper/final/submission-checklist.md`
    - `paper/review/shit-fit-review-2026-03-07.md`
-   - `paper/review/named-effects-glossary-2026-03-07.md`
+   - `PROJECT_STRUCTURE.md`
+   - `social/xiaohongshu/README.md`
    - `README.md`
 
 4. Rebuild previews immediately after manuscript edits.
@@ -49,9 +49,9 @@ Use this skill to keep the public paper artifacts coherent.
 
 ## Constraints
 
-- Do not leave EN and ZH manuscripts conceptually out of sync.
 - Do not leave metadata pointing at stale titles or old term systems.
-- Do not add a new preview artifact without deciding whether it is canonical or auxiliary.
+- Do not leave archived files mixed into the active layer.
+- Do not add a new preview artifact without deciding whether it is active or archived.
 
 ## Resources
 

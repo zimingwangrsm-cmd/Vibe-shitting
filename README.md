@@ -28,27 +28,26 @@
 
 ## Current Phase / 当前阶段
 
-**Phase 05 - Canonical Submission Pack / 正式投稿包**
+**Phase 05 - Active Manuscript + Share Pack / 主稿与传播包**
 
 - Lead paper locked: `Read, Seen, Ignored: A Signaling-Game Analysis of Reply Latency in Advisor Group Chats`
-- Flavor-first bilingual working draft: [paper/final/read-seen-ignored_submission-ready.md](paper/final/read-seen-ignored_submission-ready.md)
+- Main bilingual manuscript: [paper/final/read-seen-ignored_submission-ready.md](paper/final/read-seen-ignored_submission-ready.md)
+- Main HTML preview: [paper/final/read-seen-ignored_submission-ready.html](paper/final/read-seen-ignored_submission-ready.html)
 - Proposal: [paper/proposal/read-seen-ignored-proposal.md](paper/proposal/read-seen-ignored-proposal.md)
-- English translation snapshot: [paper/final/read-seen-ignored_submission_en.md](paper/final/read-seen-ignored_submission_en.md)
-- Chinese translation snapshot: [paper/final/read-seen-ignored_submission_zh.md](paper/final/read-seen-ignored_submission_zh.md)
-- English HTML preview: [paper/final/read-seen-ignored_submission_en.html](paper/final/read-seen-ignored_submission_en.html)
-- Chinese HTML preview: [paper/final/read-seen-ignored_submission_zh.html](paper/final/read-seen-ignored_submission_zh.html)
-- Submission pack landing: [paper/final/read-seen-ignored_submission-ready.html](paper/final/read-seen-ignored_submission-ready.html)
-- Internal editorial draft: [paper/final/read-seen-ignored_submission-ready.md](paper/final/read-seen-ignored_submission-ready.md)
 - Theory framework figure: [paper/figures/theory_framework_map.svg](paper/figures/theory_framework_map.svg)
-- Core bias figure: [paper/figures/performative_presence_bias.svg](paper/figures/performative_presence_bias.svg)
+- Publication U-shape figure: [paper/figures/publication_burden_u_curve.svg](paper/figures/publication_burden_u_curve.svg)
+- Role species window chart: [paper/figures/role_species_windows.svg](paper/figures/role_species_windows.svg)
+- Red-envelope shock chart: [paper/figures/red_envelope_shock.svg](paper/figures/red_envelope_shock.svg)
 - Visual explainer plan: [paper/figures/visual-explainer-plan.md](paper/figures/visual-explainer-plan.md)
+- Banana prompt pack: [paper/figures/banana-prompt-pack.md](paper/figures/banana-prompt-pack.md)
 - SHIT fit review: [paper/review/shit-fit-review-2026-03-07.md](paper/review/shit-fit-review-2026-03-07.md)
-- Core concepts glossary: [paper/review/named-effects-glossary-2026-03-07.md](paper/review/named-effects-glossary-2026-03-07.md)
 - Submission metadata: [paper/final/submission-metadata.md](paper/final/submission-metadata.md)
-- Latest social draft: [social/xiaohongshu/post-06-theory-upgrade.md](social/xiaohongshu/post-06-theory-upgrade.md)
+- Xiaohongshu status board: [social/xiaohongshu/README.md](social/xiaohongshu/README.md)
+- Project structure map: [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)
+- Archived legacy branch: [paper/archive/2026-03-retired-snapshots/README.md](paper/archive/2026-03-retired-snapshots/README.md)
 
-当前项目已经从选题推进到 EN/ZH 双主稿的正式投稿包，并完成了一轮主概念收束。  
-The lead paper has already advanced from topic selection to a dual-manuscript canonical submission pack, with the core concept now tightened into a single bias-centered argument.
+当前项目的活跃入口已经收敛成一条主稿线：双语主工作稿 + 单一 HTML 预览 + 一套可发小红书材料。旧的理论分支与拆分快照已转入归档。  
+The active project entrypoint is now one manuscript line: a bilingual working paper, one HTML preview, and a curated Xiaohongshu-ready set. Older theory branches and split snapshots have been archived.
 
 ## What This Repo Ships / 这个仓库交付什么
 
@@ -98,6 +97,7 @@ vibe-shitting/
 - `templates/`: repeatable scaffolding for future phases and posts
 - `scripts/`: helper tools for creating new phases and checking structure
 - `skills/`: reusable Codex skills extracted from the project's repeated workflows
+- `paper/archive/` and `social/xiaohongshu/archive/`: retired branches kept for history
 
 ## Contribution Loop / 参与方式
 

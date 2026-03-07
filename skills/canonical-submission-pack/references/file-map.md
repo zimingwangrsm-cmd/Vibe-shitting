@@ -1,14 +1,11 @@
 # Canonical Pack File Map
 
-## Canonical manuscripts
+## Active manuscript
 
-- `paper/final/read-seen-ignored_submission_en.md`
-- `paper/final/read-seen-ignored_submission_zh.md`
+- `paper/final/read-seen-ignored_submission-ready.md`
 
-## Generated previews
+## Generated preview
 
-- `paper/final/read-seen-ignored_submission_en.html`
-- `paper/final/read-seen-ignored_submission_zh.html`
 - `paper/final/read-seen-ignored_submission-ready.html`
 
 ## Pack support files
@@ -18,6 +15,9 @@
 - `paper/review/shit-fit-review-2026-03-07.md`
 - `paper/review/named-effects-glossary-2026-03-07.md`
 - `paper/figures/visual-explainer-plan.md`
+- `paper/figures/banana-prompt-pack.md`
+- `PROJECT_STRUCTURE.md`
+- `social/xiaohongshu/README.md`
 
 ## Standard command loop
 

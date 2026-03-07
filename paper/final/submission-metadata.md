@@ -8,8 +8,8 @@ Read, Seen, Ignored: A Signaling-Game Analysis of Reply Latency in Advisor Group
 ## Author / 作者
 
 Cangsheng / 沧生  
-VIBE SHITTING Institute for Micro-Political Communication, Laboratory of Delayed Compliance and Performative Presence  
-VIBE SHITTING 微观政治传播研究所，延迟服从与体面在场实验室
+VIBE SHITTING Institute for Group-Chat Studies, Laboratory of Delayed Compliance and Minor Lab Politics  
+VIBE SHITTING 群聊研究所，延迟服从与实验室微政治实验室
 
 ## Type / 稿件类型
 
@@ -26,30 +26,26 @@ hardcore academic satire / 硬核学术整活
 ## Keywords / 关键词
 
 - advisor group chats
-- performative presence survivorship bias
 - signaling
 - communication visibility
 - volunteer's dilemma
 - lab politics
-- red-envelope resurrection
+- call-out effect
+- advisor red-envelope effect
 
 ## Short Description / 简介
 
-An academic satire paper package centered on advisor-group-chat reply delay as a signaling game, a chronemic cue, and a multi-person volunteer's dilemma. The current rewrite cycle uses the bilingual working draft as the main comparative manuscript.  
-一套学术讽刺投稿包，将导师群聊回复时延建模为“信号博弈 + 时间线索 + 多人志愿者困境”。当前改稿轮次以双语工作稿作为主对照文本。
+An academic satire paper package centered on advisor-group-chat reply delay as a signaling game, a chronemic cue, and a multi-person volunteer's dilemma. The active manuscript line is now the bilingual working draft plus a single HTML preview.  
+一套学术讽刺投稿包，将导师群聊回复时延建模为“信号博弈 + 时间线索 + 多人志愿者困境”。当前活跃稿件线以双语工作稿和单一 HTML 预览为准。
 
 ## Files / 文件清单
 
-- English translation snapshot: `read-seen-ignored_submission_en.md`
-- Chinese translation snapshot: `read-seen-ignored_submission_zh.md`
-- flavor-first bilingual working manuscript: `read-seen-ignored_submission-ready.md`
-- English HTML preview: `read-seen-ignored_submission_en.html`
-- Chinese HTML preview: `read-seen-ignored_submission_zh.html`
-- submission pack landing: `read-seen-ignored_submission-ready.html`
-- internal editorial draft: `read-seen-ignored_submission-ready.md`
+- active bilingual working manuscript: `read-seen-ignored_submission-ready.md`
+- active HTML preview: `read-seen-ignored_submission-ready.html`
 - references: `../references/read-seen-ignored-references.md`
 - figures: `../figures/*.csv`
-- rendered figures: `../figures/performative_presence_bias.svg`, `../figures/theory_framework_map.svg`, `../figures/latency_diligence_curve.svg`, `../figures/hierarchy_window_chart.svg`, `../figures/first_responder_discount.svg`, `../figures/role_obligation_matrix.svg`
+- rendered figures: `../figures/theory_framework_map.svg`, `../figures/latency_diligence_curve.svg`, `../figures/hierarchy_window_chart.svg`, `../figures/first_responder_discount.svg`, `../figures/role_obligation_matrix.svg`, `../figures/role_species_windows.svg`, `../figures/publication_burden_u_curve.svg`, `../figures/red_envelope_shock.svg`
+- legacy snapshots archive: `../archive/2026-03-retired-snapshots/`
 
 ## Safety Statement / 安全说明
 

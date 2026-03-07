@@ -46,7 +46,7 @@ def render_theory_map() -> None:
     ]
     center_boxes = [
         ("Inputs", "group size, sender hierarchy, urgency, visibility"),
-        ("Heterogeneity", "first-author junior, procurement steward, postdoc proxy, generic bystander"),
+        ("Heterogeneity", "first-author junior, bottlenecked roles, postdoc proxy, generic bystander"),
         ("State changes", "someone replied already? ownership explicit? holiday fog active?"),
         ("Choice", "pick a delay that signals diligence without inviting extraction"),
     ]
@@ -91,7 +91,7 @@ def render_theory_map() -> None:
     parts.extend(
         [
             '<text x="420" y="560" font-family="Arial, sans-serif" font-size="12" fill="#555">Key modifiers: first-responder discount, task ownership, holiday fog, and visible audience composition.</text>',
-            '</svg>',
+            "</svg>",
         ]
     )
     (FIGURES / "theory_framework_map.svg").write_text("\n".join(parts))
@@ -116,7 +116,7 @@ def render_first_responder_discount() -> None:
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
         '<rect width="100%" height="100%" fill="#faf8f2"/>',
-        '<text x="100" y="40" font-family="Georgia, serif" font-size="24" fill="#111">Figure 4. First-Responder Discount</text>',
+        '<text x="100" y="40" font-family="Georgia, serif" font-size="24" fill="#111">Figure 5. First-Responder Discount</text>',
         '<text x="100" y="60" font-family="Arial, sans-serif" font-size="12" fill="#555">The first visible reply earns the most diligence credit and the highest downstream extraction risk.</text>',
     ]
 
@@ -141,7 +141,7 @@ def render_first_responder_discount() -> None:
             '<text x="800" y="135" font-family="Arial, sans-serif" font-size="13" fill="#b35c1e">Assignment hazard</text>',
             '<line x1="760" y1="130" x2="790" y2="130" stroke="#b35c1e" stroke-width="4"/>',
             '<text x="100" y="435" font-family="Arial, sans-serif" font-size="12" fill="#555">Interpretation: once one acceptable “received” has appeared, later replies become mostly ceremonial.</text>',
-            '</svg>',
+            "</svg>",
         ]
     )
     (FIGURES / "first_responder_discount.svg").write_text("\n".join(parts))
@@ -152,7 +152,7 @@ def render_role_obligation_matrix() -> None:
     margin_left, margin_top, chart_w, chart_h = 120, 90, 660, 320
     roles = [
         ("First-author junior", 2.2, 9.1, "#7a1f1f"),
-        ("Procurement steward", 7.1, 8.2, "#8b5e34"),
+        ("Procurement-reimbursement bottleneck", 7.1, 8.2, "#8b5e34"),
         ("Experiment operator", 4.0, 8.8, "#3d6e70"),
         ("Postdoc proxy", 6.1, 7.0, "#5d4d8c"),
         ("Generic bystander", 2.4, 4.0, "#6b6b6b"),
@@ -161,7 +161,7 @@ def render_role_obligation_matrix() -> None:
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
         '<rect width="100%" height="100%" fill="#faf8f2"/>',
-        '<text x="120" y="40" font-family="Georgia, serif" font-size="24" fill="#111">Figure 5. Role Obligation Matrix</text>',
+        '<text x="120" y="40" font-family="Georgia, serif" font-size="24" fill="#111">Figure 7. Role Obligation Matrix</text>',
         '<text x="120" y="60" font-family="Arial, sans-serif" font-size="12" fill="#555">The funniest roles often combine high obligation with low veto power.</text>',
         f'<rect x="{margin_left}" y="{margin_top}" width="{chart_w}" height="{chart_h}" fill="#fffdf8" stroke="#d9d0c2"/>',
         f'<line x1="{margin_left + chart_w/2}" y1="{margin_top}" x2="{margin_left + chart_w/2}" y2="{margin_top + chart_h}" stroke="#d4c5ae" stroke-width="1.5" stroke-dasharray="6 6"/>',
@@ -180,14 +180,14 @@ def render_role_obligation_matrix() -> None:
         parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="9" fill="{color}" stroke="#111" stroke-width="1.2"/>')
         parts.append(f'<text x="{x + 14:.1f}" y="{y - 10:.1f}" font-family="Arial, sans-serif" font-size="12" fill="#222">{escape(title)}</text>')
 
-    parts.append('</svg>')
+    parts.append("</svg>")
     (FIGURES / "role_obligation_matrix.svg").write_text("\n".join(parts))
 
 
 def render_latency_curve() -> None:
     rows = list(csv.DictReader((FIGURES / "latency_diligence_curve.csv").open()))
     width, height = 960, 540
-    margin_left, margin_top, margin_bottom = 90, 70, 80
+    margin_left, margin_top = 90, 70
     chart_w = 760
     chart_h = 320
     x_step = chart_w / (len(rows) - 1)
@@ -235,9 +235,9 @@ def render_latency_curve() -> None:
             '<line x1="700" y1="115" x2="730" y2="115" stroke="#3d6e70" stroke-width="4"/>',
             '<text x="740" y="145" font-family="Arial, sans-serif" font-size="13" fill="#b35c1e">Assignment hazard</text>',
             '<line x1="700" y1="140" x2="730" y2="140" stroke="#b35c1e" stroke-width="4"/>',
+            "</svg>",
         ]
     )
-    parts.append("</svg>")
     (FIGURES / "latency_diligence_curve.svg").write_text("\n".join(parts))
 
 
@@ -276,10 +276,139 @@ def render_hierarchy_chart() -> None:
     parts.extend(
         [
             '<text x="210" y="470" font-family="Arial, sans-serif" font-size="12" fill="#333">Color intensity tracks visibility penalty.</text>',
-            '</svg>',
+            "</svg>",
         ]
     )
     (FIGURES / "hierarchy_window_chart.svg").write_text("\n".join(parts))
+
+
+def render_publication_burden_u_curve() -> None:
+    rows = list(csv.DictReader((FIGURES / "publication_burden_u_curve.csv").open()))
+    width, height = 960, 520
+    margin_left, margin_top, chart_w, chart_h = 110, 90, 680, 280
+    step = chart_w / max(1, len(rows) - 1)
+
+    points = []
+    for i, row in enumerate(rows):
+        x = margin_left + i * step
+        y = scale(float(row["median_first_reply_min"]), 0.0, 30.0, margin_top + chart_h, margin_top)
+        points.append(f"{x:.1f},{y:.1f}")
+
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+        '<rect width="100%" height="100%" fill="#faf8f2"/>',
+        '<text x="110" y="40" font-family="Georgia, serif" font-size="24" fill="#111">Figure 4. Publication Position and Reply Enthusiasm</text>',
+        '<text x="110" y="60" font-family="Arial, sans-serif" font-size="12" fill="#555">The least published and the most entangled reply early for opposite reasons; the middle delays because it can.</text>',
+    ]
+
+    for value in [0, 5, 10, 15, 20, 25, 30]:
+        y = scale(value, 0.0, 30.0, margin_top + chart_h, margin_top)
+        parts.append(f'<line x1="{margin_left}" y1="{y:.1f}" x2="{margin_left + chart_w}" y2="{y:.1f}" stroke="#e2ddd2" stroke-width="1"/>')
+        parts.append(f'<text x="80" y="{y + 4:.1f}" font-family="Arial, sans-serif" font-size="12" fill="#666">{value}</text>')
+
+    parts.append(f'<line x1="{margin_left}" y1="{margin_top}" x2="{margin_left}" y2="{margin_top + chart_h}" stroke="#333" stroke-width="2"/>')
+    parts.append(f'<line x1="{margin_left}" y1="{margin_top + chart_h}" x2="{margin_left + chart_w}" y2="{margin_top + chart_h}" stroke="#333" stroke-width="2"/>')
+    parts.append(f'<polyline fill="none" stroke="#111" stroke-width="4" points="{" ".join(points)}"/>')
+
+    for i, row in enumerate(rows):
+        x = margin_left + i * step
+        y = scale(float(row["median_first_reply_min"]), 0.0, 30.0, margin_top + chart_h, margin_top)
+        parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="8" fill="#b35c1e" stroke="#111" stroke-width="1.4"/>')
+        parts.append(f'<text x="{x:.1f}" y="{margin_top + chart_h + 28}" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">{escape(row["publication_bucket"])}</text>')
+        parts.append(f'<text x="{x + 12:.1f}" y="{y - 10:.1f}" font-family="Arial, sans-serif" font-size="12" fill="#222">{row["median_first_reply_min"]} min</text>')
+
+    parts.extend(
+        [
+            '<text x="110" y="430" font-family="Arial, sans-serif" font-size="12" fill="#555">Interpretation: insecurity moves the left point, ownership moves the right point, and camouflage protects the middle.</text>',
+            "</svg>",
+        ]
+    )
+    (FIGURES / "publication_burden_u_curve.svg").write_text("\n".join(parts))
+
+
+def render_role_species_windows() -> None:
+    rows = list(csv.DictReader((FIGURES / "role_species_windows.csv").open()))
+    width, height = 1000, 560
+    margin_left, margin_top = 280, 88
+    chart_w = 620
+    bar_h = 36
+    gap = 16
+
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+        '<rect width="100%" height="100%" fill="#faf8f2"/>',
+        '<text x="280" y="40" font-family="Georgia, serif" font-size="24" fill="#111">Figure 6. Laboratory Species Response Windows</text>',
+        '<text x="280" y="60" font-family="Arial, sans-serif" font-size="12" fill="#555">The funniest species are funny because their structural timing windows are legible.</text>',
+        f'<line x1="{margin_left}" y1="{margin_top + len(rows) * (bar_h + gap)}" x2="{margin_left + chart_w}" y2="{margin_top + len(rows) * (bar_h + gap)}" stroke="#333" stroke-width="2"/>',
+    ]
+
+    for t in [0, 10, 20, 30, 40, 50, 60, 70]:
+        x = scale(float(t), 0.0, 70.0, margin_left, margin_left + chart_w)
+        parts.append(f'<line x1="{x:.1f}" y1="{margin_top - 16}" x2="{x:.1f}" y2="{margin_top + len(rows) * (bar_h + gap) - 4}" stroke="#e2ddd2" stroke-width="1"/>')
+        parts.append(f'<text x="{x:.1f}" y="{margin_top + len(rows) * (bar_h + gap) + 24}" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">{t}</text>')
+
+    for i, row in enumerate(rows):
+        y = margin_top + i * (bar_h + gap)
+        x1 = scale(float(row["window_low_min"]), 0.0, 70.0, margin_left, margin_left + chart_w)
+        x2 = scale(float(row["window_high_min"]), 0.0, 70.0, margin_left, margin_left + chart_w)
+        parts.append(f'<text x="{margin_left - 18}" y="{y + 23}" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#222">{escape(row["role_label"])}</text>')
+        parts.append(f'<rect x="{x1:.1f}" y="{y:.1f}" width="{max(8.0, x2 - x1):.1f}" height="{bar_h}" rx="7" fill="{row["color"]}" stroke="#111" stroke-width="1"/>')
+        parts.append(f'<text x="{x2 + 8:.1f}" y="{y + 24}" font-family="Arial, sans-serif" font-size="12" fill="#444">{row["window_low_min"]}-{row["window_high_min"]} min</text>')
+
+    parts.extend(
+        [
+            '<text x="280" y="520" font-family="Arial, sans-serif" font-size="12" fill="#555">Interpretation: role comedy works because timing inequality is already built into the office.</text>',
+            "</svg>",
+        ]
+    )
+    (FIGURES / "role_species_windows.svg").write_text("\n".join(parts))
+
+
+def render_red_envelope_shock() -> None:
+    rows = list(csv.DictReader((FIGURES / "red_envelope_shock_data.csv").open()))
+    width, height = 980, 560
+    margin_left, margin_top, chart_w, chart_h = 110, 100, 700, 280
+    step = chart_w / max(1, len(rows))
+    bar_w = 90
+    gratitude_points = []
+
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+        '<rect width="100%" height="100%" fill="#faf8f2"/>',
+        '<text x="110" y="40" font-family="Georgia, serif" font-size="24" fill="#111">Figure 8. Advisor Red-Envelope Shock</text>',
+        '<text x="110" y="60" font-family="Arial, sans-serif" font-size="12" fill="#555">Tiny money restores visible order faster than ordinary reminders because it combines kindness, attendance, and public gratitude.</text>',
+    ]
+
+    for value in [0, 5, 10, 15, 20]:
+        y = scale(value, 0.0, 20.0, margin_top + chart_h, margin_top)
+        parts.append(f'<line x1="{margin_left}" y1="{y:.1f}" x2="{margin_left + chart_w}" y2="{y:.1f}" stroke="#e2ddd2" stroke-width="1"/>')
+        parts.append(f'<text x="82" y="{y + 4:.1f}" font-family="Arial, sans-serif" font-size="12" fill="#666">{value}</text>')
+
+    parts.append(f'<line x1="{margin_left}" y1="{margin_top}" x2="{margin_left}" y2="{margin_top + chart_h}" stroke="#333" stroke-width="2"/>')
+    parts.append(f'<line x1="{margin_left}" y1="{margin_top + chart_h}" x2="{margin_left + chart_w}" y2="{margin_top + chart_h}" stroke="#333" stroke-width="2"/>')
+
+    for i, row in enumerate(rows):
+        x = margin_left + i * step + step * 0.5
+        bar_h_px = scale(float(row["median_first_reply_min"]), 0.0, 20.0, 0.0, chart_h)
+        y = margin_top + chart_h - bar_h_px
+        parts.append(f'<rect x="{x - bar_w/2:.1f}" y="{y:.1f}" width="{bar_w}" height="{bar_h_px:.1f}" rx="8" fill="{row["bar_color"]}" stroke="#111" stroke-width="1"/>')
+        parts.append(f'<text x="{x:.1f}" y="{margin_top + chart_h + 28}" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">{escape(row["scene_label"])}</text>')
+        parts.append(f'<text x="{x:.1f}" y="{y - 10:.1f}" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#222">{row["median_first_reply_min"]} min</text>')
+        y2 = scale(float(row["gratitude_density"]), 0.0, 10.0, margin_top + chart_h, margin_top)
+        gratitude_points.append(f"{x:.1f},{y2:.1f}")
+
+    parts.extend(
+        [
+            f'<polyline fill="none" stroke="#7a1f1f" stroke-width="4" points="{" ".join(gratitude_points)}"/>',
+            '<text x="838" y="114" font-family="Arial, sans-serif" font-size="13" fill="#7a1f1f">Gratitude density</text>',
+            '<line x1="802" y1="109" x2="832" y2="109" stroke="#7a1f1f" stroke-width="4"/>',
+            '<text x="838" y="139" font-family="Arial, sans-serif" font-size="13" fill="#333">Median first visible reply</text>',
+            '<rect x="802" y="128" width="24" height="12" fill="#b35c1e" stroke="#111" stroke-width="1"/>',
+            '<text x="110" y="515" font-family="Arial, sans-serif" font-size="12" fill="#555">Interpretation: a red envelope is not only money; it is benevolence with attendance-tracking features.</text>',
+            "</svg>",
+        ]
+    )
+    (FIGURES / "red_envelope_shock.svg").write_text("\n".join(parts))
 
 
 def main() -> None:
@@ -288,6 +417,9 @@ def main() -> None:
     render_role_obligation_matrix()
     render_latency_curve()
     render_hierarchy_chart()
+    render_publication_burden_u_curve()
+    render_role_species_windows()
+    render_red_envelope_shock()
     print("Rendered SVG figures to paper/figures/")
 
 

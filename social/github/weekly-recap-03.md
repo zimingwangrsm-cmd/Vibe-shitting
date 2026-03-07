@@ -8,7 +8,7 @@ The paper stopped being just a funny premise and became a more defensible workin
 
 - strengthened the literature review around signaling, reputation, chronemics, communication visibility, expectation states, and volunteer's dilemma
 - expanded the model to include group size, composition, ownership, reply order, and holiday fog
-- added role heterogeneity such as first-author juniors, procurement stewards, experiment operators, and generic bystanders
+- added role heterogeneity such as first-author juniors, procurement-reimbursement bottlenecks, experiment operators, and generic bystanders
 - rebuilt the HTML preview into a stronger working-paper presentation layer
 - added a theory-framework SVG for sharing and documentation
 
@@ -19,7 +19,7 @@ The paper stopped being just a funny premise and became a more defensible workin
 - `paper/references/read-seen-ignored-references.md`
 - `paper/references/deep-research-notes-2026-03-07.md`
 - `paper/figures/theory_framework_map.svg`
-- `social/xiaohongshu/post-06-theory-upgrade.md`
+- `social/xiaohongshu/archive/post-06-theory-upgrade.md`
 
 ## Why This Matters
 

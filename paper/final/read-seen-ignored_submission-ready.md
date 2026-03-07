@@ -1,8 +1,8 @@
 # Read, Seen, Ignored: A Signaling-Game Analysis of Reply Latency in Advisor Group Chats
 
 **Editorial Note / 编辑说明**  
-This bilingual file is now the flavor-first working manuscript and the main comparative draft for the current rewrite cycle. The split English and Chinese files remain useful translation snapshots, but this file is the most up-to-date cross-language working text.  
-本双语文件现已恢复为本轮改写的主工作稿，也是当前最完整的中英对照版本。分开的英文稿与中文稿仍可作为翻译快照参考，但以本文件的最新口径为准。
+This bilingual file is now the active lead manuscript for the current rewrite cycle. Older split English and Chinese snapshots have been archived under `../archive/2026-03-retired-snapshots/`.  
+本双语文件现已成为当前改稿轮次的唯一主工作稿。旧的英中拆分稿快照已归档到 `../archive/2026-03-retired-snapshots/`。
 
 **已读、不回、稍后回复：导师群聊响应延迟的信号博弈分析**
 
