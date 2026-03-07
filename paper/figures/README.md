@@ -13,3 +13,8 @@ Current source data:
 - `hierarchy_window_data.csv`
 - `message_type_risk_data.csv`
 - `figure-notes.md`
+
+Rendered visuals:
+
+- `latency_diligence_curve.svg`
+- `hierarchy_window_chart.svg`

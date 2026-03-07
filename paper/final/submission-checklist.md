@@ -6,6 +6,7 @@
 - [x] Keywords prepared
 - [x] References prepared
 - [x] Figure source tables prepared
+- [x] Core SVG figures rendered
 - [x] Submission metadata prepared
 - [x] Topic within known SHIT safety boundaries
 - [ ] Template formatting pass

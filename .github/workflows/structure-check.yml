@@ -20,4 +20,4 @@ jobs:
         run: python scripts/status_report.py
 
       - name: Compile helper scripts
-        run: python -m py_compile scripts/new_phase.py scripts/new_xhs_post.py scripts/status_report.py
+        run: python -m py_compile scripts/new_phase.py scripts/new_xhs_post.py scripts/status_report.py scripts/render_figures.py

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="500" viewBox="0 0 980 500">
+<rect width="100%" height="100%" fill="#faf8f2"/>
+<text x="210" y="38" font-family="Georgia, serif" font-size="24" fill="#111">Figure 2. Hierarchy-Specific Acceptable Delay Window</text>
+<text x="210" y="58" font-family="Arial, sans-serif" font-size="12" fill="#555">Direct hierarchy compresses the reply window; peer-only contexts permit wider drift.</text>
+<line x1="210" y1="392" x2="880" y2="392" stroke="#333" stroke-width="2"/>
+<line x1="210.0" y1="62" x2="210.0" y2="388" stroke="#e2ddd2" stroke-width="1"/>
+<text x="210.0" y="416" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">0</text>
+<line x1="293.8" y1="62" x2="293.8" y2="388" stroke="#e2ddd2" stroke-width="1"/>
+<text x="293.8" y="416" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">30</text>
+<line x1="377.5" y1="62" x2="377.5" y2="388" stroke="#e2ddd2" stroke-width="1"/>
+<text x="377.5" y="416" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">60</text>
+<line x1="545.0" y1="62" x2="545.0" y2="388" stroke="#e2ddd2" stroke-width="1"/>
+<text x="545.0" y="416" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">120</text>
+<line x1="712.5" y1="62" x2="712.5" y2="388" stroke="#e2ddd2" stroke-width="1"/>
+<text x="712.5" y="416" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">180</text>
+<line x1="880.0" y1="62" x2="880.0" y2="388" stroke="#e2ddd2" stroke-width="1"/>
+<text x="880.0" y="416" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">240</text>
+<text x="192" y="102" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#222">principal advisor</text>
+<rect x="226.8" y="80.0" width="33.5" height="34" rx="6" fill="#b35c1e"/>
+<text x="268.2" y="102" font-family="Arial, sans-serif" font-size="12" fill="#444">6-18 min</text>
+<text x="192" y="154" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#222">co advisor</text>
+<rect x="235.1" y="132.0" width="36.3" height="34" rx="6" fill="#b35c1e"/>
+<text x="279.4" y="154" font-family="Arial, sans-serif" font-size="12" fill="#444">9-22 min</text>
+<text x="192" y="206" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#222">postdoc proxy</text>
+<rect x="243.5" y="184.0" width="53.0" height="34" rx="6" fill="#9d8f7a"/>
+<text x="304.5" y="206" font-family="Arial, sans-serif" font-size="12" fill="#444">12-31 min</text>
+<text x="192" y="258" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#222">lab manager</text>
+<rect x="229.5" y="236.0" width="33.5" height="34" rx="6" fill="#9d8f7a"/>
+<text x="271.0" y="258" font-family="Arial, sans-serif" font-size="12" fill="#444">7-19 min</text>
+<text x="192" y="310" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#222">peer with advisor visible</text>
+<rect x="218.4" y="288.0" width="22.3" height="34" rx="6" fill="#7a1f1f"/>
+<text x="248.7" y="310" font-family="Arial, sans-serif" font-size="12" fill="#444">3-11 min</text>
+<text x="192" y="362" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#222">peer private</text>
+<rect x="288.2" y="340.0" width="591.8" height="34" rx="6" fill="#9d8f7a"/>
+<text x="888.0" y="362" font-family="Arial, sans-serif" font-size="12" fill="#444">28-240 min</text>
+<text x="210" y="470" font-family="Arial, sans-serif" font-size="12" fill="#333">Color intensity tracks visibility penalty.</text>
+</svg>
