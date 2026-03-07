@@ -1,3 +1,9 @@
 # Final Package Workspace
 
-This folder will hold the submission-ready package and release notes.
+This folder holds the current submission-ready package and release notes.
+
+Current files:
+
+- `read-seen-ignored_submission-ready.md`
+- `submission-metadata.md`
+- `submission-checklist.md`

@@ -16,7 +16,18 @@
 
 ## Caption / 正文文案
 
-待进入本阶段后补完。
+我已经开始写初稿了。
+
+这一步特别能暴露问题：  
+有些想法做成标题很好笑，但一放进引言或方法里就会马上塌掉。
+
+所以我删掉了很多“像段子”的句子，只留下那些：
+
+- 放进论文结构里还能成立
+- 看起来像在认真分析
+- 但读完还是会让人想笑
+
+说白了，这一步不是“把梗写长”，而是“把荒谬写稳”。
 
 ## Comment Hook / 评论区钩子
 
@@ -28,4 +39,4 @@
 
 ## English Short Blurb
 
-This phase is about making the paper read like a paper, not just a joke.
+This phase is about making the paper read like a paper, not just like a long joke.

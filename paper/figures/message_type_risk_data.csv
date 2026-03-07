@@ -1,0 +1,8 @@
+message_type,urgency,optimal_reply_low_min,optimal_reply_high_min,extra_task_risk,notes
+hard_summons,high,1,6,9.4,Immediate acknowledgement required
+deadline_escalation,high,2,9,8.7,Delay interpreted as collapse
+paper_comments,medium,13,28,6.1,Fast reply signals draft availability
+administrative_reminder,medium,9,21,5.2,Moderate delay implies active processing
+public_praise_trap,medium,4,12,9.1,Visibility converts praise into task invitation
+soft_ping,low,14,37,4.7,Too fast appears overly idle
+weekend_latent_request,low,31,83,6.8,Delayed but careful acknowledgement preferred

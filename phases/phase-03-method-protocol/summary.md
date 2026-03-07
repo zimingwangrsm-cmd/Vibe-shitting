@@ -4,15 +4,17 @@
 
 Turn the selected topic into a fake but coherent research design.
 
-## Planned Outputs / 计划输出
+## Outputs / 已产出
 
-- research question
+- locked research question
+- four hypotheses
 - variable design
 - fake dataset logic
 - figure list
+- proposal document
 - section outline
 
-## Default Method Shape / 默认方法形态
+## Locked Method Shape / 已锁定的方法形态
 
 For the advisor-group-chat topic:
 
@@ -21,9 +23,12 @@ For the advisor-group-chat topic:
 - advisor hierarchy categories
 - payoff matrix
 - qualitative annotation of message types
+- emoji compensation variable
+- public visibility penalty
 
 ## Done Criteria / 完成标准
 
 - abstract v1 exists
 - figure inventory exists
+- proposal exists in `paper/proposal/`
 - method protocol can be summarized in one share post

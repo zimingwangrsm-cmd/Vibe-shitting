@@ -99,7 +99,10 @@ By the end of week 6:
 
 - `Phase 00`: done
 - `Phase 01`: done
-- `Phase 02`: in progress
+- `Phase 02`: done
+- `Phase 03`: done
+- `Phase 04`: done
+- `Phase 05`: in progress
 
 ## Risks / 主要风险
 

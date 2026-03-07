@@ -1,0 +1,7 @@
+sender_hierarchy,optimal_window_low_min,optimal_window_high_min,emoji_offset_min,visibility_penalty
+principal_advisor,6,18,0,3
+co_advisor,9,22,1,2
+postdoc_proxy,12,31,2,1
+lab_manager,7,19,0,1
+peer_with_advisor_visible,3,11,-1,4
+peer_private,28,240,4,0

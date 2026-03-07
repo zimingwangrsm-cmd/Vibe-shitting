@@ -2,15 +2,18 @@
 
 ## Snapshot / 快照
 
-- Date: TBD
+- Date: 2026-03-07
 - Owner: 沧生
 - Phase: phase-03-method-protocol
 
 ## Decisions / 已定决策
 
-1. Pending topic lock.
+1. The lead topic is the advisor group chat latency paper.
+2. The core model is an inverse-U relationship between latency and perceived diligence.
+3. Public visibility and direct advisor hierarchy compress the acceptable delay window.
+4. Low-density emoji usage is treated as a limited compensation mechanism, not a universal repair strategy.
 
 ## Open Questions / 未决问题
 
-- Which variable names feel funniest while still sounding publishable?
-- How much fake data is enough before the joke turns heavy?
+- Whether the final formatted version should remain Markdown-first or also be rendered to PDF.
+- Whether the first public-facing figure should be the latency curve or the hierarchy window chart.

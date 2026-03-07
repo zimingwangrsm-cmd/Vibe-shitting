@@ -4,14 +4,14 @@
 
 Package the project into a final release that is readable, shareable, and ready to submit whenever the platform is available.
 
-## Planned Outputs / 计划输出
+## Current Outputs / 当前产物
 
-- final abstract
-- full draft
-- figures
-- references
-- release notes
-- submission-ready package
+- final manuscript in Markdown
+- submission metadata
+- submission checklist
+- reference list
+- figure source tables
+- shareable recap assets
 
 ## Done Criteria / 完成标准
 

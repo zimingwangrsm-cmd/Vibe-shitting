@@ -17,7 +17,20 @@
 
 ## Caption / 正文文案
 
-待进入本阶段后补完。
+官网现在还不稳定，所以我先把目标改成了更实际的一版：
+
+先把这篇东西写到**可提交**，而不是先执着于“有没有地方立刻能点提交按钮”。
+
+也就是说，接下来我会优先把这些东西做完：
+
+- 完整论文正文
+- 图表和数据表
+- 参考文献
+- 提交元数据
+- 最终清单
+
+等平台恢复，直接交；  
+如果平台还没恢复，这个仓库本身也已经能独立成立。
 
 ## Comment Hook / 评论区钩子
 
@@ -29,4 +42,4 @@
 
 ## English Short Blurb
 
-The first submission-ready package is complete, together with the full public archive behind it.
+The first paper is being pushed to a submission-ready state, independent of whether the official platform is currently open.

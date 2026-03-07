@@ -4,13 +4,15 @@
 
 Convert the method protocol into readable paper sections and test the voice.
 
-## Planned Outputs / 计划输出
+## Outputs / 已产出
 
 - abstract v2
 - intro draft
 - methods draft
 - results draft
 - discussion notes
+- full manuscript draft
+- figure captions and source tables
 
 ## Done Criteria / 完成标准
 

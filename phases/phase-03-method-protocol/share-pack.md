@@ -16,7 +16,23 @@
 
 ## Caption / 正文文案
 
-待进入本阶段后补完。
+题目定下来之后，我发现最难的根本不是“起一个离谱标题”。
+
+真正难的是：  
+这篇东西到底要怎样**像一篇真的论文**。
+
+所以我这两天都在做一件事：给它补一套方法协议。
+
+目前这篇关于“导师群聊响应延迟”的稿子，已经被我拆成了：
+
+- 核心研究问题
+- 4 个假设
+- 延迟分桶
+- 层级分类
+- 任务追加风险
+- 表情补偿变量
+
+也就是说，它现在已经不是一个笑话题，而是一套完整的假方法论了。
 
 ## Comment Hook / 评论区钩子
 
@@ -28,4 +44,4 @@
 
 ## English Short Blurb
 
-This phase turns the chosen topic into a fake but coherent research protocol.
+This phase turns the chosen topic into a fake but coherent research protocol, with hypotheses, variables, and figure logic locked in.

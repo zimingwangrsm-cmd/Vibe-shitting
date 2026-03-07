@@ -26,14 +26,15 @@
 
 ## Current Phase / 当前阶段
 
-**Phase 02 - Topic Vote / 选题投票**
+**Phase 05 - Submission-Ready Draft / 可提交稿**
 
-- Default lead topic: `Read, Seen, Ignored: A Signaling-Game Analysis of Reply Latency in Advisor Group Chats`
-- Backup topic: `The final_v27 Paradox`
-- Wildcard topic: `The Reviewer #2 Uncertainty Principle`
+- Lead paper locked: `Read, Seen, Ignored: A Signaling-Game Analysis of Reply Latency in Advisor Group Chats`
+- Proposal: [paper/proposal/read-seen-ignored-proposal.md](paper/proposal/read-seen-ignored-proposal.md)
+- Final manuscript: [paper/final/read-seen-ignored_submission-ready.md](paper/final/read-seen-ignored_submission-ready.md)
+- Submission metadata: [paper/final/submission-metadata.md](paper/final/submission-metadata.md)
 
-当前默认主打题是“导师群聊响应延迟的信号博弈分析”。  
-The current default lead topic is the advisor group chat latency paper.
+当前主稿已经从选题推进到可提交草稿。  
+The lead paper has already moved from topic selection to a submission-ready draft.
 
 ## What This Repo Ships / 这个仓库交付什么
 
