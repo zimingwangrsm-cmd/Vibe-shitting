@@ -30,7 +30,7 @@
 
 **Phase 05 - Canonical Submission Pack / 正式投稿包**
 
-- Lead paper locked: `Read, Seen, Ignored: A Signaling-Game Analysis of Reply Latency in Advisor Group Chats`
+- Lead paper locked: `"Received, Professor": Performative Presence Survivorship Bias in Advisor Group Chats`
 - Proposal: [paper/proposal/read-seen-ignored-proposal.md](paper/proposal/read-seen-ignored-proposal.md)
 - English canonical manuscript: [paper/final/read-seen-ignored_submission_en.md](paper/final/read-seen-ignored_submission_en.md)
 - Chinese canonical manuscript: [paper/final/read-seen-ignored_submission_zh.md](paper/final/read-seen-ignored_submission_zh.md)
@@ -39,14 +39,15 @@
 - Submission pack landing: [paper/final/read-seen-ignored_submission-ready.html](paper/final/read-seen-ignored_submission-ready.html)
 - Internal editorial draft: [paper/final/read-seen-ignored_submission-ready.md](paper/final/read-seen-ignored_submission-ready.md)
 - Theory framework figure: [paper/figures/theory_framework_map.svg](paper/figures/theory_framework_map.svg)
+- Core bias figure: [paper/figures/performative_presence_bias.svg](paper/figures/performative_presence_bias.svg)
 - Visual explainer plan: [paper/figures/visual-explainer-plan.md](paper/figures/visual-explainer-plan.md)
 - SHIT fit review: [paper/review/shit-fit-review-2026-03-07.md](paper/review/shit-fit-review-2026-03-07.md)
-- Named effects glossary: [paper/review/named-effects-glossary-2026-03-07.md](paper/review/named-effects-glossary-2026-03-07.md)
+- Core concepts glossary: [paper/review/named-effects-glossary-2026-03-07.md](paper/review/named-effects-glossary-2026-03-07.md)
 - Submission metadata: [paper/final/submission-metadata.md](paper/final/submission-metadata.md)
 - Latest social draft: [social/xiaohongshu/post-06-theory-upgrade.md](social/xiaohongshu/post-06-theory-upgrade.md)
 
-当前项目已经从选题推进到 EN/ZH 双主稿的正式投稿包。  
-The lead paper has already advanced from topic selection to a dual-manuscript canonical submission pack.
+当前项目已经从选题推进到 EN/ZH 双主稿的正式投稿包，并完成了一轮主概念收束。  
+The lead paper has already advanced from topic selection to a dual-manuscript canonical submission pack, with the core concept now tightened into a single bias-centered argument.
 
 ## What This Repo Ships / 这个仓库交付什么
 
@@ -58,6 +59,8 @@ The lead paper has already advanced from topic selection to a dual-manuscript ca
   可直接发小红书的图文脚本包
 - Reusable templates and helper scripts  
   可复用模板和辅助脚本
+- Reusable Codex skills for future SHIT-style paper work  
+  可复用的 Codex skills，用于后续 SHIT 风格论文工作
 
 ## Why It Might Be Worth A Star / 为什么它值得一个 Star
 
@@ -82,6 +85,7 @@ vibe-shitting/
   assets/
   templates/
   scripts/
+  skills/
   .github/
 ```
 
@@ -92,6 +96,7 @@ vibe-shitting/
 - `social/`: ready-to-post Xiaohongshu copy and GitHub updates
 - `templates/`: repeatable scaffolding for future phases and posts
 - `scripts/`: helper tools for creating new phases and checking structure
+- `skills/`: reusable Codex skills extracted from the project's repeated workflows
 
 ## Contribution Loop / 参与方式
 

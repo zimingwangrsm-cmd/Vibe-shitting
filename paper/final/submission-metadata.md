@@ -2,13 +2,14 @@
 
 ## Title / 标题
 
-Read, Seen, Ignored: A Signaling-Game Analysis of Reply Latency in Advisor Group Chats  
-已读、不回、稍后回复：导师群聊响应延迟的信号博弈分析
+"Received, Professor": Performative Presence Survivorship Bias in Advisor Group Chats  
+“收到老师”：导师群聊中的体面在场幸存者偏差
 
 ## Author / 作者
 
 Cangsheng / 沧生  
-VIBE SHITTING Lab for Reputational Studies
+VIBE SHITTING Institute for Micro-Political Communication, Laboratory of Delayed Compliance and Performative Presence  
+VIBE SHITTING 微观政治传播研究所，延迟服从与体面在场实验室
 
 ## Type / 稿件类型
 
@@ -25,17 +26,17 @@ hardcore academic satire / 硬核学术整活
 ## Keywords / 关键词
 
 - advisor group chats
+- performative presence survivorship bias
 - signaling
-- chronemics
 - communication visibility
 - volunteer's dilemma
-- expectation states
-- graduate student life
+- lab politics
+- red-envelope resurrection
 
 ## Short Description / 简介
 
-An academic satire paper package with canonical English and Chinese manuscripts modeling advisor-group-chat reply delay as a signaling game, a chronemic cue, and a multi-person volunteer's dilemma in which students try to look diligent without becoming the lab's default volunteer.  
-一套学术讽刺投稿包，以中英双主稿形式将导师群聊中的回复时延建模为“信号博弈 + 时间线索 + 多人志愿者困境”，解释研究生如何既显得勤奋，又尽量避免沦为实验室默认接活人。
+An academic satire paper package with canonical English and Chinese manuscripts proposing performative presence survivorship bias to explain why advisor group chats look more orderly than they feel.  
+一套学术讽刺投稿包，以中英双主稿形式提出“体面在场幸存者偏差”，解释为什么导师群聊看起来总比参与者真实感受的更有秩序。
 
 ## Files / 文件清单
 
@@ -47,7 +48,7 @@ An academic satire paper package with canonical English and Chinese manuscripts 
 - internal editorial draft: `read-seen-ignored_submission-ready.md`
 - references: `../references/read-seen-ignored-references.md`
 - figures: `../figures/*.csv`
-- rendered figures: `../figures/theory_framework_map.svg`, `../figures/latency_diligence_curve.svg`, `../figures/hierarchy_window_chart.svg`, `../figures/first_responder_discount.svg`, `../figures/role_obligation_matrix.svg`
+- rendered figures: `../figures/performative_presence_bias.svg`, `../figures/theory_framework_map.svg`, `../figures/latency_diligence_curve.svg`, `../figures/hierarchy_window_chart.svg`, `../figures/first_responder_discount.svg`, `../figures/role_obligation_matrix.svg`
 
 ## Safety Statement / 安全说明
 

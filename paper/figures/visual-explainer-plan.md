@@ -14,10 +14,32 @@ Reason:
 
 ## Recommended Insertions / 建议插图位置
 
-### Slot A: after Section 2.6
+### Slot A: before Section 4.1
 
 **Purpose / 用途**  
-Explain the folk taxonomy behind `MBTI talk`, `muddy-water fish`, `first-author junior`, and `procurement steward`.
+Explain the new core concept, `Performative Presence Survivorship Bias / 体面在场幸存者偏差`.
+
+**Best format / 最佳形式**  
+`Reply Survivorship Plate`  
+A self-drawn two-panel diagram with:
+
+- the visible sample: public, timely, decorous replies
+- the restored sample: delay, delegation, private handoff, strategic silence
+- one arrow marking the inferential error
+- one caption showing why the "normal" reply window looks earlier than it is
+
+**Source context / 语境来源**
+
+- The visual logic may borrow from the famous aircraft survivorship-bias illustration, but redraw the plate fully in repo style.
+- 视觉逻辑可以借用经典“飞机幸存者偏差”图的思路，但必须完整自绘成项目自己的图版。
+
+**Note / 备注**  
+Do not paste the original aircraft image directly. Keep it as structural inspiration only.
+
+### Slot B: after Section 3.5
+
+**Purpose / 用途**  
+Explain the folk taxonomy behind `muddy-water fish`, `first-author junior`, and `procurement steward`.
 
 **Best format / 最佳形式**  
 `Role Constitution Plate`  
@@ -28,15 +50,10 @@ A 4-cell diagram with:
 - expected reply speed
 - likelihood of becoming the default volunteer
 
-**Source context / 语境来源**
-
-- [澎湃新闻：为什么“为 i 做 e”会成为当代年轻人的新型社交问候语？](https://m.thepaper.cn/newsDetail_forward_28079214)
-- [千瓜：万物皆可 MBTI，小红书 “MBTI” 话题浏览量破 22 亿](https://blog.csdn.net/qianguaqiangua/article/details/132083528)
-
 **Note / 备注**  
 Do not paste platform screenshots directly into the paper body. Redraw the typology in your own style.
 
-### Slot B: before or inside Section 4.3
+### Slot C: before or inside Section 4.3
 
 **Purpose / 用途**  
 Explain the `first-responder discount` and why large groups produce strategic waiting.
@@ -57,7 +74,7 @@ One line for diligence credit, one line for assignment hazard, split by reply or
 **Note / 备注**  
 If the exact original sticker provenance is unclear, use a self-redrawn speech-bubble panel instead of a direct repost.
 
-### Slot C: after Section 4.4
+### Slot D: after Section 4.4
 
 **Purpose / 用途**  
 Explain why `first-author junior` and `procurement steward` have earlier response windows.
@@ -74,7 +91,7 @@ Quadrants:
 
 This is one of the funniest explanatory plates because the roles instantly look like constitutional offices rather than people.
 
-### Slot D: inside Section 4.5
+### Slot E: inside Section 4.5
 
 **Purpose / 用途**  
 Explain `holiday fog` and the temporary rightward shift of acceptable delay.
@@ -96,7 +113,7 @@ Show two windows:
 
 `Holiday fog does not abolish hierarchy; it merely lowers the average speed of pretending to be ready.`
 
-### Slot E: appendix or social supplement
+### Slot F: appendix or social supplement
 
 **Purpose / 用途**  
 Explain the broader extraction logic behind the paper.
@@ -117,9 +134,10 @@ Combine:
 
 ## Recommended New Figures / 建议新增图
 
-1. `role_obligation_matrix.svg`
-2. `first_responder_discount.svg`
-3. `holiday_fog_shift.svg`
+1. `performative_presence_bias.svg`
+2. `role_obligation_matrix.svg`
+3. `first_responder_discount.svg`
+4. `holiday_fog_shift.svg`
 
 These can be original diagrams drawn inside the repo and then mirrored into social posts.
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Canonical Submission Pack"
+  short_description: "Maintain bilingual manuscript packs and checks"
+  default_prompt: "Use $canonical-submission-pack to sync EN/ZH canonical manuscripts, rebuild previews, and validate the submission pack."

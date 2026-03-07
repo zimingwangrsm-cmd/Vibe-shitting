@@ -24,6 +24,7 @@ REQUIRED_FILES = [
 ]
 
 REQUIRED_FIGURES = [
+    FIGURES / "performative_presence_bias.svg",
     FIGURES / "theory_framework_map.svg",
     FIGURES / "latency_diligence_curve.svg",
     FIGURES / "hierarchy_window_chart.svg",

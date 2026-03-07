@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>已读、不回、稍后回复：导师群聊响应延迟的信号博弈分析</title>
+  <title>“收到老师”：导师群聊中的体面在场幸存者偏差</title>
   <style>
     :root {
       --paper: #f9f6ef;
@@ -190,170 +190,160 @@
     <div>No. 01 / March 2026</div>
   </div>
   <div class="title-block">
-    <h1 class="paper-title">已读、不回、稍后回复：导师群聊响应延迟的信号博弈分析</h1>
+    <h1 class="paper-title">“收到老师”：导师群聊中的体面在场幸存者偏差</h1>
   </div>
   <div class="meta-grid">
     <section class="meta-card">
       <div class="meta-label">Author</div>
-      <div class="meta-line">沧生</div><div class="meta-line">VIBE SHITTING Lab for Reputational Studies</div>
+      <div class="meta-line">沧生</div><div class="meta-line">VIBE SHITTING 微观政治传播研究所，延迟服从与体面在场实验室</div>
     </section>
     <section class="meta-card">
       <div class="meta-label">Keywords</div>
-      <div class="keyword-line">导师群聊；信号理论；时序线索；沟通可见性；志愿者困境；期望状态；研究生生活</div>
+      <div class="keyword-line">导师群聊；体面在场幸存者偏差；信号理论；沟通可见性；志愿者困境；实验室政治；红包复活</div>
     </section>
   </div>
   <div class="working-note">Canonical Chinese Submission Preview</div>
 </header>
     <article class="paper-shell">
-      <section class="abstract-card"><h2 class="section-title">摘要</h2><p>本文将导师群聊中的回复时延视为一种混合性的“信号行为 + 时间线索 + 多人志愿者困境”。本文认为，研究生优化的并不是“秒回”，而是一段狭窄的延迟区间：它既要显得勤奋可靠，又不能显得过于空闲，以至于被系统性加活。基于信号理论、声誉模型、计算机媒介沟通、沟通可见性、期望状态和志愿者困境逻辑，本文分析了 28 个重建研究群中的 4,236 个“消息-回复”对。结果显示，回复延迟与感知勤奋度之间存在倒 U 型关系：回复过快会暴露可疑的空闲，回复过慢则会被理解为疏忽、崩溃或软性失联。群聊人数越多，最初的观望越明显；但一旦任务归属清晰，责任扩散便会迅速崩塌。基于这一结构，本文命名了六个主要效应：<strong>导师在场同门压缩效应</strong>、<strong>默认接活人陷阱</strong>、<strong>首回复折扣</strong>、<strong>采购主权原理</strong>、<strong>假期智力回撤</strong>与<strong>导师发红包效应</strong>。本文据此认为，导师群聊中的回复时延并非简单礼仪，而是一种发生在公开不对称关系中的微型声誉劳动技术。</p></section>
+      <section class="abstract-card"><h2 class="section-title">摘要</h2><p>本文试图回答一个很小但很痛的问题：为什么导师群聊看起来常常比参与者真实感受的更有秩序？为解释这一点，本文提出<strong>体面在场幸存者偏差</strong>。它模仿幸存者偏差与样本选择偏差的逻辑，指的是：导师、同门乃至学生自己，往往只从那些能够公开、及时、体面地完成回复的人身上推断“正常响应规范”，而把沉默、拖延、私聊转移、代理回复、情绪崩塌和策略性装死的人从可见样本中剔除。基于信号理论、样本选择逻辑、计算机媒介沟通中的时间线索、沟通可见性、期望状态与志愿者困境，本文分析了 28 个导师关联研究群中重建的 4,236 个消息暴露机会。核心验证策略是对比两个视角：只看群内公开体面回复的可见样本模型，以及把延迟、代理、私聊和缺席重新放回来的全机会模型。结果显示，可见样本会把“正常可生存回复窗口”平均提前约 7 分钟，并高估稳定响应率 31%。在此基础上，本文进一步提出并验证三个核心机制：<strong>导师在场压缩效应</strong>、<strong>责任显影机制</strong>与<strong>红包复活效应</strong>；同时说明一作学弟、采购学长与节后 72 小时是偏差最强的角色和时间条件。本文认为，导师群聊中的回复并非简单礼仪，而是一种会让实验室秩序看起来比实际更平整、更稳定、更像大家都还活着的公开体面劳动。</p></section>
 <h2 class="section-title">1. 引言</h2>
-<p>导师群聊通常被描述成一种沟通工具，但在真实学术生活里，它更像一个小型舞台：层级、勤奋、服从、可见性和额外劳动都在这里被同时表演。导师发出一条消息，并不只是“问个事”，而是在瞬间打开一个公共场景：谁在盯着消息，谁没空，谁在躲，谁又看起来“特别适合再接一项任务”。</p>
-<p>正因如此，研究生在群里优化的从来不是“越快越好”的回复速度，而是一个极其狭窄的时间窗口：回太快，像很闲；回太慢，像失联；回得刚刚好，才像一个正在认真工作、但还不至于被无止境抽取的人。</p>
-<p>这个题目非常适合 SHIT 风格，因为它有三个特征：</p>
-<ol><li>事情很小，心理代价很大</li><li>人人都懂，但很少有人会一本正经地分析</li><li>越认真建模，越显得离谱又真实</li></ol>
-<h2 class="section-title">2. 理论框架</h2>
-<h3 class="subsection-title">2.1 信号与声誉</h3>
-<p>按照 Spence 与 Kreps/Wilson 的逻辑，回复时延可以被视为一种低成本、但会反复出现的信号。导师看不见学生此刻到底是在认真改稿、忙着做实验、地铁上发呆，还是盯着聊天框斟酌第七版“收到老师”。导师能看见的，是学生回没回、多久回、用什么语气回。</p>
-<p>因此，回复时延传达的从来不只是“是否收到消息”，而是一整包隐藏状态：勤奋、服从、稳定、慌张、余量和可被榨取程度。</p>
-<h3 class="subsection-title">2.2 时间线索与群聊可见性</h3>
-<p>计算机媒介沟通研究表明，时间戳本身就是一种社交线索。在线上交流里，“什么时候回”并不是空白时间，而是内容的一部分。导师群聊尤其如此，因为它不是一对一聊天，而是一种被多人同时观看的公开微表演。</p>
-<p>一条同门发出的消息，如果导师在群里看着，就会立刻变得不再完全平级。本文将这一现象称为：<strong>导师在场同门压缩效应</strong>。也就是说，层级不一定需要亲自开口，才能在时延上留下痕迹。</p>
-<h3 class="subsection-title">2.3 角色异质性与实验室政治</h3>
-<p>期望状态理论提醒我们，群体中的责任和发言期待不是平均分配的。实验室也是如此。并不是每个人都能以同样的速度“合理地拖一拖”。</p>
-<p>在这篇稿子里，最关键的三个角色是：</p>
-<ul><li><strong>一作学弟</strong>：稿子主要归他，但制度权力不归他</li><li><strong>采购学长</strong>：论文荣光未必归他，但报销发票和试剂下单常常归他</li><li><strong>浑水的鱼</strong>：只要任务归属不明，就努力等更像责任人的那个人先回</li></ul>
-<p>这些角色之所以好笑，不是因为它们夸张，而是因为几乎每个实验室都能对号入座。</p>
-<h3 class="subsection-title">2.4 志愿者困境与首回复顺序</h3>
-<p>导师群聊还可以被理解为一种多人志愿者困境：只要有一个人先回，群体就暂时得救；但这个“先回的人”往往要承担更多后续义务。因此，在任务归属不明确时，每个人都倾向于再等等，看有没有别人先冲。</p>
-<p>这会产生两个极具 SHIT 味道的效应：</p>
-<ul><li><strong>默认接活人陷阱</strong>：任务一旦明显属于某个人，这个人终究会被推出水面</li><li><strong>首回复折扣</strong>：一旦已经有人体面地回复过，其他人的后续回复就迅速失去“勤奋加分”</li></ul>
-<p>这种民间语境还解释了另一类很中国、也很实验室的特殊时刻：导师在群里发红包。红包在这里从来不只是钱，它同时也是节日点名、情感审计和善意表演。本文将由此引发的瞬时复活现象称为：<strong>导师发红包效应</strong>。也就是说，一个很小的金额，可以在极短时间内把潜伏成员、礼貌成员和抢包成员同时召回到可见世界。</p>
-<h2 class="section-title">3. 研究设计</h2>
-<p>本文使用 2024 年 1 月至 2025 年 12 月间 28 个导师关联研究群的重建语料，共计 4,236 个“消息-回复”对。群成员规模从 4 人到 17 人不等。该数据集并非真实聊天记录归档，而是基于广泛可识别的互动模式进行重构，目标不是做行为存档，而是做规范结构建模。</p>
-<p>每个事件按以下变量编码：</p>
-<ol><li>发送者层级</li><li>群聊人数</li><li>人员构成</li><li>消息类型</li><li>紧急程度</li><li>可见性强弱</li><li>任务归属</li><li>回复顺序</li><li>假期阶段</li><li>表情密度</li></ol>
-<p>学生 <code>i</code> 的回复效用可被表示为：</p>
-<p><code>U_i(l_i) = alpha<em>D_i + beta</em>R_i - gamma<em>A_i - delta</em>B_i - eta*H_i</code></p>
-<p>其中：</p>
-<ul><li><code>D_i</code> = 勤奋得分</li><li><code>R_i</code> = 可靠得分</li><li><code>A_i</code> = 任务追加风险</li><li><code>B_i</code> = 责备与怀疑成本</li><li><code>H_i</code> = 假期脑雾惩罚</li></ul>
-<p>这个模型想表达的是：道德上看起来最正确的回复，策略上不一定最安全。</p>
+<p>导师群聊通常被描述成沟通工具，但在真实学术生活里，它更像一个浓缩剧场：层级、勤奋、服从、在场、可被抽取性都在这里被同时展示。导师发一条消息，不只是问个事，而是瞬间打开一个公共场景，让所有人都能判断谁在盯着消息，谁看起来很闲，谁看起来快死了，谁又看起来“特别适合再接一项任务”。</p>
+<p>本文关注的，不只是回复时延本身，而是围绕它形成的解释错误。群里的人很少真正看见全部回复可能性，他们大多只看见那些能在公开场合维持体面的人：会及时回、会说人话、会发出正确物种的“收到老师”、还没被制度完全榨干的人。那些拖延的人、私聊解决的人、被人代回的人、选择装死的人和真的已经快不行的人，更容易从可见样本里消失。</p>
+<p>因此，所谓“大家不都回得挺快吗”，常常并不是一个事实判断，而是一个样本判断。导师群聊之所以让人心累，不只是因为要回消息，更是因为你会被拿去和一批已经成功保持公开体面的人比较。</p>
+<h2 class="section-title">2. 主要问题、假设与贡献</h2>
+<p>本文的核心问题是：<strong>为什么导师群聊会制造一种“实验室其实运转得还挺正常”的错觉，即使参与者自己明明觉得它既不平等，也不稳定，还很消耗人？</strong></p>
+<p>本文建立在三个基础假设上。</p>
+<ol><li>回复时间会被多人同时观看，并被道德化解释，而不是被视为空白时间。</li><li>学生优化的不只是“显得可靠”，还包括“不要因为太可靠而继续被加活”。</li><li>不同角色的时间义务并不对称：一作学弟、采购学长、实验操作者和普通围观学弟不是同一条风险曲线。</li></ol>
+<p>据此，本文提出四个主假设。</p>
+<ol><li><strong>H1：倒 U 型假设。</strong> 感知勤奋度会随回复时延先升后降；回太快和回太慢都危险，只是危险的含义不同。</li><li><strong>H2：幸存偏差假设。</strong> 只用公开回复样本建模，会得到一个更早、更窄、也更体面的“正常窗口”。</li><li><strong>H3：压缩与显影假设。</strong> 导师可见性和任务归属显影会共同把回复窗口向前压缩，并迅速降低继续观望的收益。</li><li><strong>H4：象征复活假设。</strong> 小规模公开奖励，尤其是导师红包，会把潜水、感谢和签到瞬间压缩成可见响应。</li></ol>
+<p>本文的贡献不在于证明研究生爱看群，而在于说明：实验室对“谁算及时、谁算可靠、谁又最像活人”的判断，本身就受到了样本选择的系统性污染。</p>
+<h2 class="section-title">3. 理论框架</h2>
+<h3 class="subsection-title">3.1 体面在场幸存者偏差</h3>
+<p>本文提出<strong>体面在场幸存者偏差</strong>作为全文主概念。它指的是：旁观者根据那些仍能以公开、及时、体面方式出现的人来推断导师群聊的日常秩序，却忽略了那些因过载、规避、私聊、代理、情绪或结构性弱势而没能按规范出现的人。于是，群聊看上去总是比真实更平稳，制度也比真实更像被大家自愿配合。</p>
+<p>本文对该概念的验证方式很直接：同一批重建语料，分别做两次估计。第一次只保留群内公开回复；第二次把延迟、代理、私聊转移、表情冒头和完全缺席都重新放回暴露样本。只要第一种估计比第二种估计更快、更整齐、更像“大家都很懂事”，偏差就成立。</p>
+<p>这一概念的理论依据来自几个方向。Goffman（1959）解释了为什么公共互动更偏爱可表演的体面。Heckman（1979）说明了从被选择出来的样本倒推总体会怎样系统性失真。Spence（1973）与 Kreps and Wilson（1982）说明了低成本、反复出现的微小行为如何积累成声誉信号。Leonardi（2014）则提醒我们，只要可见性够高，谁还在场、谁没出现，本身就会变成信息。</p>
+<h3 class="subsection-title">3.2 导师在场压缩效应</h3>
+<p>本文提出<strong>导师在场压缩效应</strong>作为第一个机制。它指的是：只要导师在群里可见，即便真正发消息的是同门，大家也会把回复窗口整体向前压缩。通俗地说，同门发的消息只要被导师围观，就会长得越来越像半个导师消息。</p>
+<p>本文通过比较“导师可见”与“导师不可见”的同辈消息场景来验证这一机制。只要导师在场时，同门消息的时间结构更像监督而不像协作，这个效应就成立。</p>
+<p>它的理论基础主要来自沟通可见性（Leonardi, 2014）、时间线索研究（Walther, 1992; 1996; Kalman et al., 2013）和期望状态理论（Berger et al., 1972）。同一条时间戳，在不同观众面前不是同一种社会事实。</p>
+<h3 class="subsection-title">3.3 责任显影机制</h3>
+<p>本文提出<strong>责任显影机制</strong>作为第二个机制。它描述的是：本来模糊的集体责任会在某一刻突然显影到具体的人身上。显影之前，大家还可以一起观望；显影之后，再拖就不再像“等等看”，而更像“你明明就是那个该回的人”。</p>
+<p>为避免全文名词过多，本文把两个最有解释力、也最符合 SHIT 气质的子现象并入这个机制中。第一个是<strong>默认接活人陷阱</strong>：任务一旦显得明显属于某个人，这个人终究会被系统推出水面。第二个是<strong>首回复折损</strong>：只要已经有人发出一个体面且正确的首回复，后面的人再回，勤奋加分会迅速缩水，存在感更多变成礼貌陈列。</p>
+<p>本文通过两个对比来验证这一机制：一是任务归属模糊与清晰的对比，二是首个可信回复出现前后的对比。其理论基础来自志愿者困境（Diekmann, 1985; 1993）、责任扩散（Darley &amp; Latane, 1968）以及角色不平等的互动期待（Berger et al., 1972）。</p>
+<h3 class="subsection-title">3.4 红包复活效应</h3>
+<p>本文提出<strong>红包复活效应</strong>作为第三个机制。它指的是：导师在群里发一个金额不大的节日红包后，一批平时不太公开出现的人会以极不成比例的速度重新获得群聊肉身。钱很小，复活很快。</p>
+<p>本文通过比较“导师红包事件”和“普通节日点名”来验证这一机制。只要一个很小的红包比普通监督更能快速召回潜水成员，这个效应就成立。</p>
+<p>其理论依据并不主要是经济学激励，而更接近礼物与情感劳动。Mauss（1990）提醒我们，礼物从来不只是价值转移，也会制造义务。Hochschild（1983）提醒我们，感谢和在场都可以成为劳动。在导师群里，红包经常同时扮演善意、点名和情感审计三种角色。</p>
+<h3 class="subsection-title">3.5 角色异质性与假期脑雾作为调节条件</h3>
+<p>本文不把所有好笑的角色标签都上升为主概念，而是把它们收束为两个调节层。</p>
+<p>第一层是<strong>角色异质性</strong>。一作学弟、采购学长、实验操作者、博士后代理人和浑水的鱼，不是网络上的五个点，而是实验室宪制里的五个职位。</p>
+<p>第二层是<strong>假期脑雾</strong>。长假后的低紧急度消息允许稍微慢一点，但层级并不会因此取消。节后最先恢复的通常不是智力，而是排会能力。</p>
 <section class="figure-panel">
   <figure>
+    <img src="../figures/performative_presence_bias.svg" alt="Performative presence survivorship bias diagram"/>
+    <figcaption>Figure 1. Performative Presence Survivorship Bias.</figcaption>
+  </figure>
+  <figure>
     <img src="../figures/theory_framework_map.svg" alt="Theory framework map"/>
-    <figcaption>Figure 1. Theoretical Framework and Group-Chat Game.</figcaption>
+    <figcaption>Figure 2. Theoretical Framework and Group-Chat Game.</figcaption>
   </figure>
   <figure>
     <img src="../figures/latency_diligence_curve.svg" alt="Latency diligence curve"/>
-    <figcaption>Figure 2. Latency-Diligence Curve.</figcaption>
+    <figcaption>Figure 3. Latency-Diligence Curve.</figcaption>
   </figure>
   <figure>
     <img src="../figures/hierarchy_window_chart.svg" alt="Hierarchy delay window chart"/>
-    <figcaption>Figure 3. Hierarchy-Specific Acceptable Delay Window.</figcaption>
+    <figcaption>Figure 4. Hierarchy-Specific Acceptable Delay Window.</figcaption>
   </figure>
 </section>
-<h2 class="section-title">4. 结果</h2>
-<h3 class="subsection-title">4.1 勤奋度的倒 U 型曲线</h3>
-<p>对于常规消息，最稳定的回复窗口大约落在 <code>8-18 分钟</code>。在这个区间内，学生看起来既勤奋又可靠，同时不会立刻显得“极度空闲”。小于 2 分钟的回复虽然很可靠，但也最容易暴露“你看起来还可以再接点活”的风险。超过 48 分钟以后，则开始像疏忽、失联或精神状态出现了基础设施级故障。</p>
-<h3 class="subsection-title">4.2 导师在场同门压缩效应</h3>
-<p>导师本人直接发消息时，最优窗口会显著前移，这是容易理解的。更有意思的是，同门发消息时，只要导师在群里看得见，回复窗口也会被压缩。这意味着很多看似横向的交流，实际上在时间结构上已经半垂直化了。</p>
-<section class="inline-figure">
-  <figure>
-    <img src="../figures/first_responder_discount.svg" alt="First-responder discount chart"/>
-    <figcaption>Figure 4. First-Responder Discount.</figcaption>
-  </figure>
-</section>
-<h3 class="subsection-title">4.3 默认接活人陷阱与首回复折扣</h3>
-<p>大群聊最容易出现集体观望。尤其在 <code>11+</code> 的群里，如果任务归属不明确，大家都会本能地再等等看，期待另一个更像责任人的人先回。</p>
-<p>但这种模糊只要一旦破掉，责任扩散就会瞬间崩盘。比如论文返修明显归一作学弟、报销流程明显归采购学长时，相关角色的回复速度会突然显著提前。这就是<strong>默认接活人陷阱</strong>。</p>
-<p>与此同时，一旦群里已经出现一个体面的首回复，后面其他人的回复就很容易变成气氛组行为：礼貌有余，实质加分不多。这就是<strong>首回复折扣</strong>。通俗地说，只要已经有人及时发出了正确物种的“收到老师”，剩下的人就都可以适当转型为空气。</p>
-<section class="inline-figure">
-  <figure>
-    <img src="../figures/role_obligation_matrix.svg" alt="Role obligation matrix"/>
-    <figcaption>Figure 5. Role Obligation Matrix.</figcaption>
-  </figure>
-</section>
-<h3 class="subsection-title">4.4 采购主权原理</h3>
-<p>本文发现，采购报销负责人常常拥有整个实验室里最早的一批回复窗口。这件事极其滑稽，但又极其合理。因为论文署名上的荣光未必归他，但试剂、发票、耗材、下单、报销这些维持实验室生命体征的系统性资源，往往都握在他手里。</p>
-<p>这就是<strong>采购主权原理</strong>：行政性权力经常比象征性荣誉更直接地决定谁不能失联。</p>
-<h3 class="subsection-title">4.5 假期智力回撤</h3>
-<p>长假后的前 72 小时里，低、中紧急度消息的可接受延迟会整体右移 <code>6-11 分钟</code>。群里似乎短暂承认了：大家都比平时更不像一个准备好重新当机构人的人。</p>
-<p>但这并不意味着真正的宽容。导师直接点名时，回复窗口仍然非常早；deadline 升级时，假期脑雾几乎得不到制度赦免。于是便得到一个非常逆天但非常真实的结论：假期结束以后，先恢复的通常不是智力，而是排会能力。</p>
-<h3 class="subsection-title">4.6 导师发红包效应</h3>
-<p>当导师在群里发一个金额不大的节日红包时，时延曲线会短暂脱离平时的工作逻辑。沉睡成员突然复活，礼貌回复密度显著上升，连浑水的鱼也会在三秒内长出极强的手速。我们将这一现象称为：<strong>导师发红包效应</strong>。它指的是，极小规模的金钱转移，会触发远大于其货币价值的可见性回流、忠诚表演与即时响应。</p>
-<p>这个机制并不主要依赖经济激励，而更像一种公共情感装置。因为在导师群里，红包同时意味着善意、在场和“大家都看见你领没领”。回得慢，不只是少抢了几块钱，还有可能显得你在这一刻情感缺席。</p>
-<h3 class="subsection-title">4.7 表情补偿效应</h3>
-<p>低密度表情在低紧急度消息里可以略微修复中度延迟，但在强层级场景下，这种补偿很快失效。表情不再像温暖，而开始像证据。</p>
-<h2 class="section-title">5. 讨论</h2>
-<p>本文最核心的判断是：导师群聊里的回复时延，本质上是一种声誉劳动。学生不只是在管理文字，也在管理时间；而时间一旦被道德化和公开化，它就会变成工作。</p>
-<p>从这个角度看，实验室不像一个平滑的信息网络，更像一套带有奇怪职位的宪制结构：</p>
-<ul><li>一作学弟：高责任，低否决</li><li>采购学长：低荣光，高主权</li><li>博士后代理人：低名分，高传令</li><li>浑水的鱼：低主动，高存活</li></ul>
-<p>这些角色之所以让人会心一笑，是因为它们并非夸张，而是过于准确。</p>
-<p>导师发红包也是同样的道理。它看起来像福利，实际上却经常像一次小型招魂仪式：平时消失很久的人，会在极短时间内重新拥有群聊肉身。</p>
-<h2 class="section-title">6. 逆天但可信的推论</h2>
-<h3 class="subsection-title">推论 1</h3>
-<p>实验室里最容易被持续加活的人，不一定是最能干的人，而是回复时机最稳定的人。</p>
-<h3 class="subsection-title">推论 2</h3>
-<p>在足够大的群聊里，群体智能会先下降，直到有人被明确点名。</p>
-<h3 class="subsection-title">推论 3</h3>
-<p>实验室即便不减少任何工作量，也可以仅通过重新分配“谁来第一个回消息”，显著降低可见恐慌。</p>
-<h3 class="subsection-title">推论 4</h3>
-<p>长假之后，导师的排会恢复速度通常快于整个实验室的认知恢复速度。</p>
-<h3 class="subsection-title">推论 5</h3>
-<p>一个研究生在群里最优雅的生存策略，不是回得最快，而是让导师觉得你可靠、让同门觉得你在忙、让系统觉得你还没完全死机。</p>
-<h3 class="subsection-title">推论 6</h3>
-<p>一个实验室如果想在不改善制度的前提下显著提高群聊响应速度，最有效的方法之一不是讲道理，而是附上一点点钱。</p>
-<h2 class="section-title">7. 结论</h2>
-<p>导师群聊中的研究生并不是“简单回个消息”。他是在被不平等观察、多人围观和任务随时追加的条件下，公开表演一种恰到好处的可靠性。因此，回复时延既是信号，也是盾牌；它是勤奋、恐惧、归属、可被抽取性与层级关系在微小时间片上的集中谈判。</p>
-<p>所以，“你为什么不直接回？”这个问题没有简单答案。一个人必须回得足够早，才能显得忠诚；又必须回得足够晚，才能显得没有闲到危险；而在长假后的前三天，还得用仅存不多的组织智力假装自己已经恢复工作状态。</p>
-<h2 class="section-title">表 1. 消息类型风险矩阵</h2>
-<table><thead><tr><th>消息类型</th><th>紧急度</th><th>最优回复窗口</th><th>额外接活风险</th><th>解释逻辑</th></tr></thead><tbody><tr><td>硬召唤</td><td>高</td><td>1-6 分钟</td><td>9.4</td><td>不回就像抗命</td></tr>
-<tr><td>deadline 升级</td><td>高</td><td>2-9 分钟</td><td>8.7</td><td>延迟会被理解为崩溃</td></tr>
-<tr><td>论文批注</td><td>中</td><td>6-15 分钟</td><td>7.8</td><td>一作归属把窗口整体前移</td></tr>
-<tr><td>行政提醒</td><td>中</td><td>9-21 分钟</td><td>5.2</td><td>中度延迟像在处理中</td></tr>
-<tr><td>报销采购请求</td><td>中</td><td>4-12 分钟</td><td>7.4</td><td>采购归属极易被看见</td></tr>
-<tr><td>表扬型消息</td><td>中</td><td>4-12 分钟</td><td>9.1</td><td>能力一旦可见，就容易被再利用</td></tr>
-<tr><td>导师红包投放</td><td>低</td><td>0-3 分钟</td><td>6.6</td><td>感谢、贪念与签到瞬间合流</td></tr>
-<tr><td>轻度 ping</td><td>低</td><td>14-37 分钟</td><td>4.7</td><td>回太快反而像很闲</td></tr>
-<tr><td>假期点名</td><td>低</td><td>18-46 分钟</td><td>5.9</td><td>大家都慢，但没人被真正原谅</td></tr></tbody></table>
-<h2 class="section-title">表 2. 角色异质性窗口</h2>
-<table><thead><tr><th>角色类型</th><th>典型场景</th><th>最优回复窗口</th><th>结构性约束</th></tr></thead><tbody><tr><td>---</td><td>---</td><td>---</td><td>---</td></tr>
-<tr><td>一作学弟</td><td>修改返修、稿件批注</td><td>5-14 分钟</td><td>公开责任高，制度否决低</td></tr>
-<tr><td>采购学长</td><td>报销、采购、表单</td><td>4-12 分钟</td><td>行政主权高，不便失联</td></tr>
-<tr><td>实验操作者</td><td>仪器异常、样品问题</td><td>3-11 分钟</td><td>技术归属非常清晰</td></tr>
-<tr><td>博士后代理人</td><td>转述导师安排</td><td>7-19 分钟</td><td>层级委托明显</td></tr>
-<tr><td>普通围观学弟</td><td>群提醒</td><td>14-36 分钟</td><td>归属不明时可躲在群体中</td></tr>
-<tr><td>纯同辈浑水鱼</td><td>横向协作</td><td>22-61 分钟</td><td>导师不可见时更易漂浮</td></tr></tbody></table>
-<h2 class="section-title">表 3. 命名效应与白话解释</h2>
-<table><thead><tr><th>命名效应</th><th>白话解释</th></tr></thead><tbody><tr><td>---</td><td>---</td></tr>
-<tr><td>导师在场同门压缩效应</td><td>同门发的消息，只要导师在看，就会变得像半个导师消息</td></tr>
-<tr><td>默认接活人陷阱</td><td>任务归属一旦明显，就总会有人被系统推出水面</td></tr>
-<tr><td>首回复折扣</td><td>只要已经有人正确回复过，后面的人加分会迅速变少</td></tr>
-<tr><td>采购主权原理</td><td>最不显眼的人，未必不是掌握实际权力的人</td></tr>
-<tr><td>假期智力回撤</td><td>假期结束后，人恢复思考通常比机构恢复排班更慢</td></tr>
-<tr><td>导师发红包效应</td><td>一个很小的公开红包，也能比普通监督更快地唤醒潜水成员</td></tr></tbody></table>
+<h2 class="section-title">4. 研究设计</h2>
+<p>本文分析 2024 年 1 月至 2025 年 12 月间 28 个导师关联研究群中重建的 4,236 个消息暴露机会。群规模从 4 人到 17 人不等。该语料不是原始聊天记录归档，而是基于可广泛辨认的互动模式进行重建，目的在于建模规范结构，而不是做聊天史料学。</p>
+<p>为验证主概念，本文把同一组暴露机会拆成两个分析样本。</p>
+<ol><li><strong>可见样本模型</strong>：只保留群内公开、清晰、体面的在楼回复。</li><li><strong>全机会模型</strong>：在同一暴露集合里重新纳入延迟回复、代理回复、私聊转移、表情冒头和完全缺席。</li></ol>
+<p>在重建语料中，77.4% 的暴露机会最终形成了群内公开回复，剩余 22.6% 则通过延迟、代理、私聊或策略性沉默被“消化”掉。后者正是最容易从群聊秩序幻觉中被自动抹掉的部分。</p>
+<p>每个事件按以下变量编码：</p>
+<ol><li>发送者层级</li><li>群聊人数</li><li>观众构成</li><li>消息类型</li><li>紧急程度</li><li>导师可见性</li><li>任务归属</li><li>回复顺序</li><li>假期阶段</li><li>表情密度</li></ol>
+<p>学生 <code>i</code> 的回复效用可写为：</p>
+<p><code>U_i(l_i) = alpha<em>D_i + beta</em>R_i + theta<em>V_i - gamma</em>A_i - delta<em>B_i - eta</em>H_i</code></p>
+<p>其中：</p>
+<ul><li><code>D_i</code> = 勤奋得分</li><li><code>R_i</code> = 可靠得分</li><li><code>V_i</code> = 体面在场得分</li><li><code>A_i</code> = 被继续加活的风险</li><li><code>B_i</code> = 责备或怀疑成本</li><li><code>H_i</code> = 假期脑雾惩罚</li></ul>
+<p>本文最重要的方法选择，是把同一套互动秩序估计两次：一次只看“幸存”的公开样本，一次把没能体面幸存的人也重新算回去。</p>
+<h2 class="section-title">5. 结果</h2>
+<h3 class="subsection-title">5.1 体面在场幸存者偏差</h3>
+<p>主偏差非常明显。在可见样本模型里，“正常回复”看起来大约集中在 <code>6-12 分钟</code>。而在全机会模型里，更真实的可生存窗口会扩到大约 <code>8-19 分钟</code>。也就是说，只看公开回复，会把普通人能够体面活下来的时间平均提前估计约 7 分钟。</p>
+<p>可见样本模型还会把“稳定响应”高估 31%。它会让实验室看起来像由一批训练有素、按时在场、积极配合的活体组成。全机会模型则展示出更真实也更好笑的一面：相当一部分实验室生活其实被延迟出现、私下协商、代理劳动和策略性空气化吸收掉了。</p>
+<p>因此，所谓“好学生回复范式”本身就有点像幸存样本。<code>收到老师</code> 不是一句普通话，而更像那些成功保持公开体面的人留下的化石证据。</p>
+<h3 class="subsection-title">5.2 导师在场压缩效应</h3>
+<p>导师在场压缩效应也很稳定。只要导师在群里可见，即便消息来自同门，大家可接受的回复窗口也会相对纯同辈场景整体前移约 <code>5-7 分钟</code>。一个学弟在导师面前问你要文件，就已经不再只是学弟问你要文件。</p>
+<p>这种压缩在“导师 + 学长学姐 + 学弟学妹 + 代理人”混合在场的群里更强。层级并不需要开口，只需要让大家知道它有能力看见。</p>
+<h3 class="subsection-title">5.3 责任显影机制</h3>
+<p>责任显影机制在两个子现象上都很清楚。任务归属模糊时，大群更容易先一起观望；可一旦归属显影，相关人的窗口就会迅速塌缩。在返修由一作学弟负责、报销由采购学长负责的场景中，结构性责任人的最优窗口会比普通围观者平均提前 <code>8-10 分钟</code>。</p>
+<p>首回复折损同样明显。一旦群里已经出现一个可信的体面首回复，后续回复在重建评分中的边际勤奋收益会下降 63%。换句话说，只要已经有人及时发出标准物种的“收到老师”，剩下的人就会迅速从必要劳动力降格为礼貌背景板。</p>
+<h3 class="subsection-title">5.4 角色异质性与假期脑雾</h3>
+<p>角色差异不是修辞，而是实打实地塑造时间窗口。一作学弟最稳定的区间大约是 <code>5-13 分钟</code>，采购学长是 <code>4-11 分钟</code>，普通围观学弟是 <code>14-34 分钟</code>，而在纯同辈协作里浑水的鱼可以拖到 <code>21-58 分钟</code>，前提是导师可见性足够低。</p>
+<p>假期脑雾会让低紧急度消息在节后 72 小时内整体右移 <code>6-10 分钟</code>，但导师的直接召唤几乎不因此放松。于是形成一种机构层面很优雅、个体层面很残忍的状态：实验室可以暂时集体变笨，但不能集体变得联系不上。</p>
+<h3 class="subsection-title">5.5 红包复活效应</h3>
+<p>红包复活效应是全文最紧凑、也最逆天的结果。普通低紧急度节日点名的首个可见回复中位数约为 <code>17.8 分钟</code>；而在相近紧急度的导师红包事件里，它会骤降到 <code>2.4 分钟</code>。潜水成员重新上岸，感谢语密度上升，连浑水的鱼也能在瞬间长出电竞级手速。</p>
+<p>这一效应并不能被简单化约成“大家想抢钱”。真正起作用的是：红包把善意、监督和公开自我定位压缩成了同一个可点击动作。钱并不多，社会意义却特别浓。</p>
+<h2 class="section-title">6. 讨论</h2>
+<p>现在可以把全文的主张说得更整齐一些了：导师群聊中的回复时延，本质上是一种公开声誉劳动；而围绕这种劳动形成的“正常规范”，又被体面在场样本系统性美化了。群聊一边要求人表现，一边又用那些成功表现出来的人去证明“这件事其实没那么难”。</p>
+<p>这也是为什么实验室政治要写进去，但不能写散。我们保留它，是因为一作学弟、采购学长、博士后代理人和浑水的鱼都是真实存在的制度位置；我们克制它，是因为这篇稿子的笑点必须来自过于准确，而不是来自胡乱堆梗。</p>
+<p>换句话说，这篇稿子最该一本正经的地方，恰好也是它最好笑的地方。</p>
+<h2 class="section-title">7. 主要结论与逆天推论</h2>
+<h3 class="subsection-title">结论 1</h3>
+<p>一个看起来“回复很积极”的实验室，未必真的更积极，它也可能只是把不积极的人隐藏得更彻底。</p>
+<h3 class="subsection-title">结论 2</h3>
+<p><code>收到老师</code> 与其说是信息，不如说是一种在不平等观看下恢复秩序的宪制装置。</p>
+<h3 class="subsection-title">结论 3</h3>
+<p>在群聊治理里，采购有时比署名更接近真正的主权，因为发票经常比荣誉更不能拖。</p>
+<h3 class="subsection-title">结论 4</h3>
+<p>当问题的核心不是信念而是公开在场时，一点点钱往往比很多道理更能迅速恢复秩序。</p>
+<h3 class="subsection-title">结论 5</h3>
+<p>长假之后，机构恢复排程的速度通常快于人恢复智力的速度。</p>
+<h2 class="section-title">8. 结论</h2>
+<p>导师群聊中的研究生并不是“简单回个消息”。他是在公开、多方、不平等的观看条件下，按分钟表演一种既忠诚又不能显得过于空闲的可靠性。更重要的是，这种表演完成之后，还会被错当成整个群体的常态。</p>
+<p>一旦承认这一点，回复时延就不再只是礼仪问题，而会重新显露成一种微小但高密度的政治时间技术。实验室之所以看起来比真实更稳定，不是因为大家真的都稳住了，而是因为那些还能体面出现的人，更容易被当成“正常样本”。</p>
+<h2 class="section-title">表 1. 假设、验证方式与主要结果</h2>
+<table><thead><tr><th>假设</th><th>验证方式</th><th>主要结果</th></tr></thead><tbody><tr><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>H1：倒 U 型假设</td><td>比较不同延迟区间中的勤奋、可靠与加活风险</td><td>中等延迟优于过快与过慢两端</td></tr>
+<tr><td>H2：幸存偏差假设</td><td>对比可见样本模型与全机会模型</td><td>可见样本把生存窗口平均提前约 7 分钟，并高估稳定响应率 31%</td></tr>
+<tr><td>H3：压缩与显影假设</td><td>比较导师可见场景、归属模糊场景与首回复出现前后</td><td>导师在场会压缩时间，归属显影会终止观望，后续回复边际收益迅速下降</td></tr>
+<tr><td>H4：象征复活假设</td><td>比较导师红包事件与普通节日点名</td><td>极小的公开礼物比日常监督更快召回可见在场</td></tr></tbody></table>
+<h2 class="section-title">表 2. 角色条件下的回复窗口</h2>
+<table><thead><tr><th>角色类型</th><th>典型场景</th><th>最优回复区间</th><th>结构原因</th></tr></thead><tbody><tr><td>---</td><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>一作学弟</td><td>稿件批注、返修安排</td><td>5-13 分钟</td><td>公开责任高，否决权低</td></tr>
+<tr><td>采购学长</td><td>报销、采购、表单</td><td>4-11 分钟</td><td>发票主权高，物资归属清晰</td></tr>
+<tr><td>实验操作者</td><td>仪器异常、样品问题</td><td>3-10 分钟</td><td>技术归属明确</td></tr>
+<tr><td>博士后代理人</td><td>转述导师安排、协调</td><td>7-18 分钟</td><td>层级委托明显</td></tr>
+<tr><td>普通围观学弟</td><td>群提醒、横向同步</td><td>14-34 分钟</td><td>归属不清时可以藏在人群里</td></tr>
+<tr><td>纯同辈浑水鱼</td><td>横向协作</td><td>21-58 分钟</td><td>上级不可见时更容易漂浮</td></tr></tbody></table>
+<h2 class="section-title">表 3. 核心概念与白话解释</h2>
+<table><thead><tr><th>概念</th><th>白话解释</th></tr></thead><tbody><tr><td>---</td><td>---</td></tr>
+<tr><td>体面在场幸存者偏差</td><td>我们总爱拿那些还在群里体面活着的人，去代表整个实验室</td></tr>
+<tr><td>导师在场压缩效应</td><td>同门发的消息，只要导师在看，就会变得像半个导师消息</td></tr>
+<tr><td>责任显影机制</td><td>责任一旦显出来，观望就会立刻失去中立性</td></tr>
+<tr><td>默认接活人陷阱</td><td>谁看起来最该回，谁最后就最难继续装空气</td></tr>
+<tr><td>首回复折损</td><td>只要已经有人体面地回过，后面的人就会迅速变得没那么必要</td></tr>
+<tr><td>红包复活效应</td><td>一个很小的公开红包，也能把潜水成员迅速招回可见世界</td></tr></tbody></table>
 <h2 class="section-title">参考文献</h2>
-<h3 class="subsection-title">核心理论</h3>
-<p>Alvesson, M. (2013). <em>The triumph of emptiness: Consumption, higher education, and work organization</em>. Oxford University Press.</p>
-<p>Berger, J., Cohen, B. P., &amp; Zelditch, M., Jr. (1972). Status characteristics and social interaction. <em>American Sociological Review, 37</em>(3), 241-255.</p>
-<p>Daft, R. L., &amp; Lengel, R. H. (1986). Organizational information requirements, media richness and structural design. <em>Management Science, 32</em>(5), 554-571.</p>
-<p>Goffman, E. (1959). <em>The presentation of self in everyday life</em>. Doubleday.</p>
-<p>Hochschild, A. R. (1983). <em>The managed heart: Commercialization of human feeling</em>. University of California Press.</p>
-<p>Kreps, D. M., &amp; Wilson, R. (1982). Reputation and imperfect information. <em>Journal of Economic Theory, 27</em>(2), 253-279.</p>
-<p>Spence, M. (1973). Job market signaling. <em>Quarterly Journal of Economics, 87</em>(3), 355-374.</p>
-<h3 class="subsection-title">计算机媒介沟通</h3>
-<p>Kalman, Y. M., Scissors, L. E., Gill, A. J., &amp; Gergle, D. (2013). Online chronemics convey social information. <em>Computers in Human Behavior, 29</em>(3), 1260-1269.</p>
-<p>Leonardi, P. M. (2014). Social media, knowledge sharing, and innovation: Toward a theory of communication visibility. <em>Information Systems Research, 25</em>(4), 796-816.</p>
-<p>Tidwell, L. C., &amp; Walther, J. B. (2002). Computer-mediated communication effects on disclosure, impressions, and interpersonal evaluations: Getting to know one another a bit at a time. <em>Human Communication Research, 28</em>(3), 317-348.</p>
-<p>Walther, J. B. (1992). Interpersonal effects in computer-mediated interaction: A relational perspective. <em>Communication Research, 19</em>(1), 52-90.</p>
-<p>Walther, J. B. (1996). Computer-mediated communication: Impersonal, interpersonal, and hyperpersonal interaction. <em>Communication Research, 23</em>(1), 3-43.</p>
-<p>Walther, J. B., &amp; Tidwell, L. C. (1995). Nonverbal cues in computer-mediated communication, and the effect of chronemics on relational communication. <em>Journal of Organizational Computing, 5</em>(4), 355-378.</p>
-<p>Ziano, I., &amp; Wang, B. (2021). Does response delay influence how an email sender is perceived? <em>Journal of Computer-Mediated Communication, 26</em>(6), 395-409.</p>
-<h3 class="subsection-title">多人协调与博弈</h3>
-<p>Darley, J. M., &amp; Latané, B. (1968). Bystander intervention in emergencies: Diffusion of responsibility. <em>Journal of Personality and Social Psychology, 8</em>(4, Pt. 1), 377-383.</p>
-<p>Diekmann, A. (1985). Volunteer&#x27;s dilemma. <em>Journal of Conflict Resolution, 29</em>(4), 605-610.</p>
-<p>Diekmann, A. (1993). Cooperation in an asymmetric volunteer&#x27;s dilemma game: Theory and experimental evidence. <em>International Journal of Game Theory, 22</em>, 75-85.</p>
-<h3 class="subsection-title">戏谑场景的语境材料</h3>
-<p>文中涉及的社交媒体语汇，如 MBTI 团队角色、节后综合征、表情误读与实验室隐形劳动，主要作为场景化解释资源使用，而非正式实证变量。</p>
+<p>Alvesson, M.（2013）. <em>The triumph of emptiness: Consumption, higher education, and work organization</em>. Oxford University Press.</p>
+<p>Berger, J., Cohen, B. P., &amp; Zelditch, M., Jr.（1972）. Status characteristics and social interaction. <em>American Sociological Review, 37</em>(3), 241-255.</p>
+<p>Darley, J. M., &amp; Latane, B.（1968）. Bystander intervention in emergencies: Diffusion of responsibility. <em>Journal of Personality and Social Psychology, 8</em>(4, Pt. 1), 377-383.</p>
+<p>Diekmann, A.（1985）. Volunteer&#x27;s dilemma. <em>Journal of Conflict Resolution, 29</em>(4), 605-610.</p>
+<p>Diekmann, A.（1993）. Cooperation in an asymmetric volunteer&#x27;s dilemma game: Theory and experimental evidence. <em>International Journal of Game Theory, 22</em>, 75-85.</p>
+<p>Goffman, E.（1959）. <em>The presentation of self in everyday life</em>. Doubleday.</p>
+<p>Heckman, J. J.（1979）. Sample selection bias as a specification error. <em>Econometrica, 47</em>(1), 153-161.</p>
+<p>Hochschild, A. R.（1983）. <em>The managed heart: Commercialization of human feeling</em>. University of California Press.</p>
+<p>Kalman, Y. M., Scissors, L. E., Gill, A. J., &amp; Gergle, D.（2013）. Online chronemics convey social information. <em>Computers in Human Behavior, 29</em>(3), 1260-1269.</p>
+<p>Karau, S. J., &amp; Williams, K. D.（1993）. Social loafing: A meta-analytic review and theoretical integration. <em>Journal of Personality and Social Psychology, 65</em>(4), 681-706.</p>
+<p>Kreps, D. M., &amp; Wilson, R.（1982）. Reputation and imperfect information. <em>Journal of Economic Theory, 27</em>(2), 253-279.</p>
+<p>Leonardi, P. M.（2014）. Social media, knowledge sharing, and innovation: Toward a theory of communication visibility. <em>Information Systems Research, 25</em>(4), 796-816.</p>
+<p>Mauss, M.（1990）. <em>The gift: The form and reason for exchange in archaic societies</em> (W. D. Halls, Trans.). W. W. Norton.（Original work published 1925）</p>
+<p>Spence, M.（1973）. Job market signaling. <em>Quarterly Journal of Economics, 87</em>(3), 355-374.</p>
+<p>Walther, J. B.（1992）. Interpersonal effects in computer-mediated interaction: A relational perspective. <em>Communication Research, 19</em>(1), 52-90.</p>
+<p>Walther, J. B.（1996）. Computer-mediated communication: Impersonal, interpersonal, and hyperpersonal interaction. <em>Communication Research, 23</em>(1), 3-43.</p>
+<p>Walther, J. B., &amp; Tidwell, L. C.（1995）. Nonverbal cues in computer-mediated communication, and the effect of chronemics on relational communication. <em>Journal of Organizational Computing, 5</em>(4), 355-378.</p>
+<p>Ziano, I., &amp; Wang, B.（2021）. Does response delay influence how an email sender is perceived? <em>Journal of Computer-Mediated Communication, 26</em>(6), 395-409.</p>
     </article>
   </main>
 </body>

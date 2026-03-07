@@ -1,0 +1,4 @@
+interface:
+  display_name: "SHIT Paper Editor"
+  short_description: "Refine SHIT-style papers with rigorous humor"
+  default_prompt: "Use $shit-paper-editor to tighten a SHIT-style manuscript, unify its concepts, and keep the prose deadpan."

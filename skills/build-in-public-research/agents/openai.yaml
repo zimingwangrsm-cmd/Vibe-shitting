@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build in Public Research"
+  short_description: "Archive phases and turn research into share packs"
+  default_prompt: "Use $build-in-public-research to archive a research phase, update the memo, and prepare GitHub/Xiaohongshu share assets."

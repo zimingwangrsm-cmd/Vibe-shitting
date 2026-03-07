@@ -130,16 +130,20 @@ def render_main_figure_panel() -> str:
     return """
 <section class="figure-panel">
   <figure>
+    <img src="../figures/performative_presence_bias.svg" alt="Performative presence survivorship bias diagram"/>
+    <figcaption>Figure 1. Performative Presence Survivorship Bias.</figcaption>
+  </figure>
+  <figure>
     <img src="../figures/theory_framework_map.svg" alt="Theory framework map"/>
-    <figcaption>Figure 1. Theoretical Framework and Group-Chat Game.</figcaption>
+    <figcaption>Figure 2. Theoretical Framework and Group-Chat Game.</figcaption>
   </figure>
   <figure>
     <img src="../figures/latency_diligence_curve.svg" alt="Latency diligence curve"/>
-    <figcaption>Figure 2. Latency-Diligence Curve.</figcaption>
+    <figcaption>Figure 3. Latency-Diligence Curve.</figcaption>
   </figure>
   <figure>
     <img src="../figures/hierarchy_window_chart.svg" alt="Hierarchy delay window chart"/>
-    <figcaption>Figure 3. Hierarchy-Specific Acceptable Delay Window.</figcaption>
+    <figcaption>Figure 4. Hierarchy-Specific Acceptable Delay Window.</figcaption>
   </figure>
 </section>
 """.strip()
@@ -189,7 +193,7 @@ def build_body(lines: list[str]) -> str:
                 render_single_figure(
                     "../figures/first_responder_discount.svg",
                     "First-responder discount chart",
-                    "Figure 4. First-Responder Discount.",
+                    "Figure 5. First-Responder Discount.",
                 )
             )
 
@@ -198,7 +202,7 @@ def build_body(lines: list[str]) -> str:
                 render_single_figure(
                     "../figures/role_obligation_matrix.svg",
                     "Role obligation matrix",
-                    "Figure 5. Role Obligation Matrix.",
+                    "Figure 6. Role Obligation Matrix.",
                 )
             )
 
@@ -460,7 +464,7 @@ def build_landing_page() -> None:
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Read, Seen, Ignored Submission Pack</title>
+  <title>Received, Professor Submission Pack</title>
   <style>
     :root {
       --ink: #171717;
@@ -552,8 +556,8 @@ def build_landing_page() -> None:
   <main>
     <section class="shell">
       <div class="eyebrow">VIBE SHITTING Submission Pack</div>
-      <h1>Read, Seen, Ignored</h1>
-      <p>This landing page points to the canonical final artifacts. The English and Chinese manuscripts are the only submission-authoritative texts. The older bilingual file remains an internal editorial synthesis.</p>
+      <h1>"Received, Professor"</h1>
+      <p>This landing page points to the canonical final artifacts for the latest bias-centered manuscript. The English and Chinese manuscripts are the only submission-authoritative texts. The older bilingual file remains an internal editorial synthesis.</p>
       <div class="grid">
         <a class="card" href="read-seen-ignored_submission_en.html">
           <strong>English canonical preview</strong>
