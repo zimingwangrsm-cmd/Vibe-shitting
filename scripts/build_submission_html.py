@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a styled working-paper HTML preview from the submission-ready markdown."""
+"""Build canonical HTML previews for the EN/ZH submission manuscripts."""
 
 from __future__ import annotations
 
@@ -9,12 +9,24 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "paper" / "final" / "read-seen-ignored_submission-ready.md"
-TARGET = ROOT / "paper" / "final" / "read-seen-ignored_submission-ready.html"
+FINAL = ROOT / "paper" / "final"
 
+DOCUMENTS = [
+    {
+        "lang": "en",
+        "source": FINAL / "read-seen-ignored_submission_en.md",
+        "target": FINAL / "read-seen-ignored_submission_en.html",
+        "label": "Canonical English Submission Preview",
+    },
+    {
+        "lang": "zh",
+        "source": FINAL / "read-seen-ignored_submission_zh.md",
+        "target": FINAL / "read-seen-ignored_submission_zh.html",
+        "label": "Canonical Chinese Submission Preview",
+    },
+]
 
-def strip_md(text: str) -> str:
-    return text.replace("**", "").strip()
+LANDING_TARGET = FINAL / "read-seen-ignored_submission-ready.html"
 
 
 def render_heading(line: str) -> str:
@@ -50,12 +62,12 @@ def render_table(lines: list[str]) -> str:
     return f"<table><thead>{head}</thead><tbody>{body}</tbody></table>"
 
 
-def extract_front_matter(lines: list[str]) -> tuple[str, str, list[str], list[str], list[str]]:
+def parse_front_matter(lines: list[str]) -> tuple[str, list[str], list[str], list[str]]:
     title = ""
-    chinese_title = ""
     author_lines: list[str] = []
     keyword_lines: list[str] = []
-    state = ""
+    sections: list[list[str]] = []
+    current: list[str] = []
     i = 0
 
     while i < len(lines):
@@ -69,30 +81,25 @@ def extract_front_matter(lines: list[str]) -> tuple[str, str, list[str], list[st
         if not stripped:
             i += 1
             continue
-        if stripped == "**Author / 作者**":
-            state = "author"
+        if re.fullmatch(r"\*\*.+\*\*", stripped):
+            if current:
+                sections.append(current)
+            current = []
             i += 1
             continue
-        if stripped == "**Keywords / 关键词**":
-            state = "keywords"
-            i += 1
-            continue
-        if stripped.startswith("**") and stripped.endswith("**") and not chinese_title:
-            chinese_title = strip_md(stripped)
-            i += 1
-            continue
-        if state == "author":
-            author_lines.append(stripped)
-        elif state == "keywords":
-            keyword_lines.append(stripped)
-        elif not chinese_title:
-            chinese_title = strip_md(stripped)
+        current.append(stripped)
         i += 1
 
-    return title, chinese_title, author_lines, keyword_lines, lines[i:]
+    if current:
+        sections.append(current)
+    if sections:
+        author_lines = sections[0]
+    if len(sections) > 1:
+        keyword_lines = sections[1]
+    return title, author_lines, keyword_lines, lines[i:]
 
 
-def render_front_matter(title: str, chinese_title: str, author_lines: list[str], keyword_lines: list[str]) -> str:
+def render_front_matter(title: str, author_lines: list[str], keyword_lines: list[str], label: str) -> str:
     authors = "".join(f"<div class=\"meta-line\">{render_inline(line)}</div>" for line in author_lines)
     keywords = "".join(f"<div class=\"keyword-line\">{render_inline(line)}</div>" for line in keyword_lines)
     return f"""
@@ -103,26 +110,23 @@ def render_front_matter(title: str, chinese_title: str, author_lines: list[str],
   </div>
   <div class="title-block">
     <h1 class="paper-title">{html.escape(title)}</h1>
-    <div class="paper-subtitle">{render_inline(chinese_title)}</div>
   </div>
   <div class="meta-grid">
     <section class="meta-card">
-      <div class="meta-label">Author / 作者</div>
+      <div class="meta-label">Author</div>
       {authors}
     </section>
     <section class="meta-card">
-      <div class="meta-label">Keywords / 关键词</div>
+      <div class="meta-label">Keywords</div>
       {keywords}
     </section>
   </div>
-  <div class="working-note">
-    Submission-ready preview with embedded SVG figures and working-paper styling for review, export, and social sharing.
-  </div>
+  <div class="working-note">{html.escape(label)}</div>
 </header>
 """.strip()
 
 
-def figure_panel() -> str:
+def render_main_figure_panel() -> str:
     return """
 <section class="figure-panel">
   <figure>
@@ -141,7 +145,7 @@ def figure_panel() -> str:
 """.strip()
 
 
-def single_figure(src: str, alt: str, caption: str) -> str:
+def render_single_figure(src: str, alt: str, caption: str) -> str:
     return f"""
 <section class="inline-figure">
   <figure>
@@ -152,44 +156,46 @@ def single_figure(src: str, alt: str, caption: str) -> str:
 """.strip()
 
 
-def build_body(lines: list[str], allow_figures: bool = True) -> str:
+def build_body(lines: list[str]) -> str:
     out = []
     i = 0
-    inserted_figures = False
+    abstract_wrapped = False
+    inserted_main_panel = False
+
     while i < len(lines):
-        line = lines[i]
-        stripped = line.strip()
+        stripped = lines[i].strip()
         if not stripped:
             i += 1
             continue
 
-        if stripped in {"## Abstract", "## 中文摘要"}:
+        if stripped.startswith("## ") and not abstract_wrapped:
             heading_html = render_heading(stripped)
             i += 1
             block_lines = []
             while i < len(lines) and not lines[i].strip().startswith("## "):
                 block_lines.append(lines[i])
                 i += 1
-            block_body = build_body(block_lines, allow_figures=False)
+            block_body = build_body(block_lines)
             out.append(f'<section class="abstract-card">{heading_html}{block_body}</section>')
+            abstract_wrapped = True
             continue
 
-        if allow_figures and not inserted_figures and stripped.startswith("## 4. Results"):
-            out.append(figure_panel())
-            inserted_figures = True
+        if not inserted_main_panel and stripped.startswith("## 4."):
+            out.append(render_main_figure_panel())
+            inserted_main_panel = True
 
-        if allow_figures and stripped.startswith("### 4.4"):
+        if stripped.startswith("### 4.3"):
             out.append(
-                single_figure(
+                render_single_figure(
                     "../figures/first_responder_discount.svg",
                     "First-responder discount chart",
                     "Figure 4. First-Responder Discount.",
                 )
             )
 
-        if allow_figures and stripped.startswith("### 4.5"):
+        if stripped.startswith("### 4.4"):
             out.append(
-                single_figure(
+                render_single_figure(
                     "../figures/role_obligation_matrix.svg",
                     "Role obligation matrix",
                     "Figure 5. Role Obligation Matrix.",
@@ -236,17 +242,13 @@ def build_body(lines: list[str], allow_figures: bool = True) -> str:
             para.append(nxt)
             i += 1
         out.append(f"<p>{render_inline(' '.join(para))}</p>")
+
     return "\n".join(out)
 
 
-def main() -> None:
-    lines = SOURCE.read_text().splitlines()
-    title, chinese_title, author_lines, keyword_lines, body_lines = extract_front_matter(lines)
-    body = build_body(body_lines)
-    front = render_front_matter(title, chinese_title, author_lines, keyword_lines)
-
-    html_doc = f"""<!DOCTYPE html>
-<html lang="en">
+def render_doc(title: str, front: str, body: str, lang: str) -> str:
+    return f"""<!DOCTYPE html>
+<html lang="{lang}">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -305,11 +307,6 @@ def main() -> None:
       line-height: 1.1;
       text-wrap: balance;
     }}
-    .paper-subtitle {{
-      margin-top: 10px;
-      font-size: 1.12rem;
-      color: var(--muted);
-    }}
     .meta-grid {{
       display: grid;
       grid-template-columns: 1fr;
@@ -340,10 +337,6 @@ def main() -> None:
       font-size: 0.92rem;
       color: var(--muted);
     }}
-    section, table, p, ul, ol {{
-      margin-left: auto;
-      margin-right: auto;
-    }}
     h2, h3 {{
       font-weight: 700;
       line-height: 1.22;
@@ -362,12 +355,6 @@ def main() -> None:
     }}
     p, li {{
       font-size: 1.04rem;
-    }}
-    strong {{
-      font-weight: 700;
-    }}
-    em {{
-      font-style: italic;
     }}
     code {{
       background: #efe6d7;
@@ -454,8 +441,152 @@ def main() -> None:
 </body>
 </html>
 """
-    TARGET.write_text(html_doc)
-    print(f"Wrote {TARGET}")
+
+
+def build_document(config: dict[str, object]) -> None:
+    source = config["source"]
+    target = config["target"]
+    lines = Path(source).read_text().splitlines()
+    title, author_lines, keyword_lines, body_lines = parse_front_matter(lines)
+    front = render_front_matter(title, author_lines, keyword_lines, str(config["label"]))
+    body = build_body(body_lines)
+    doc = render_doc(title, front, body, str(config["lang"]))
+    Path(target).write_text(doc)
+
+
+def build_landing_page() -> None:
+    landing = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Read, Seen, Ignored Submission Pack</title>
+  <style>
+    :root {
+      --ink: #171717;
+      --muted: #5e594f;
+      --line: #d7cebf;
+      --panel: rgba(255,255,255,0.85);
+      --accent: #8b5e34;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(173, 131, 71, 0.10), transparent 28%),
+        linear-gradient(180deg, #efe6d4 0%, #f5efe4 26%, #f9f6ef 100%);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    main {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+    }
+    .shell {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 50px rgba(52, 45, 32, 0.08);
+      padding: 30px 34px;
+    }
+    .eyebrow {
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+    }
+    p {
+      font-size: 1.04rem;
+      line-height: 1.7;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 22px;
+    }
+    .card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: #fbf7ee;
+      border: 1px solid var(--line);
+      padding: 18px 20px;
+    }
+    .card strong {
+      display: block;
+      font-size: 1.08rem;
+      margin-bottom: 6px;
+    }
+    .meta {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+    }
+    code {
+      background: #efe6d7;
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+      font-family: "Courier New", monospace;
+      font-size: 0.92rem;
+    }
+    @media (min-width: 760px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="shell">
+      <div class="eyebrow">VIBE SHITTING Submission Pack</div>
+      <h1>Read, Seen, Ignored</h1>
+      <p>This landing page points to the canonical final artifacts. The English and Chinese manuscripts are the only submission-authoritative texts. The older bilingual file remains an internal editorial synthesis.</p>
+      <div class="grid">
+        <a class="card" href="read-seen-ignored_submission_en.html">
+          <strong>English canonical preview</strong>
+          Submission-ready HTML built from <code>read-seen-ignored_submission_en.md</code>.
+        </a>
+        <a class="card" href="read-seen-ignored_submission_zh.html">
+          <strong>Chinese canonical preview</strong>
+          Submission-ready HTML built from <code>read-seen-ignored_submission_zh.md</code>.
+        </a>
+        <a class="card" href="read-seen-ignored_submission_en.md">
+          <strong>English canonical manuscript</strong>
+          Self-contained Markdown submission file with inlined references.
+        </a>
+        <a class="card" href="read-seen-ignored_submission_zh.md">
+          <strong>Chinese canonical manuscript</strong>
+          Self-contained Markdown submission file with inlined references.
+        </a>
+      </div>
+      <div class="meta">Internal editorial synthesis: <code>read-seen-ignored_submission-ready.md</code></div>
+    </section>
+  </main>
+</body>
+</html>
+"""
+    LANDING_TARGET.write_text(landing)
+
+
+def main() -> None:
+    for config in DOCUMENTS:
+        build_document(config)
+        print(f"Wrote {config['target']}")
+    build_landing_page()
+    print(f"Wrote {LANDING_TARGET}")
 
 
 if __name__ == "__main__":

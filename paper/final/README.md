@@ -1,10 +1,17 @@
 # Final Package Workspace
 
-This folder holds the current submission-ready package and release notes.
+This folder holds the canonical submission pack plus the internal editorial draft.
 
-Current files:
+Canonical files:
 
-- `read-seen-ignored_submission-ready.md`
+- `read-seen-ignored_submission_en.md`
+- `read-seen-ignored_submission_zh.md`
+- `read-seen-ignored_submission_en.html`
+- `read-seen-ignored_submission_zh.html`
 - `read-seen-ignored_submission-ready.html`
 - `submission-metadata.md`
 - `submission-checklist.md`
+
+Internal editorial file:
+
+- `read-seen-ignored_submission-ready.md`

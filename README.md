@@ -28,22 +28,24 @@
 
 ## Current Phase / 当前阶段
 
-**Phase 05 - Submission-Ready Draft / 可提交稿**
+**Phase 05 - Canonical Submission Pack / 正式投稿包**
 
 - Lead paper locked: `Read, Seen, Ignored: A Signaling-Game Analysis of Reply Latency in Advisor Group Chats`
 - Proposal: [paper/proposal/read-seen-ignored-proposal.md](paper/proposal/read-seen-ignored-proposal.md)
-- Final manuscript: [paper/final/read-seen-ignored_submission-ready.md](paper/final/read-seen-ignored_submission-ready.md)
-- English submission: [paper/final/read-seen-ignored_submission_en.md](paper/final/read-seen-ignored_submission_en.md)
-- Chinese submission: [paper/final/read-seen-ignored_submission_zh.md](paper/final/read-seen-ignored_submission_zh.md)
-- HTML preview: [paper/final/read-seen-ignored_submission-ready.html](paper/final/read-seen-ignored_submission-ready.html)
+- English canonical manuscript: [paper/final/read-seen-ignored_submission_en.md](paper/final/read-seen-ignored_submission_en.md)
+- Chinese canonical manuscript: [paper/final/read-seen-ignored_submission_zh.md](paper/final/read-seen-ignored_submission_zh.md)
+- English HTML preview: [paper/final/read-seen-ignored_submission_en.html](paper/final/read-seen-ignored_submission_en.html)
+- Chinese HTML preview: [paper/final/read-seen-ignored_submission_zh.html](paper/final/read-seen-ignored_submission_zh.html)
+- Submission pack landing: [paper/final/read-seen-ignored_submission-ready.html](paper/final/read-seen-ignored_submission-ready.html)
+- Internal editorial draft: [paper/final/read-seen-ignored_submission-ready.md](paper/final/read-seen-ignored_submission-ready.md)
 - Theory framework figure: [paper/figures/theory_framework_map.svg](paper/figures/theory_framework_map.svg)
 - Visual explainer plan: [paper/figures/visual-explainer-plan.md](paper/figures/visual-explainer-plan.md)
 - SHIT fit review: [paper/review/shit-fit-review-2026-03-07.md](paper/review/shit-fit-review-2026-03-07.md)
 - Submission metadata: [paper/final/submission-metadata.md](paper/final/submission-metadata.md)
 - Latest social draft: [social/xiaohongshu/post-06-theory-upgrade.md](social/xiaohongshu/post-06-theory-upgrade.md)
 
-当前主稿已经从选题推进到可提交草稿。  
-The lead paper has already moved from topic selection to a submission-ready draft.
+当前项目已经从选题推进到 EN/ZH 双主稿的正式投稿包。  
+The lead paper has already advanced from topic selection to a dual-manuscript canonical submission pack.
 
 ## What This Repo Ships / 这个仓库交付什么
 

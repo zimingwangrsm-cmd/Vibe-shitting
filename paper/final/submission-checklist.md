@@ -1,14 +1,15 @@
 # Submission Checklist / 提交清单
 
-- [x] Final title locked
-- [x] Chinese and English abstract available
-- [x] Full manuscript drafted
-- [x] Keywords prepared
-- [x] References prepared
-- [x] Figure source tables prepared
-- [x] Core SVG figures rendered
-- [x] HTML reading/export preview generated
-- [x] Submission metadata prepared
-- [x] Topic within known SHIT safety boundaries
-- [ ] Template formatting pass
+- [x] Canonical English manuscript prepared
+- [x] Canonical Chinese manuscript prepared
+- [x] References inlined in both canonical manuscripts
+- [x] English HTML preview generated
+- [x] Chinese HTML preview generated
+- [x] Submission pack landing generated
+- [x] Submission metadata updated
+- [x] SHIT-fit review prepared
+- [x] Visual explainer plan prepared
+- [x] Core explanatory figures rendered
+- [x] Topic remains within known SHIT safety boundaries
+- [x] CI checks canonical submission-pack consistency
 - [ ] PDF or DOC export if needed by platform

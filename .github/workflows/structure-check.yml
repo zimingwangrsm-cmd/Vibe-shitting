@@ -19,5 +19,14 @@ jobs:
       - name: Run structure check
         run: python scripts/status_report.py
 
+      - name: Run submission-pack check
+        run: python scripts/check_submission_pack.py
+
+      - name: Rebuild canonical HTML previews
+        run: python scripts/build_submission_html.py
+
+      - name: Ensure generated previews are committed
+        run: git diff --exit-code
+
       - name: Compile helper scripts
-        run: python -m py_compile scripts/new_phase.py scripts/new_xhs_post.py scripts/status_report.py scripts/render_figures.py scripts/build_submission_html.py scripts/render_covers.py
+        run: python -m py_compile scripts/new_phase.py scripts/new_xhs_post.py scripts/status_report.py scripts/check_submission_pack.py scripts/render_figures.py scripts/build_submission_html.py scripts/render_covers.py

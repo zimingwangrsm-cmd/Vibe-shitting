@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>已读、不回、稍后回复：导师群聊响应延迟的信号博弈分析</title>
+  <style>
+    :root {
+      --paper: #f9f6ef;
+      --shell: #fffdf9;
+      --ink: #171717;
+      --muted: #5e594f;
+      --accent: #8b5e34;
+      --line: #d7cebf;
+      --panel: #f0e8da;
+      --soft: #f6f1e8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(173, 131, 71, 0.10), transparent 28%),
+        linear-gradient(180deg, #efe6d4 0%, #f5efe4 26%, #f9f6ef 100%);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.72;
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+    .paper-shell {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 50px rgba(52, 45, 32, 0.08);
+      padding: 30px 34px 28px;
+      margin-bottom: 28px;
+    }
+    .masthead {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--ink);
+    }
+    .title-block {
+      padding: 22px 0 18px;
+    }
+    .paper-title {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      text-wrap: balance;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 10px;
+    }
+    .meta-card {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      padding: 16px 18px;
+    }
+    .meta-label {
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .meta-line, .keyword-line {
+      font-size: 1rem;
+    }
+    .working-note {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+    h2, h3 {
+      font-weight: 700;
+      line-height: 1.22;
+    }
+    .section-title {
+      margin-top: 2.6rem;
+      margin-bottom: 0.8rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-size: 1.5rem;
+    }
+    .subsection-title {
+      font-size: 1.14rem;
+      margin-top: 1.28rem;
+      margin-bottom: 0.5rem;
+    }
+    p, li {
+      font-size: 1.04rem;
+    }
+    code {
+      background: #efe6d7;
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+      font-family: "Courier New", monospace;
+      font-size: 0.92rem;
+    }
+    .abstract-card {
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--accent);
+      padding: 18px 20px 8px;
+      margin: 0 0 22px;
+    }
+    .abstract-card .section-title {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+      font-size: 1.25rem;
+    }
+    .figure-panel {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+      margin: 2.2rem 0;
+    }
+    .inline-figure {
+      margin: 1.8rem 0 1.6rem;
+    }
+    figure {
+      margin: 0;
+      padding: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+    img {
+      width: 100%;
+      display: block;
+      height: auto;
+      background: white;
+    }
+    figcaption {
+      margin-top: 0.75rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.2rem 0 1.8rem;
+      font-size: 0.96rem;
+      background: rgba(255,255,255,0.58);
+    }
+    th, td {
+      padding: 0.72rem 0.75rem;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #efe6d7;
+    }
+    @media (min-width: 860px) {
+      .meta-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (min-width: 960px) {
+      .figure-panel {
+        grid-template-columns: 1.18fr 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="paper-shell">
+  <div class="masthead">
+    <div>VIBE SHITTING Working Paper Series</div>
+    <div>No. 01 / March 2026</div>
+  </div>
+  <div class="title-block">
+    <h1 class="paper-title">已读、不回、稍后回复：导师群聊响应延迟的信号博弈分析</h1>
+  </div>
+  <div class="meta-grid">
+    <section class="meta-card">
+      <div class="meta-label">Author</div>
+      <div class="meta-line">沧生</div><div class="meta-line">VIBE SHITTING Lab for Reputational Studies</div>
+    </section>
+    <section class="meta-card">
+      <div class="meta-label">Keywords</div>
+      <div class="keyword-line">导师群聊；信号理论；时序线索；沟通可见性；志愿者困境；期望状态；研究生生活</div>
+    </section>
+  </div>
+  <div class="working-note">Canonical Chinese Submission Preview</div>
+</header>
+    <article class="paper-shell">
+      <section class="abstract-card"><h2 class="section-title">摘要</h2><p>本文将导师群聊中的回复时延视为一种混合性的“信号行为 + 时间线索 + 多人志愿者困境”。本文认为，研究生优化的并不是“秒回”，而是一段狭窄的延迟区间：它既要显得勤奋可靠，又不能显得过于空闲，以至于被系统性加活。基于信号理论、声誉模型、计算机媒介沟通、沟通可见性、期望状态和志愿者困境逻辑，本文分析了 28 个重建研究群中的 4,236 个“消息-回复”对。结果显示，回复延迟与感知勤奋度之间存在倒 U 型关系：回复过快会暴露可疑的空闲，回复过慢则会被理解为疏忽、崩溃或软性失联。群聊人数越多，最初的观望越明显；但一旦任务归属清晰，责任扩散便会迅速崩塌。基于这一结构，本文命名了五个主要效应：<strong>导师在场同门压缩效应</strong>、<strong>默认接活人陷阱</strong>、<strong>首回复折扣</strong>、<strong>采购主权原理</strong>与<strong>假期智力回撤</strong>。本文据此认为，导师群聊中的回复时延并非简单礼仪，而是一种发生在公开不对称关系中的微型声誉劳动技术。</p></section>
+<h2 class="section-title">1. 引言</h2>
+<p>导师群聊通常被描述成一种沟通工具，但在真实学术生活里，它更像一个小型舞台：层级、勤奋、服从、可见性和额外劳动都在这里被同时表演。导师发出一条消息，并不只是“问个事”，而是在瞬间打开一个公共场景：谁在盯着消息，谁没空，谁在躲，谁又看起来“特别适合再接一项任务”。</p>
+<p>正因如此，研究生在群里优化的从来不是“越快越好”的回复速度，而是一个极其狭窄的时间窗口：回太快，像很闲；回太慢，像失联；回得刚刚好，才像一个正在认真工作、但还不至于被无止境抽取的人。</p>
+<p>这个题目非常适合 SHIT 风格，因为它有三个特征：</p>
+<ol><li>事情很小，心理代价很大</li><li>人人都懂，但很少有人会一本正经地分析</li><li>越认真建模，越显得离谱又真实</li></ol>
+<h2 class="section-title">2. 理论框架</h2>
+<h3 class="subsection-title">2.1 信号与声誉</h3>
+<p>按照 Spence 与 Kreps/Wilson 的逻辑，回复时延可以被视为一种低成本、但会反复出现的信号。导师看不见学生此刻到底是在认真改稿、忙着做实验、地铁上发呆，还是盯着聊天框斟酌第七版“收到老师”。导师能看见的，是学生回没回、多久回、用什么语气回。</p>
+<p>因此，回复时延传达的从来不只是“是否收到消息”，而是一整包隐藏状态：勤奋、服从、稳定、慌张、余量和可被榨取程度。</p>
+<h3 class="subsection-title">2.2 时间线索与群聊可见性</h3>
+<p>计算机媒介沟通研究表明，时间戳本身就是一种社交线索。在线上交流里，“什么时候回”并不是空白时间，而是内容的一部分。导师群聊尤其如此，因为它不是一对一聊天，而是一种被多人同时观看的公开微表演。</p>
+<p>一条同门发出的消息，如果导师在群里看着，就会立刻变得不再完全平级。本文将这一现象称为：<strong>导师在场同门压缩效应</strong>。也就是说，层级不一定需要亲自开口，才能在时延上留下痕迹。</p>
+<h3 class="subsection-title">2.3 角色异质性与实验室政治</h3>
+<p>期望状态理论提醒我们，群体中的责任和发言期待不是平均分配的。实验室也是如此。并不是每个人都能以同样的速度“合理地拖一拖”。</p>
+<p>在这篇稿子里，最关键的三个角色是：</p>
+<ul><li><strong>一作学弟</strong>：稿子主要归他，但制度权力不归他</li><li><strong>采购学长</strong>：论文荣光未必归他，但报销发票和试剂下单常常归他</li><li><strong>浑水的鱼</strong>：只要任务归属不明，就努力等更像责任人的那个人先回</li></ul>
+<p>这些角色之所以好笑，不是因为它们夸张，而是因为几乎每个实验室都能对号入座。</p>
+<h3 class="subsection-title">2.4 志愿者困境与首回复顺序</h3>
+<p>导师群聊还可以被理解为一种多人志愿者困境：只要有一个人先回，群体就暂时得救；但这个“先回的人”往往要承担更多后续义务。因此，在任务归属不明确时，每个人都倾向于再等等，看有没有别人先冲。</p>
+<p>这会产生两个极具 SHIT 味道的效应：</p>
+<ul><li><strong>默认接活人陷阱</strong>：任务一旦明显属于某个人，这个人终究会被推出水面</li><li><strong>首回复折扣</strong>：一旦已经有人体面地回复过，其他人的后续回复就迅速失去“勤奋加分”</li></ul>
+<h2 class="section-title">3. 研究设计</h2>
+<p>本文使用 2024 年 1 月至 2025 年 12 月间 28 个导师关联研究群的重建语料，共计 4,236 个“消息-回复”对。群成员规模从 4 人到 17 人不等。该数据集并非真实聊天记录归档，而是基于广泛可识别的互动模式进行重构，目标不是做行为存档，而是做规范结构建模。</p>
+<p>每个事件按以下变量编码：</p>
+<ol><li>发送者层级</li><li>群聊人数</li><li>人员构成</li><li>消息类型</li><li>紧急程度</li><li>可见性强弱</li><li>任务归属</li><li>回复顺序</li><li>假期阶段</li><li>表情密度</li></ol>
+<p>学生 <code>i</code> 的回复效用可被表示为：</p>
+<p><code>U_i(l_i) = alpha<em>D_i + beta</em>R_i - gamma<em>A_i - delta</em>B_i - eta*H_i</code></p>
+<p>其中：</p>
+<ul><li><code>D_i</code> = 勤奋得分</li><li><code>R_i</code> = 可靠得分</li><li><code>A_i</code> = 任务追加风险</li><li><code>B_i</code> = 责备与怀疑成本</li><li><code>H_i</code> = 假期脑雾惩罚</li></ul>
+<p>这个模型想表达的是：道德上看起来最正确的回复，策略上不一定最安全。</p>
+<section class="figure-panel">
+  <figure>
+    <img src="../figures/theory_framework_map.svg" alt="Theory framework map"/>
+    <figcaption>Figure 1. Theoretical Framework and Group-Chat Game.</figcaption>
+  </figure>
+  <figure>
+    <img src="../figures/latency_diligence_curve.svg" alt="Latency diligence curve"/>
+    <figcaption>Figure 2. Latency-Diligence Curve.</figcaption>
+  </figure>
+  <figure>
+    <img src="../figures/hierarchy_window_chart.svg" alt="Hierarchy delay window chart"/>
+    <figcaption>Figure 3. Hierarchy-Specific Acceptable Delay Window.</figcaption>
+  </figure>
+</section>
+<h2 class="section-title">4. 结果</h2>
+<h3 class="subsection-title">4.1 勤奋度的倒 U 型曲线</h3>
+<p>对于常规消息，最稳定的回复窗口大约落在 <code>8-18 分钟</code>。在这个区间内，学生看起来既勤奋又可靠，同时不会立刻显得“极度空闲”。小于 2 分钟的回复虽然很可靠，但也最容易暴露“你看起来还可以再接点活”的风险。超过 48 分钟以后，则开始像疏忽、失联或精神状态出现了基础设施级故障。</p>
+<h3 class="subsection-title">4.2 导师在场同门压缩效应</h3>
+<p>导师本人直接发消息时，最优窗口会显著前移，这是容易理解的。更有意思的是，同门发消息时，只要导师在群里看得见，回复窗口也会被压缩。这意味着很多看似横向的交流，实际上在时间结构上已经半垂直化了。</p>
+<section class="inline-figure">
+  <figure>
+    <img src="../figures/first_responder_discount.svg" alt="First-responder discount chart"/>
+    <figcaption>Figure 4. First-Responder Discount.</figcaption>
+  </figure>
+</section>
+<h3 class="subsection-title">4.3 默认接活人陷阱与首回复折扣</h3>
+<p>大群聊最容易出现集体观望。尤其在 <code>11+</code> 的群里，如果任务归属不明确，大家都会本能地再等等看，期待另一个更像责任人的人先回。</p>
+<p>但这种模糊只要一旦破掉，责任扩散就会瞬间崩盘。比如论文返修明显归一作学弟、报销流程明显归采购学长时，相关角色的回复速度会突然显著提前。这就是<strong>默认接活人陷阱</strong>。</p>
+<p>与此同时，一旦群里已经出现一个体面的首回复，后面其他人的回复就很容易变成气氛组行为：礼貌有余，实质加分不多。这就是<strong>首回复折扣</strong>。通俗地说，只要已经有人及时发出了正确物种的“收到老师”，剩下的人就都可以适当转型为空气。</p>
+<section class="inline-figure">
+  <figure>
+    <img src="../figures/role_obligation_matrix.svg" alt="Role obligation matrix"/>
+    <figcaption>Figure 5. Role Obligation Matrix.</figcaption>
+  </figure>
+</section>
+<h3 class="subsection-title">4.4 采购主权原理</h3>
+<p>本文发现，采购报销负责人常常拥有整个实验室里最早的一批回复窗口。这件事极其滑稽，但又极其合理。因为论文署名上的荣光未必归他，但试剂、发票、耗材、下单、报销这些维持实验室生命体征的系统性资源，往往都握在他手里。</p>
+<p>这就是<strong>采购主权原理</strong>：行政性权力经常比象征性荣誉更直接地决定谁不能失联。</p>
+<h3 class="subsection-title">4.5 假期智力回撤</h3>
+<p>长假后的前 72 小时里，低、中紧急度消息的可接受延迟会整体右移 <code>6-11 分钟</code>。群里似乎短暂承认了：大家都比平时更不像一个准备好重新当机构人的人。</p>
+<p>但这并不意味着真正的宽容。导师直接点名时，回复窗口仍然非常早；deadline 升级时，假期脑雾几乎得不到制度赦免。于是便得到一个非常逆天但非常真实的结论：假期结束以后，先恢复的通常不是智力，而是排会能力。</p>
+<h3 class="subsection-title">4.6 表情补偿效应</h3>
+<p>低密度表情在低紧急度消息里可以略微修复中度延迟，但在强层级场景下，这种补偿很快失效。表情不再像温暖，而开始像证据。</p>
+<h2 class="section-title">5. 讨论</h2>
+<p>本文最核心的判断是：导师群聊里的回复时延，本质上是一种声誉劳动。学生不只是在管理文字，也在管理时间；而时间一旦被道德化和公开化，它就会变成工作。</p>
+<p>从这个角度看，实验室不像一个平滑的信息网络，更像一套带有奇怪职位的宪制结构：</p>
+<ul><li>一作学弟：高责任，低否决</li><li>采购学长：低荣光，高主权</li><li>博士后代理人：低名分，高传令</li><li>浑水的鱼：低主动，高存活</li></ul>
+<p>这些角色之所以让人会心一笑，是因为它们并非夸张，而是过于准确。</p>
+<h2 class="section-title">6. 逆天但可信的推论</h2>
+<h3 class="subsection-title">推论 1</h3>
+<p>实验室里最容易被持续加活的人，不一定是最能干的人，而是回复时机最稳定的人。</p>
+<h3 class="subsection-title">推论 2</h3>
+<p>在足够大的群聊里，群体智能会先下降，直到有人被明确点名。</p>
+<h3 class="subsection-title">推论 3</h3>
+<p>实验室即便不减少任何工作量，也可以仅通过重新分配“谁来第一个回消息”，显著降低可见恐慌。</p>
+<h3 class="subsection-title">推论 4</h3>
+<p>长假之后，导师的排会恢复速度通常快于整个实验室的认知恢复速度。</p>
+<h3 class="subsection-title">推论 5</h3>
+<p>一个研究生在群里最优雅的生存策略，不是回得最快，而是让导师觉得你可靠、让同门觉得你在忙、让系统觉得你还没完全死机。</p>
+<h2 class="section-title">7. 结论</h2>
+<p>导师群聊中的研究生并不是“简单回个消息”。他是在被不平等观察、多人围观和任务随时追加的条件下，公开表演一种恰到好处的可靠性。因此，回复时延既是信号，也是盾牌；它是勤奋、恐惧、归属、可被抽取性与层级关系在微小时间片上的集中谈判。</p>
+<p>所以，“你为什么不直接回？”这个问题没有简单答案。一个人必须回得足够早，才能显得忠诚；又必须回得足够晚，才能显得没有闲到危险；而在长假后的前三天，还得用仅存不多的组织智力假装自己已经恢复工作状态。</p>
+<h2 class="section-title">表 1. 消息类型风险矩阵</h2>
+<table><thead><tr><th>消息类型</th><th>紧急度</th><th>最优回复窗口</th><th>额外接活风险</th><th>解释逻辑</th></tr></thead><tbody><tr><td>硬召唤</td><td>高</td><td>1-6 分钟</td><td>9.4</td><td>不回就像抗命</td></tr>
+<tr><td>deadline 升级</td><td>高</td><td>2-9 分钟</td><td>8.7</td><td>延迟会被理解为崩溃</td></tr>
+<tr><td>论文批注</td><td>中</td><td>6-15 分钟</td><td>7.8</td><td>一作归属把窗口整体前移</td></tr>
+<tr><td>行政提醒</td><td>中</td><td>9-21 分钟</td><td>5.2</td><td>中度延迟像在处理中</td></tr>
+<tr><td>报销采购请求</td><td>中</td><td>4-12 分钟</td><td>7.4</td><td>采购归属极易被看见</td></tr>
+<tr><td>表扬型消息</td><td>中</td><td>4-12 分钟</td><td>9.1</td><td>能力一旦可见，就容易被再利用</td></tr>
+<tr><td>轻度 ping</td><td>低</td><td>14-37 分钟</td><td>4.7</td><td>回太快反而像很闲</td></tr>
+<tr><td>假期点名</td><td>低</td><td>18-46 分钟</td><td>5.9</td><td>大家都慢，但没人被真正原谅</td></tr></tbody></table>
+<h2 class="section-title">表 2. 角色异质性窗口</h2>
+<table><thead><tr><th>角色类型</th><th>典型场景</th><th>最优回复窗口</th><th>结构性约束</th></tr></thead><tbody><tr><td>---</td><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>一作学弟</td><td>修改返修、稿件批注</td><td>5-14 分钟</td><td>公开责任高，制度否决低</td></tr>
+<tr><td>采购学长</td><td>报销、采购、表单</td><td>4-12 分钟</td><td>行政主权高，不便失联</td></tr>
+<tr><td>实验操作者</td><td>仪器异常、样品问题</td><td>3-11 分钟</td><td>技术归属非常清晰</td></tr>
+<tr><td>博士后代理人</td><td>转述导师安排</td><td>7-19 分钟</td><td>层级委托明显</td></tr>
+<tr><td>普通围观学弟</td><td>群提醒</td><td>14-36 分钟</td><td>归属不明时可躲在群体中</td></tr>
+<tr><td>纯同辈浑水鱼</td><td>横向协作</td><td>22-61 分钟</td><td>导师不可见时更易漂浮</td></tr></tbody></table>
+<h2 class="section-title">表 3. 命名效应与白话解释</h2>
+<table><thead><tr><th>命名效应</th><th>白话解释</th></tr></thead><tbody><tr><td>---</td><td>---</td></tr>
+<tr><td>导师在场同门压缩效应</td><td>同门发的消息，只要导师在看，就会变得像半个导师消息</td></tr>
+<tr><td>默认接活人陷阱</td><td>任务归属一旦明显，就总会有人被系统推出水面</td></tr>
+<tr><td>首回复折扣</td><td>只要已经有人正确回复过，后面的人加分会迅速变少</td></tr>
+<tr><td>采购主权原理</td><td>最不显眼的人，未必不是掌握实际权力的人</td></tr>
+<tr><td>假期智力回撤</td><td>假期结束后，人恢复思考通常比机构恢复排班更慢</td></tr></tbody></table>
+<h2 class="section-title">参考文献</h2>
+<h3 class="subsection-title">核心理论</h3>
+<p>Alvesson, M. (2013). <em>The triumph of emptiness: Consumption, higher education, and work organization</em>. Oxford University Press.</p>
+<p>Berger, J., Cohen, B. P., &amp; Zelditch, M., Jr. (1972). Status characteristics and social interaction. <em>American Sociological Review, 37</em>(3), 241-255.</p>
+<p>Daft, R. L., &amp; Lengel, R. H. (1986). Organizational information requirements, media richness and structural design. <em>Management Science, 32</em>(5), 554-571.</p>
+<p>Goffman, E. (1959). <em>The presentation of self in everyday life</em>. Doubleday.</p>
+<p>Hochschild, A. R. (1983). <em>The managed heart: Commercialization of human feeling</em>. University of California Press.</p>
+<p>Kreps, D. M., &amp; Wilson, R. (1982). Reputation and imperfect information. <em>Journal of Economic Theory, 27</em>(2), 253-279.</p>
+<p>Spence, M. (1973). Job market signaling. <em>Quarterly Journal of Economics, 87</em>(3), 355-374.</p>
+<h3 class="subsection-title">计算机媒介沟通</h3>
+<p>Kalman, Y. M., Scissors, L. E., Gill, A. J., &amp; Gergle, D. (2013). Online chronemics convey social information. <em>Computers in Human Behavior, 29</em>(3), 1260-1269.</p>
+<p>Leonardi, P. M. (2014). Social media, knowledge sharing, and innovation: Toward a theory of communication visibility. <em>Information Systems Research, 25</em>(4), 796-816.</p>
+<p>Tidwell, L. C., &amp; Walther, J. B. (2002). Computer-mediated communication effects on disclosure, impressions, and interpersonal evaluations: Getting to know one another a bit at a time. <em>Human Communication Research, 28</em>(3), 317-348.</p>
+<p>Walther, J. B. (1992). Interpersonal effects in computer-mediated interaction: A relational perspective. <em>Communication Research, 19</em>(1), 52-90.</p>
+<p>Walther, J. B. (1996). Computer-mediated communication: Impersonal, interpersonal, and hyperpersonal interaction. <em>Communication Research, 23</em>(1), 3-43.</p>
+<p>Walther, J. B., &amp; Tidwell, L. C. (1995). Nonverbal cues in computer-mediated communication, and the effect of chronemics on relational communication. <em>Journal of Organizational Computing, 5</em>(4), 355-378.</p>
+<p>Ziano, I., &amp; Wang, B. (2021). Does response delay influence how an email sender is perceived? <em>Journal of Computer-Mediated Communication, 26</em>(6), 395-409.</p>
+<h3 class="subsection-title">多人协调与博弈</h3>
+<p>Darley, J. M., &amp; Latané, B. (1968). Bystander intervention in emergencies: Diffusion of responsibility. <em>Journal of Personality and Social Psychology, 8</em>(4, Pt. 1), 377-383.</p>
+<p>Diekmann, A. (1985). Volunteer&#x27;s dilemma. <em>Journal of Conflict Resolution, 29</em>(4), 605-610.</p>
+<p>Diekmann, A. (1993). Cooperation in an asymmetric volunteer&#x27;s dilemma game: Theory and experimental evidence. <em>International Journal of Game Theory, 22</em>, 75-85.</p>
+<h3 class="subsection-title">戏谑场景的语境材料</h3>
+<p>文中涉及的社交媒体语汇，如 MBTI 团队角色、节后综合征、表情误读与实验室隐形劳动，主要作为场景化解释资源使用，而非正式实证变量。</p>
+    </article>
+  </main>
+</body>
+</html>

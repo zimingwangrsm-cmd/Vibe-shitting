@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Read, Seen, Ignored: A Signaling-Game Analysis of Reply Latency in Advisor Group Chats</title>
+  <style>
+    :root {
+      --paper: #f9f6ef;
+      --shell: #fffdf9;
+      --ink: #171717;
+      --muted: #5e594f;
+      --accent: #8b5e34;
+      --line: #d7cebf;
+      --panel: #f0e8da;
+      --soft: #f6f1e8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(173, 131, 71, 0.10), transparent 28%),
+        linear-gradient(180deg, #efe6d4 0%, #f5efe4 26%, #f9f6ef 100%);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.72;
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+    .paper-shell {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 50px rgba(52, 45, 32, 0.08);
+      padding: 30px 34px 28px;
+      margin-bottom: 28px;
+    }
+    .masthead {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--ink);
+    }
+    .title-block {
+      padding: 22px 0 18px;
+    }
+    .paper-title {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      text-wrap: balance;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 10px;
+    }
+    .meta-card {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      padding: 16px 18px;
+    }
+    .meta-label {
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .meta-line, .keyword-line {
+      font-size: 1rem;
+    }
+    .working-note {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+    h2, h3 {
+      font-weight: 700;
+      line-height: 1.22;
+    }
+    .section-title {
+      margin-top: 2.6rem;
+      margin-bottom: 0.8rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-size: 1.5rem;
+    }
+    .subsection-title {
+      font-size: 1.14rem;
+      margin-top: 1.28rem;
+      margin-bottom: 0.5rem;
+    }
+    p, li {
+      font-size: 1.04rem;
+    }
+    code {
+      background: #efe6d7;
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+      font-family: "Courier New", monospace;
+      font-size: 0.92rem;
+    }
+    .abstract-card {
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--accent);
+      padding: 18px 20px 8px;
+      margin: 0 0 22px;
+    }
+    .abstract-card .section-title {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+      font-size: 1.25rem;
+    }
+    .figure-panel {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+      margin: 2.2rem 0;
+    }
+    .inline-figure {
+      margin: 1.8rem 0 1.6rem;
+    }
+    figure {
+      margin: 0;
+      padding: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+    img {
+      width: 100%;
+      display: block;
+      height: auto;
+      background: white;
+    }
+    figcaption {
+      margin-top: 0.75rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.2rem 0 1.8rem;
+      font-size: 0.96rem;
+      background: rgba(255,255,255,0.58);
+    }
+    th, td {
+      padding: 0.72rem 0.75rem;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #efe6d7;
+    }
+    @media (min-width: 860px) {
+      .meta-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (min-width: 960px) {
+      .figure-panel {
+        grid-template-columns: 1.18fr 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="paper-shell">
+  <div class="masthead">
+    <div>VIBE SHITTING Working Paper Series</div>
+    <div>No. 01 / March 2026</div>
+  </div>
+  <div class="title-block">
+    <h1 class="paper-title">Read, Seen, Ignored: A Signaling-Game Analysis of Reply Latency in Advisor Group Chats</h1>
+  </div>
+  <div class="meta-grid">
+    <section class="meta-card">
+      <div class="meta-label">Author</div>
+      <div class="meta-line">Cangsheng</div><div class="meta-line">VIBE SHITTING Lab for Reputational Studies</div>
+    </section>
+    <section class="meta-card">
+      <div class="meta-label">Keywords</div>
+      <div class="keyword-line">advisor group chats; signaling; chronemics; communication visibility; volunteer&#x27;s dilemma; expectation states; graduate student life</div>
+    </section>
+  </div>
+  <div class="working-note">Canonical English Submission Preview</div>
+</header>
+    <article class="paper-shell">
+      <section class="abstract-card"><h2 class="section-title">Abstract</h2><p>This paper studies reply latency in advisor group chats as a hybrid signaling game, chronemic cue, and multi-person volunteer&#x27;s dilemma. Graduate students do not optimize for immediate response. They search for a narrow delay band that simultaneously signals diligence, preserves reliability, limits assignment hazard, and remains legible to a heterogeneous audience. Drawing on signaling theory, reputation models, computer-mediated communication, communication visibility, expectation states, and volunteer&#x27;s-dilemma logic, the paper analyzes 4,236 message-response dyads across 28 reconstructed research groups. The results show an inverse-U relation between latency and perceived diligence: replies that are too fast imply suspicious idleness, while replies that are too slow imply neglect, collapse, or soft refusal disguised as infrastructure. Group size widens the initial waiting game until ownership becomes salient, at which point diffusion of responsibility collapses. The paper names five stylized effects: the <strong>Advisor-Visible Peer Compression Effect</strong>, the <strong>Default Volunteer Trap</strong>, the <strong>First-Responder Discount</strong>, the <strong>Procurement Sovereignty Principle</strong>, and the <strong>Holiday Intelligence Drawdown</strong>. Together they show that advisor-group-chat latency is not mere etiquette but a small technology of reputational labor under public asymmetry.</p></section>
+<h2 class="section-title">1. Introduction</h2>
+<p>Advisor group chats are often treated as logistical channels. In practice, they operate as compact theaters of hierarchy, diligence, moral visibility, and extractable availability. A single advisor message does not merely request information; it opens a scene in which everyone can infer who is attentive, who is overloaded, who is avoiding work, and who looks fatally reachable.</p>
+<p>This paper argues that reply timing in such chats should be understood as a strategic signal rather than a neutral communication habit. Students do not simply ask, “What is the correct answer?” They ask, “How quickly can I answer without looking negligent, and how slowly can I answer without looking disloyal?” The optimal response is therefore not the fastest one. It is the one that makes a student appear responsible but not infinitely harvestable.</p>
+<p>This is a strong SHIT-type problem because the scale is tiny while the emotional cost is huge. Nothing material may happen in six minutes, yet six minutes can determine whether one looks diligent, lazy, free, or doomed.</p>
+<h2 class="section-title">2. Theoretical Framework</h2>
+<h3 class="subsection-title">2.1 Signaling and Reputation</h3>
+<p>Following Spence (1973) and Kreps and Wilson (1982), the paper treats reply delay as a repeated low-cost signal of hidden states. In advisor chats, the hidden states are not simply competence. They include busyness, obedience, stability, fear, and spare capacity. The student who replies instantly may signal reliability, but may also signal dangerous underemployment.</p>
+<h3 class="subsection-title">2.2 Chronemics in Computer-Mediated Communication</h3>
+<p>Research in computer-mediated communication shows that timing is itself a social cue (Walther, 1992; Walther, 1996; Kalman et al., 2013; Ziano &amp; Wang, 2021). A timestamp is not empty time. It is a visible social gesture. In a group-chat setting, “later” and “too late” are not objective durations but reputational categories.</p>
+<h3 class="subsection-title">2.3 Communication Visibility and Audience Composition</h3>
+<p>Advisor group chats are visible environments in Leonardi&#x27;s sense. Messages and timestamps are co-witnessed by advisors, postdocs, seniors, juniors, and future screenshots. A peer question with the advisor visibly present becomes something between peer communication and a surprise oral defense. This is the <strong>Advisor-Visible Peer Compression Effect</strong>: once the superior is visibly in the room, even horizontal messages start behaving vertically.</p>
+<h3 class="subsection-title">2.4 Role Heterogeneity and Obligation</h3>
+<p>Expectation-states logic helps explain why equal delays are judged unequally. A first-author junior, a procurement steward, an experiment operator, and a generic bystander do not inhabit the same constitutional office. The first-author junior has high manuscript obligation and low veto power. The procurement steward has low symbolic glory and unexpectedly high invoice sovereignty. Both are early repliers, but for opposite structural reasons.</p>
+<h3 class="subsection-title">2.5 Volunteer&#x27;s Dilemma and Reply Order</h3>
+<p>Group chats also instantiate a volunteer&#x27;s dilemma. Everybody benefits if somebody replies, but not everybody wants the cost of being the first reliable organism. As group size grows, waiting becomes easier. Yet the fantasy of collective ambiguity ends the moment somebody is clearly responsible. This produces two named effects:</p>
+<ul><li><strong>Default Volunteer Trap</strong>: the person with legible ownership cannot remain atmospheric for long.</li><li><strong>First-Responder Discount</strong>: once a credible reply appears, everyone else&#x27;s marginal diligence credit falls sharply.</li></ul>
+<h3 class="subsection-title">2.6 Vernacular Lab Politics</h3>
+<p>Chinese platform discourse contributes a useful folk vocabulary here. The paper uses figures such as the <code>muddy-water fish</code>, the <code>first-author junior</code>, the <code>procurement senior</code>, and MBTI-style duty-keeper talk not as psychometrics, but as vernacular role descriptors. They work because they are lay theories of unequal obligation. They are memes with job descriptions.</p>
+<h2 class="section-title">3. Research Design</h2>
+<p>The study analyzes 4,236 message-response dyads reconstructed from 28 advisor-linked research groups between January 2024 and December 2025. Group size ranges from 4 to 17 visible members. The corpus is synthetic but emotionally realist: its purpose is to model norm perception rather than archive literal logs.</p>
+<p>Each event is coded by:</p>
+<ol><li>sender hierarchy</li><li>group size</li><li>composition profile</li><li>message type</li><li>urgency</li><li>visibility</li><li>task ownership</li><li>reply order</li><li>holiday phase</li><li>emoji density</li></ol>
+<p>We model each student actor <code>i</code> as choosing delay <code>l_i</code> to maximize:</p>
+<p><code>U_i(l_i) = alpha<em>D_i + beta</em>R_i - gamma<em>A_i - delta</em>B_i - eta*H_i</code></p>
+<p>where:</p>
+<ul><li><code>D_i</code> = diligence credit</li><li><code>R_i</code> = reliability credit</li><li><code>A_i</code> = assignment hazard</li><li><code>B_i</code> = blame or suspicion</li><li><code>H_i</code> = holiday-fog penalty</li></ul>
+<p>This formulation captures the core dilemma: the reply that looks best morally is often the reply that looks worst strategically.</p>
+<section class="figure-panel">
+  <figure>
+    <img src="../figures/theory_framework_map.svg" alt="Theory framework map"/>
+    <figcaption>Figure 1. Theoretical Framework and Group-Chat Game.</figcaption>
+  </figure>
+  <figure>
+    <img src="../figures/latency_diligence_curve.svg" alt="Latency diligence curve"/>
+    <figcaption>Figure 2. Latency-Diligence Curve.</figcaption>
+  </figure>
+  <figure>
+    <img src="../figures/hierarchy_window_chart.svg" alt="Hierarchy delay window chart"/>
+    <figcaption>Figure 3. Hierarchy-Specific Acceptable Delay Window.</figcaption>
+  </figure>
+</section>
+<h2 class="section-title">4. Results</h2>
+<h3 class="subsection-title">4.1 The Inverse-U of Diligence</h3>
+<p>The most stable routine reply band lies between <code>8-18 min</code>. Replies in this zone score highest on diligence and reliability while avoiding the steepest assignment hazard. Replies under 2 minutes look responsible but over-available. Replies beyond 48 minutes begin to look like collapse, avoidance, or infrastructural tragedy.</p>
+<h3 class="subsection-title">4.2 Advisor-Visible Peer Compression</h3>
+<p>Direct advisor messages compress the optimal window to roughly <code>6-18 min</code>. More importantly, peer messages also compress once the advisor is visibly present. This is the <strong>Advisor-Visible Peer Compression Effect</strong>: the hierarchy does not need to speak in order to be heard.</p>
+<section class="inline-figure">
+  <figure>
+    <img src="../figures/first_responder_discount.svg" alt="First-responder discount chart"/>
+    <figcaption>Figure 4. First-Responder Discount.</figcaption>
+  </figure>
+</section>
+<h3 class="subsection-title">4.3 Default Volunteer Trap and First-Responder Discount</h3>
+<p>In groups of <code>11+</code>, median first visible reply time rises when ownership is ambiguous. Everyone waits for somebody else to die first. Yet the moment ownership is legible, the window collapses: the first-author junior on a revision thread or the procurement steward on a reimbursement request cannot remain hidden for long. That is the <strong>Default Volunteer Trap</strong>.</p>
+<p>Once a credible reply appears, later participants receive far less diligence credit. Their replies become mainly ceremonial. That is the <strong>First-Responder Discount</strong>. In effect, one correctly timed “Received, professor” can reduce the moral urgency for the remaining ten people.</p>
+<section class="inline-figure">
+  <figure>
+    <img src="../figures/role_obligation_matrix.svg" alt="Role obligation matrix"/>
+    <figcaption>Figure 5. Role Obligation Matrix.</figcaption>
+  </figure>
+</section>
+<h3 class="subsection-title">4.4 Procurement Sovereignty Principle</h3>
+<p>The paper finds that the procurement steward often carries one of the earliest reply windows in the entire lab. This is structurally comic and empirically plausible. The person who may receive the fewest citation blessings often controls the invoices, forms, and reagent flows that keep everyone alive. This is the <strong>Procurement Sovereignty Principle</strong>: bureaucratic leverage can exceed symbolic prestige.</p>
+<h3 class="subsection-title">4.5 Holiday Intelligence Drawdown</h3>
+<p>For the first 72 hours after a long holiday, low- and medium-urgency messages tolerate an additional <code>6-11 min</code> before sharp suspicion emerges. Yet direct summons still demand rapid acknowledgment. The result is not freedom but degraded compliance. This is the <strong>Holiday Intelligence Drawdown</strong>: the lab becomes collectively slower before it becomes institutionally forgiven.</p>
+<h3 class="subsection-title">4.6 Emoji Reparations</h3>
+<p>Light emoji use can mildly repair moderate delay in low-urgency contexts. Under strong hierarchy, however, emoji cease to function as warmth and begin to risk functioning as evidence.</p>
+<h2 class="section-title">5. Discussion</h2>
+<p>The central claim is simple: advisor-group-chat delay is reputational labor. Students manage not only content but timing, and timing is work. The signal is cheap, repeated, visible, and morally overinterpreted. This makes it powerful.</p>
+<p>The lab therefore appears less as a flat communication network than as a constitutional order with strange offices:</p>
+<ul><li>the first-author junior: high obligation, low veto</li><li>the procurement steward: low glory, high leverage</li><li>the postdoc proxy: low sovereignty, high relay power</li><li>the muddy-water fish: low initiative, high survival intelligence</li></ul>
+<p>These are funny figures because they are precise. The joke is not that they exist. The joke is that almost every lab immediately recognizes them.</p>
+<h2 class="section-title">6. Outrageous but Plausible Corollaries</h2>
+<h3 class="subsection-title">Corollary 1</h3>
+<p>The most exploitable student is not the most competent student, but the student whose reply timing is consistently optimal.</p>
+<h3 class="subsection-title">Corollary 2</h3>
+<p>In sufficiently large groups, collective intelligence declines until a single person is explicitly named.</p>
+<h3 class="subsection-title">Corollary 3</h3>
+<p>A laboratory can reduce visible panic without reducing workload simply by redistributing who replies first.</p>
+<h3 class="subsection-title">Corollary 4</h3>
+<p>After long holidays, the advisor&#x27;s scheduling curve recovers faster than the lab&#x27;s thinking curve.</p>
+<h3 class="subsection-title">Corollary 5</h3>
+<p>The best way to look hardworking in a group chat is often to avoid looking available to everyone at the same time.</p>
+<h2 class="section-title">7. Conclusion</h2>
+<p>The graduate student in an advisor group chat does not simply reply. The student performs reliability under unequal observation, before a visible audience, inside a game in which somebody must answer first and nobody wants the role too often. Reply latency is therefore both signal and shield: a small interval in which diligence, fear, ownership, extractability, and hierarchy negotiate in public.</p>
+<p>The apparently trivial question “Why didn&#x27;t you just answer?” therefore has no trivial answer. One answers late enough to look occupied, early enough to look loyal, carefully enough to avoid becoming the department&#x27;s next default volunteer, and, after a long holiday, with whatever fragments of institutional intelligence have survived the break.</p>
+<h2 class="section-title">Table 1. Message-Type Risk Matrix</h2>
+<table><thead><tr><th>Message Type</th><th>Urgency</th><th>Optimal Reply Window</th><th>Extra Task Risk</th><th>Interpretive Logic</th></tr></thead><tbody><tr><td>Hard summons</td><td>High</td><td>1-6 min</td><td>9.4</td><td>Silence reads as resistance</td></tr>
+<tr><td>Deadline escalation</td><td>High</td><td>2-9 min</td><td>8.7</td><td>Delay is conflated with collapse</td></tr>
+<tr><td>Paper comments</td><td>Medium</td><td>6-15 min</td><td>7.8</td><td>First-author ownership pulls the window left</td></tr>
+<tr><td>Administrative reminder</td><td>Medium</td><td>9-21 min</td><td>5.2</td><td>Moderate delay implies active processing</td></tr>
+<tr><td>Reimbursement request</td><td>Medium</td><td>4-12 min</td><td>7.4</td><td>Procurement ownership is publicly legible</td></tr>
+<tr><td>Public praise trap</td><td>Medium</td><td>4-12 min</td><td>9.1</td><td>Visible competence invites future extraction</td></tr>
+<tr><td>Soft ping</td><td>Low</td><td>14-37 min</td><td>4.7</td><td>Too fast appears suspiciously idle</td></tr>
+<tr><td>Holiday roll call</td><td>Low</td><td>18-46 min</td><td>5.9</td><td>Everyone is slower, but nobody is forgiven equally</td></tr></tbody></table>
+<h2 class="section-title">Table 2. Role-Heterogeneity Windows</h2>
+<table><thead><tr><th>Role Type</th><th>Typical Scene</th><th>Optimal Reply Window</th><th>Strategic Constraint</th></tr></thead><tbody><tr><td>---</td><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>First-author junior</td><td>Draft comments, revision requests</td><td>5-14 min</td><td>Public responsibility, low veto</td></tr>
+<tr><td>Procurement steward</td><td>Purchasing, reimbursement, forms</td><td>4-12 min</td><td>Material ownership, invoice sovereignty</td></tr>
+<tr><td>Experiment operator</td><td>Instrument failure, sample issue</td><td>3-11 min</td><td>Clear technical ownership</td></tr>
+<tr><td>Postdoc proxy</td><td>Advisor relay, coordination</td><td>7-19 min</td><td>Hierarchical delegation</td></tr>
+<tr><td>Generic junior bystander</td><td>Lab-wide reminder</td><td>14-36 min</td><td>Can hide in audience if ownership is unclear</td></tr>
+<tr><td>Peer-only muddy-water fish</td><td>Horizontal coordination</td><td>22-61 min</td><td>Protected by low advisor visibility</td></tr></tbody></table>
+<h2 class="section-title">Table 3. Named Effects and Plain-Language Readings</h2>
+<table><thead><tr><th>Named Effect</th><th>Plain-Language Reading</th></tr></thead><tbody><tr><td>---</td><td>---</td></tr>
+<tr><td>Advisor-Visible Peer Compression Effect</td><td>A peer message behaves like supervision if the advisor is watching</td></tr>
+<tr><td>Default Volunteer Trap</td><td>Somebody with obvious ownership will eventually have to reply</td></tr>
+<tr><td>First-Responder Discount</td><td>Once one person replies correctly, everyone else becomes optional</td></tr>
+<tr><td>Procurement Sovereignty Principle</td><td>The least celebrated worker may control the most practical power</td></tr>
+<tr><td>Holiday Intelligence Drawdown</td><td>People recover from holidays slower than institutions expect</td></tr></tbody></table>
+<h2 class="section-title">References</h2>
+<h3 class="subsection-title">Core Theory</h3>
+<p>Alvesson, M. (2013). <em>The triumph of emptiness: Consumption, higher education, and work organization</em>. Oxford University Press.</p>
+<p>Berger, J., Cohen, B. P., &amp; Zelditch, M., Jr. (1972). Status characteristics and social interaction. <em>American Sociological Review, 37</em>(3), 241-255.</p>
+<p>Daft, R. L., &amp; Lengel, R. H. (1986). Organizational information requirements, media richness and structural design. <em>Management Science, 32</em>(5), 554-571.</p>
+<p>Goffman, E. (1959). <em>The presentation of self in everyday life</em>. Doubleday.</p>
+<p>Hochschild, A. R. (1983). <em>The managed heart: Commercialization of human feeling</em>. University of California Press.</p>
+<p>Kreps, D. M., &amp; Wilson, R. (1982). Reputation and imperfect information. <em>Journal of Economic Theory, 27</em>(2), 253-279.</p>
+<p>Spence, M. (1973). Job market signaling. <em>Quarterly Journal of Economics, 87</em>(3), 355-374.</p>
+<h3 class="subsection-title">Computer-Mediated Communication</h3>
+<p>Kalman, Y. M., Scissors, L. E., Gill, A. J., &amp; Gergle, D. (2013). Online chronemics convey social information. <em>Computers in Human Behavior, 29</em>(3), 1260-1269.</p>
+<p>Leonardi, P. M. (2014). Social media, knowledge sharing, and innovation: Toward a theory of communication visibility. <em>Information Systems Research, 25</em>(4), 796-816.</p>
+<p>Tidwell, L. C., &amp; Walther, J. B. (2002). Computer-mediated communication effects on disclosure, impressions, and interpersonal evaluations: Getting to know one another a bit at a time. <em>Human Communication Research, 28</em>(3), 317-348.</p>
+<p>Walther, J. B. (1992). Interpersonal effects in computer-mediated interaction: A relational perspective. <em>Communication Research, 19</em>(1), 52-90.</p>
+<p>Walther, J. B. (1996). Computer-mediated communication: Impersonal, interpersonal, and hyperpersonal interaction. <em>Communication Research, 23</em>(1), 3-43.</p>
+<p>Walther, J. B., &amp; Tidwell, L. C. (1995). Nonverbal cues in computer-mediated communication, and the effect of chronemics on relational communication. <em>Journal of Organizational Computing, 5</em>(4), 355-378.</p>
+<p>Ziano, I., &amp; Wang, B. (2021). Does response delay influence how an email sender is perceived? <em>Journal of Computer-Mediated Communication, 26</em>(6), 395-409.</p>
+<h3 class="subsection-title">Multi-Person Coordination</h3>
+<p>Darley, J. M., &amp; Latané, B. (1968). Bystander intervention in emergencies: Diffusion of responsibility. <em>Journal of Personality and Social Psychology, 8</em>(4, Pt. 1), 377-383.</p>
+<p>Diekmann, A. (1985). Volunteer&#x27;s dilemma. <em>Journal of Conflict Resolution, 29</em>(4), 605-610.</p>
+<p>Diekmann, A. (1993). Cooperation in an asymmetric volunteer&#x27;s dilemma game: Theory and experimental evidence. <em>International Journal of Game Theory, 22</em>, 75-85.</p>
+<h3 class="subsection-title">Context Materials for Satirical Scene-Building</h3>
+<p>The social-media motifs folded into the paper are treated as scene language rather than as formal evidence. They draw on platform discourse around MBTI as team-role shorthand, post-holiday syndrome, emoji misunderstanding, and invisible labor in laboratory life.</p>
+    </article>
+  </main>
+</body>
+</html>

@@ -1,5 +1,9 @@
 # Read, Seen, Ignored: A Signaling-Game Analysis of Reply Latency in Advisor Group Chats
 
+**Internal Editorial Note / 内部编辑说明**  
+This bilingual file is the internal synthesis draft. The canonical submission manuscripts are `read-seen-ignored_submission_en.md` and `read-seen-ignored_submission_zh.md`.  
+本双语文件是内部整合工作稿。正式投稿主稿以 `read-seen-ignored_submission_en.md` 和 `read-seen-ignored_submission_zh.md` 为准。
+
 **已读、不回、稍后回复：导师群聊响应延迟的信号博弈分析**
 
 **Author / 作者**  
