@@ -15,7 +15,7 @@ The paper works best when it treats advisor group chats as a tiny but emotionall
 
 ### Finding 3: the folk taxonomy is worth keeping, but only as role language
 
-`gatekeeping dog`, `muddy-water fish`, `dragging bottle`, `first-author junior`, and `procurement steward` are funny because they are recognizable. They should stay vivid, but they should not multiply into twenty new theory labels.
+`gatekeeping dog`, `muddy-water fish`, `dragging bottle`, `first-author junior`, and the procurement-reimbursement bottleneck are funny because they are recognizable. They should stay vivid, but they should not multiply into twenty new theory labels.
 
 ## Scorecard / 评分
 

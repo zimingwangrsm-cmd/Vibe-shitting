@@ -42,10 +42,10 @@ This glossary now follows the older manuscript's flavor-first direction.
 - High manuscript ownership, low veto power.
 - 稿件归他，否决权不归他。
 
-### Procurement Steward / 采购学长
+### Procurement-Reimbursement Bottleneck / 采购报销位
 
-- Low symbolic glory, high invoice sovereignty.
-- 荣光不一定归他，但发票和耗材经常归他。
+- The person whose control over invoices, forms, reagents, or reimbursement turns them into a public workflow bottleneck.
+- 那个因为握着发票、表单、试剂或报销流程，而变成公开流程卡口的人。
 
 ## Structural Note / 结构说明
 
