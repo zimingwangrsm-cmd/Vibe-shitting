@@ -25,3 +25,8 @@
 5. `post-05-paper-draft.md`
 
 If only one post goes out now, use `post-05-paper-draft.md` first, because it points most directly to the current manuscript.
+
+Current manuscript entrypoints:
+
+- `../../paper/final/read-seen-ignored_submission_zh.md`
+- `../../paper/final/read-seen-ignored_submission_en.md`

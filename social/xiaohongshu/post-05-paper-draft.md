@@ -41,4 +41,4 @@
 
 ## Linkback / 回链
 
-Current manuscript lives in `paper/final/read-seen-ignored_submission-ready.md`.
+Current manuscripts live in `paper/final/read-seen-ignored_submission_zh.md` and `paper/final/read-seen-ignored_submission_en.md`.

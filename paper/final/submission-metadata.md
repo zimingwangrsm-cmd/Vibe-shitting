@@ -35,13 +35,17 @@ hardcore academic satire / 硬核学术整活
 
 ## Short Description / 简介
 
-An academic satire paper package centered on advisor-group-chat reply delay as a signaling game, a chronemic cue, and a multi-person volunteer's dilemma. The active manuscript line is now the bilingual working draft plus a single HTML preview.  
-一套学术讽刺投稿包，将导师群聊回复时延建模为“信号博弈 + 时间线索 + 多人志愿者困境”。当前活跃稿件线以双语工作稿和单一 HTML 预览为准。
+An academic satire paper package centered on advisor-group-chat reply delay as a signaling game, a chronemic cue, and a multi-person volunteer's dilemma. The active submission line now consists of separate English and Chinese manuscripts with figure-rich HTML previews.  
+一套学术讽刺投稿包，将导师群聊回复时延建模为“信号博弈 + 时间线索 + 多人志愿者困境”。当前正式投稿线由中英文分稿及其插图 HTML 预览组成。
 
 ## Files / 文件清单
 
-- active bilingual working manuscript: `read-seen-ignored_submission-ready.md`
-- active HTML preview: `read-seen-ignored_submission-ready.html`
+- English manuscript: `read-seen-ignored_submission_en.md`
+- Chinese manuscript: `read-seen-ignored_submission_zh.md`
+- English HTML preview: `read-seen-ignored_submission_en.html`
+- Chinese HTML preview: `read-seen-ignored_submission_zh.html`
+- clean pack landing: `read-seen-ignored_submission-ready.html`
+- internal bilingual working draft: `read-seen-ignored_submission-ready.md`
 - references: `../references/read-seen-ignored-references.md`
 - figures: `../figures/*.csv`
 - rendered figures: `../figures/theory_framework_map.svg`, `../figures/latency_diligence_curve.svg`, `../figures/hierarchy_window_chart.svg`, `../figures/first_responder_discount.svg`, `../figures/role_obligation_matrix.svg`, `../figures/role_species_windows.svg`, `../figures/publication_burden_u_curve.svg`, `../figures/red_envelope_shock.svg`

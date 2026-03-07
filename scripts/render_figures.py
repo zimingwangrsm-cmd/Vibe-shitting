@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import csv
+import math
 from pathlib import Path
 
 
@@ -20,6 +21,69 @@ def scale(value: float, min_v: float, max_v: float, out_min: float, out_max: flo
         return out_min
     ratio = (value - min_v) / (max_v - min_v)
     return out_min + ratio * (out_max - out_min)
+
+
+def clamp(value: float, low: float, high: float) -> float:
+    return max(low, min(high, value))
+
+
+def smooth_path(points: list[tuple[float, float]]) -> str:
+    if not points:
+        return ""
+    if len(points) == 1:
+        x, y = points[0]
+        return f"M {x:.1f},{y:.1f}"
+    parts = [f"M {points[0][0]:.1f},{points[0][1]:.1f}"]
+    for i in range(len(points) - 1):
+        x1, y1 = points[i]
+        x2, y2 = points[i + 1]
+        dx = (x2 - x1) / 2
+        c1x, c1y = x1 + dx, y1
+        c2x, c2y = x2 - dx, y2
+        parts.append(f"C {c1x:.1f},{c1y:.1f} {c2x:.1f},{c2y:.1f} {x2:.1f},{y2:.1f}")
+    return " ".join(parts)
+
+
+def solve_3x3(matrix: list[list[float]], vector: list[float]) -> tuple[float, float, float]:
+    augmented = [row[:] + [value] for row, value in zip(matrix, vector)]
+    for pivot in range(3):
+        max_row = max(range(pivot, 3), key=lambda idx: abs(augmented[idx][pivot]))
+        augmented[pivot], augmented[max_row] = augmented[max_row], augmented[pivot]
+        pivot_value = augmented[pivot][pivot]
+        if abs(pivot_value) < 1e-9:
+            raise ValueError("Singular quadratic fit matrix")
+        for column in range(pivot, 4):
+            augmented[pivot][column] /= pivot_value
+        for row in range(3):
+            if row == pivot:
+                continue
+            factor = augmented[row][pivot]
+            for column in range(pivot, 4):
+                augmented[row][column] -= factor * augmented[pivot][column]
+    return tuple(augmented[row][3] for row in range(3))
+
+
+def fit_quadratic(xs: list[float], ys: list[float]) -> tuple[float, float, float]:
+    n = float(len(xs))
+    s1 = sum(xs)
+    s2 = sum(x * x for x in xs)
+    s3 = sum(x * x * x for x in xs)
+    s4 = sum(x * x * x * x for x in xs)
+    sy = sum(ys)
+    sxy = sum(x * y for x, y in zip(xs, ys))
+    sx2y = sum((x * x) * y for x, y in zip(xs, ys))
+    matrix = [
+        [s4, s3, s2],
+        [s3, s2, s1],
+        [s2, s1, n],
+    ]
+    vector = [sx2y, sxy, sy]
+    return solve_3x3(matrix, vector)
+
+
+def eval_quadratic(coeffs: tuple[float, float, float], x: float) -> float:
+    a, b, c = coeffs
+    return a * x * x + b * x + c
 
 
 def render_theory_map() -> None:
@@ -187,29 +251,63 @@ def render_role_obligation_matrix() -> None:
 def render_latency_curve() -> None:
     rows = list(csv.DictReader((FIGURES / "latency_diligence_curve.csv").open()))
     width, height = 960, 540
-    margin_left, margin_top = 90, 70
-    chart_w = 760
+    margin_left, margin_top = 96, 74
+    chart_w = 748
     chart_h = 320
-    x_step = chart_w / (len(rows) - 1)
+    x_values = [math.log10(1.0 + float(row["median_latency_min"])) for row in rows]
+    x_min = min(x_values)
+    x_max = max(x_values)
+    diligence_scores = [float(row["perceived_diligence_score"]) for row in rows]
+    fit = fit_quadratic(x_values, diligence_scores)
+    residuals = [score - eval_quadratic(fit, x) for x, score in zip(x_values, diligence_scores)]
+    residual_sd = math.sqrt(sum(value * value for value in residuals) / max(1, len(residuals) - 3))
+    band_size = clamp(residual_sd * 1.15, 0.38, 0.85)
 
-    def make_points(field: str) -> str:
+    def x_pos(minutes: float) -> float:
+        return scale(math.log10(1.0 + minutes), x_min, x_max, margin_left, margin_left + chart_w)
+
+    def point_list(field: str) -> list[tuple[float, float]]:
         pts = []
-        for i, row in enumerate(rows):
-            x = margin_left + i * x_step
+        for row in rows:
+            x = x_pos(float(row["median_latency_min"]))
             y = scale(float(row[field]), 0.0, 10.0, margin_top + chart_h, margin_top)
-            pts.append(f"{x:.1f},{y:.1f}")
-        return " ".join(pts)
+            pts.append((x, y))
+        return pts
 
-    labels = [row["latency_bucket"].replace("_", "-") for row in rows]
-    diligence = make_points("perceived_diligence_score")
-    reliability = make_points("reliability_score")
-    risk = make_points("task_accretion_risk")
+    diligence_points = point_list("perceived_diligence_score")
+    reliability_points = point_list("reliability_score")
+    risk_points = point_list("task_accretion_risk")
+    sampled_points = []
+    sampled_upper = []
+    sampled_lower = []
+    for index in range(96):
+        x_value = x_min + (x_max - x_min) * index / 95
+        score = clamp(eval_quadratic(fit, x_value), 0.0, 10.0)
+        upper = clamp(score + band_size, 0.0, 10.0)
+        lower = clamp(score - band_size, 0.0, 10.0)
+        x = scale(x_value, x_min, x_max, margin_left, margin_left + chart_w)
+        sampled_points.append((x, scale(score, 0.0, 10.0, margin_top + chart_h, margin_top)))
+        sampled_upper.append((x, scale(upper, 0.0, 10.0, margin_top + chart_h, margin_top)))
+        sampled_lower.append((x, scale(lower, 0.0, 10.0, margin_top + chart_h, margin_top)))
+    ribbon_points = " ".join(
+        f"{x:.1f},{y:.1f}" for x, y in sampled_upper + list(reversed(sampled_lower))
+    )
+    peak_x = clamp(-fit[1] / (2 * fit[0]), x_min, x_max) if fit[0] < 0 else math.log10(13.0)
+    peak_minutes = max(1, round((10 ** peak_x) - 1))
+    peak_screen_x = scale(peak_x, x_min, x_max, margin_left, margin_left + chart_w)
+    peak_screen_y = scale(
+        clamp(eval_quadratic(fit, peak_x), 0.0, 10.0),
+        0.0,
+        10.0,
+        margin_top + chart_h,
+        margin_top,
+    )
 
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
         '<rect width="100%" height="100%" fill="#faf8f2"/>',
         '<text x="90" y="38" font-family="Georgia, serif" font-size="24" fill="#111">Figure 2. Latency-Diligence Curve</text>',
-        '<text x="90" y="58" font-family="Arial, sans-serif" font-size="12" fill="#555">Reply timing balances diligence, reliability, and assignment hazard.</text>',
+        '<text x="90" y="58" font-family="Arial, sans-serif" font-size="12" fill="#555">Observed bin means are shown as points; the black line is a quadratic fit over log-scaled elapsed minutes.</text>',
     ]
 
     for value in range(0, 11, 2):
@@ -217,27 +315,53 @@ def render_latency_curve() -> None:
         parts.append(f'<line x1="{margin_left}" y1="{y:.1f}" x2="{margin_left + chart_w}" y2="{y:.1f}" stroke="#e2ddd2" stroke-width="1"/>')
         parts.append(f'<text x="58" y="{y + 4:.1f}" font-family="Arial, sans-serif" font-size="12" fill="#666">{value}</text>')
 
+    band_x1 = x_pos(8)
+    band_x2 = x_pos(18)
+    parts.append(f'<rect x="{band_x1:.1f}" y="{margin_top}" width="{band_x2 - band_x1:.1f}" height="{chart_h}" fill="#ead9bc" opacity="0.42"/>')
+    parts.append(f'<text x="{(band_x1 + band_x2) / 2:.1f}" y="{margin_top + 18:.1f}" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#6d512f">Optimal band</text>')
+
     parts.append(f'<line x1="{margin_left}" y1="{margin_top}" x2="{margin_left}" y2="{margin_top + chart_h}" stroke="#333" stroke-width="2"/>')
     parts.append(f'<line x1="{margin_left}" y1="{margin_top + chart_h}" x2="{margin_left + chart_w}" y2="{margin_top + chart_h}" stroke="#333" stroke-width="2"/>')
 
-    for i, label in enumerate(labels):
-        x = margin_left + i * x_step
-        parts.append(f'<text x="{x:.1f}" y="{margin_top + chart_h + 30}" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">{escape(label)}</text>')
+    for tick in [1, 5, 15, 60, 240]:
+        x = x_pos(float(tick))
+        parts.append(f'<line x1="{x:.1f}" y1="{margin_top}" x2="{x:.1f}" y2="{margin_top + chart_h}" stroke="#ece5d8" stroke-width="1"/>')
+        parts.append(f'<text x="{x:.1f}" y="{margin_top + chart_h + 30}" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">{tick} min</text>')
 
     parts.extend(
         [
-            f'<polyline fill="none" stroke="#111" stroke-width="4" points="{diligence}"/>',
-            f'<polyline fill="none" stroke="#3d6e70" stroke-width="4" points="{reliability}"/>',
-            f'<polyline fill="none" stroke="#b35c1e" stroke-width="4" points="{risk}"/>',
-            '<text x="740" y="95" font-family="Arial, sans-serif" font-size="13" fill="#111">Diligence</text>',
-            '<line x1="700" y1="90" x2="730" y2="90" stroke="#111" stroke-width="4"/>',
-            '<text x="740" y="120" font-family="Arial, sans-serif" font-size="13" fill="#3d6e70">Reliability</text>',
-            '<line x1="700" y1="115" x2="730" y2="115" stroke="#3d6e70" stroke-width="4"/>',
-            '<text x="740" y="145" font-family="Arial, sans-serif" font-size="13" fill="#b35c1e">Assignment hazard</text>',
-            '<line x1="700" y1="140" x2="730" y2="140" stroke="#b35c1e" stroke-width="4"/>',
-            "</svg>",
+            f'<polygon points="{ribbon_points}" fill="#111" opacity="0.09"/>',
+            f'<path d="{smooth_path(sampled_points)}" fill="none" stroke="#111" stroke-width="4.5"/>',
+            f'<line x1="{peak_screen_x:.1f}" y1="{margin_top}" x2="{peak_screen_x:.1f}" y2="{margin_top + chart_h}" stroke="#111" stroke-width="1.6" stroke-dasharray="7 7" opacity="0.55"/>',
+            f'<circle cx="{peak_screen_x:.1f}" cy="{peak_screen_y:.1f}" r="7" fill="#111"/>',
+            f'<text x="{peak_screen_x + 14:.1f}" y="{peak_screen_y - 12:.1f}" font-family="Arial, sans-serif" font-size="12" fill="#111">Fitted peak ≈ {peak_minutes} min</text>',
         ]
     )
+
+    parts.extend(
+        [
+            f'<path d="{smooth_path(reliability_points)}" fill="none" stroke="#3d6e70" stroke-width="3" opacity="0.95"/>',
+            f'<path d="{smooth_path(risk_points)}" fill="none" stroke="#b35c1e" stroke-width="3" stroke-dasharray="10 8" opacity="0.95"/>',
+            '<text x="740" y="95" font-family="Arial, sans-serif" font-size="13" fill="#111">Quadratic diligence fit</text>',
+            '<line x1="700" y1="90" x2="730" y2="90" stroke="#111" stroke-width="4"/>',
+            '<text x="740" y="117" font-family="Arial, sans-serif" font-size="13" fill="#111">Observed means</text>',
+            '<circle cx="715" cy="113" r="5.5" fill="#faf8f2" stroke="#111" stroke-width="2"/>',
+            '<text x="740" y="142" font-family="Arial, sans-serif" font-size="13" fill="#3d6e70">Reliability</text>',
+            '<line x1="700" y1="115" x2="730" y2="115" stroke="#3d6e70" stroke-width="4"/>',
+            '<text x="740" y="167" font-family="Arial, sans-serif" font-size="13" fill="#b35c1e">Assignment hazard</text>',
+            '<line x1="700" y1="162" x2="730" y2="162" stroke="#b35c1e" stroke-width="4" stroke-dasharray="10 8"/>',
+            '<text x="90" y="430" font-family="Arial, sans-serif" font-size="12" fill="#555">The fitted peak sits inside the 8-18 min band because extremely fast replies imply availability while long delays imply disappearance.</text>',
+            '<text x="468" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#333">Observed delay (log-scaled minutes)</text>',
+            '<text x="34" y="234" transform="rotate(-90 34 234)" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#333">Perceived score</text>',
+        ]
+    )
+    for x, y in diligence_points:
+        parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="5.5" fill="#faf8f2" stroke="#111" stroke-width="2.1"/>')
+    for x, y in reliability_points:
+        parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="4.5" fill="#3d6e70"/>')
+    for x, y in risk_points:
+        parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="4.5" fill="#b35c1e"/>')
+    parts.append("</svg>")
     (FIGURES / "latency_diligence_curve.svg").write_text("\n".join(parts))
 
 

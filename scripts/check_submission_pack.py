@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate that the active submission pack is complete and internally coherent."""
+"""Validate that the active EN/ZH submission pack is complete and internally coherent."""
 
 from __future__ import annotations
 
@@ -12,6 +12,10 @@ FIGURES = ROOT / "paper" / "figures"
 
 REQUIRED_FILES = [
     ROOT / "PROJECT_STRUCTURE.md",
+    FINAL / "read-seen-ignored_submission_en.md",
+    FINAL / "read-seen-ignored_submission_zh.md",
+    FINAL / "read-seen-ignored_submission_en.html",
+    FINAL / "read-seen-ignored_submission_zh.html",
     FINAL / "read-seen-ignored_submission-ready.md",
     FINAL / "read-seen-ignored_submission-ready.html",
     FINAL / "submission-metadata.md",
@@ -43,16 +47,9 @@ def check_exists() -> bool:
     return ok
 
 
-def check_main_manuscript() -> bool:
-    path = FINAL / "read-seen-ignored_submission-ready.md"
+def check_submission_manuscript(path: Path, required_snippets: list[str]) -> bool:
     text = path.read_text()
     ok = True
-    required_snippets = [
-        "## Abstract",
-        "## 中文摘要",
-        "## References",
-        "## Context Materials for Meme and Scene Language",
-    ]
     for snippet in required_snippets:
         if snippet not in text:
             print(f"[MISSING_SECTION] {path.relative_to(ROOT)} lacks {snippet}")
@@ -63,6 +60,10 @@ def check_main_manuscript() -> bool:
 def check_metadata() -> bool:
     text = (FINAL / "submission-metadata.md").read_text()
     required_snippets = [
+        "read-seen-ignored_submission_en.md",
+        "read-seen-ignored_submission_zh.md",
+        "read-seen-ignored_submission_en.html",
+        "read-seen-ignored_submission_zh.html",
         "read-seen-ignored_submission-ready.md",
         "read-seen-ignored_submission-ready.html",
         "../archive/2026-03-retired-snapshots/",
@@ -78,11 +79,18 @@ def check_metadata() -> bool:
 def main() -> None:
     checks = [
         check_exists(),
-        check_main_manuscript(),
+        check_submission_manuscript(
+            FINAL / "read-seen-ignored_submission_en.md",
+            ["## Abstract", "## 1. Introduction", "## References", "../figures/latency_diligence_curve.svg"],
+        ),
+        check_submission_manuscript(
+            FINAL / "read-seen-ignored_submission_zh.md",
+            ["## 摘要", "## 1. 引言", "## 参考文献", "../figures/latency_diligence_curve.svg"],
+        ),
         check_metadata(),
     ]
     if all(checks):
-        print("[OK] active submission pack")
+        print("[OK] active EN/ZH submission pack")
         return
     raise SystemExit(1)
 

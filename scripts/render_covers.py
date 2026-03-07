@@ -11,6 +11,30 @@ ROOT = Path(__file__).resolve().parents[1]
 COVERS = ROOT / "assets" / "covers"
 
 
+def draw_repo_hero() -> None:
+    width, height = 1600, 520
+    svg = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+        "<defs>",
+        '  <linearGradient id="hero-bg" x1="0" x2="1" y1="0" y2="1">',
+        '    <stop offset="0%" stop-color="#f5ecdc"/>',
+        '    <stop offset="100%" stop-color="#e6d7bf"/>',
+        "  </linearGradient>",
+        "</defs>",
+        '<rect width="100%" height="100%" fill="url(#hero-bg)"/>',
+        '<rect x="56" y="56" width="1488" height="408" fill="none" stroke="#171717" stroke-width="4"/>',
+        '<rect x="56" y="56" width="250" height="40" fill="#171717"/>',
+        '<text x="78" y="83" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#f5efe2">VIBE SHITTING</text>',
+        '<line x1="78" y1="146" x2="1520" y2="146" stroke="#b98645" stroke-width="6"/>',
+        '<text x="86" y="238" font-family="Georgia, serif" font-size="82" font-weight="700" fill="#111">Read, Seen, Ignored</text>',
+        '<text x="86" y="320" font-family="Arial, sans-serif" font-size="34" fill="#4f4a42">A SHIT-style paper on advisor group-chat reply latency.</text>',
+        '<text x="86" y="374" font-family="Arial, sans-serif" font-size="28" fill="#5a5348">Chinese manuscript, English manuscript, figures, and share pack.</text>',
+        '<text x="86" y="438" font-family="Arial, sans-serif" font-size="24" fill="#222">VIBE SHITTING / GitHub paper archive</text>',
+        "</svg>",
+    ]
+    (COVERS / "repo-hero.svg").write_text("\n".join(svg))
+
+
 def draw_cover(filename: str, eyebrow: str, title: str, subtitle: str) -> None:
     width, height = 1600, 900
     title_lines = textwrap.wrap(title, width=14)
@@ -52,12 +76,7 @@ def draw_cover(filename: str, eyebrow: str, title: str, subtitle: str) -> None:
 
 
 def main() -> None:
-    draw_cover(
-        "repo-hero.svg",
-        "VIBE SHITTING",
-        "Build in public a SHIT-style paper",
-        "GitHub archive, manuscript, figure pack, and share-ready Xiaohongshu posts.",
-    )
+    draw_repo_hero()
     draw_cover(
         "post-01-origin-cover.svg",
         "POST 01 / ORIGIN",

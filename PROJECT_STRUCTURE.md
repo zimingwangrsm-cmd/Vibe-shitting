@@ -4,14 +4,16 @@
 
 ### Main manuscript / 主稿件
 
-- Main bilingual manuscript: `paper/final/read-seen-ignored_submission-ready.md`
-- Main HTML preview: `paper/final/read-seen-ignored_submission-ready.html`
+- Chinese manuscript: `paper/final/read-seen-ignored_submission_zh.md`
+- English manuscript: `paper/final/read-seen-ignored_submission_en.md`
+- Chinese HTML preview: `paper/final/read-seen-ignored_submission_zh.html`
+- English HTML preview: `paper/final/read-seen-ignored_submission_en.html`
 - Metadata and checklist:
   - `paper/final/submission-metadata.md`
   - `paper/final/submission-checklist.md`
 
-This is the only active manuscript line for the current rewrite cycle.  
-当前改稿轮次只有这一条主稿线，以双语对照工作稿为准。
+This is the active submission line for the current rewrite cycle.  
+当前改稿轮次以中英文分稿作为正式投稿线。
 
 ### Figures / 图表
 
@@ -57,6 +59,10 @@ This archive stores the superseded `performative presence` branch:
 - split EN/ZH manuscript snapshots
 - old EN/ZH HTML previews
 - retired concept figure
+
+### Internal support draft / 内部支持稿
+
+- `paper/final/read-seen-ignored_submission-ready.md`
 
 ### Retired social material / 退役社媒材料
 

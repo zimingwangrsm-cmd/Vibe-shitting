@@ -1,7 +1,10 @@
 # Submission Checklist / 提交清单
 
-- [x] Active bilingual working manuscript prepared
-- [x] Active HTML preview generated
+- [x] English submission manuscript prepared
+- [x] Chinese submission manuscript prepared
+- [x] English HTML preview generated
+- [x] Chinese HTML preview generated
+- [x] Internal bilingual working draft retained
 - [x] Submission metadata updated
 - [x] SHIT-fit review prepared
 - [x] Visual explainer plan prepared

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the main HTML preview for the active bilingual manuscript."""
+"""Build HTML previews for the clean EN/ZH submission manuscripts."""
 
 from __future__ import annotations
 
@@ -10,9 +10,23 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 FINAL = ROOT / "paper" / "final"
-SOURCE = FINAL / "read-seen-ignored_submission-ready.md"
-TARGET = FINAL / "read-seen-ignored_submission-ready.html"
-LABEL = "Active bilingual working manuscript / 当前主稿 HTML 预览"
+
+DOCUMENTS = [
+    {
+        "lang": "en",
+        "source": FINAL / "read-seen-ignored_submission_en.md",
+        "target": FINAL / "read-seen-ignored_submission_en.html",
+        "label": "English submission preview",
+    },
+    {
+        "lang": "zh",
+        "source": FINAL / "read-seen-ignored_submission_zh.md",
+        "target": FINAL / "read-seen-ignored_submission_zh.html",
+        "label": "中文投稿预览",
+    },
+]
+
+LANDING_TARGET = FINAL / "read-seen-ignored_submission-ready.html"
 
 
 def render_heading(line: str) -> str:
@@ -48,10 +62,8 @@ def render_table(lines: list[str]) -> str:
     return f"<table><thead>{head}</thead><tbody>{body}</tbody></table>"
 
 
-def parse_front_matter(lines: list[str]) -> tuple[str, str, list[str], list[str], list[str], list[str]]:
+def parse_front_matter(lines: list[str]) -> tuple[str, list[str], list[str], list[str]]:
     title = ""
-    subtitle = ""
-    note_lines: list[str] = []
     author_lines: list[str] = []
     keyword_lines: list[str] = []
     current_field: str | None = None
@@ -70,41 +82,27 @@ def parse_front_matter(lines: list[str]) -> tuple[str, str, list[str], list[str]
             continue
         if re.fullmatch(r"\*\*.+\*\*", stripped):
             label = stripped.strip("*").strip()
-            if "Editorial Note" in label:
-                current_field = "note"
-            elif "Author" in label:
+            if "Author" in label or "作者" in label:
                 current_field = "author"
-            elif "Keywords" in label:
+            elif "Keywords" in label or "关键词" in label:
                 current_field = "keywords"
             else:
-                subtitle = label
                 current_field = None
             i += 1
             continue
 
-        if current_field == "note":
-            note_lines.append(stripped)
-        elif current_field == "author":
+        if current_field == "author":
             author_lines.append(stripped)
         elif current_field == "keywords":
             keyword_lines.append(stripped)
         i += 1
 
-    return title, subtitle, note_lines, author_lines, keyword_lines, lines[i:]
+    return title, author_lines, keyword_lines, lines[i:]
 
 
-def render_front_matter(
-    title: str,
-    subtitle: str,
-    note_lines: list[str],
-    author_lines: list[str],
-    keyword_lines: list[str],
-) -> str:
+def render_front_matter(title: str, author_lines: list[str], keyword_lines: list[str], label: str) -> str:
     authors = "".join(f"<div class=\"meta-line\">{render_inline(line)}</div>" for line in author_lines)
     keywords = "".join(f"<div class=\"keyword-line\">{render_inline(line)}</div>" for line in keyword_lines)
-    note = "".join(f"<p>{render_inline(line)}</p>" for line in note_lines)
-    subtitle_html = f'<div class="paper-subtitle">{render_inline(subtitle)}</div>' if subtitle else ""
-    note_html = f'<section class="editor-note"><div class="meta-label">Editorial Note</div>{note}</section>' if note else ""
     return f"""
 <header class="paper-shell">
   <div class="masthead">
@@ -113,7 +111,6 @@ def render_front_matter(
   </div>
   <div class="title-block">
     <h1 class="paper-title">{html.escape(title)}</h1>
-    {subtitle_html}
   </div>
   <div class="meta-grid">
     <section class="meta-card">
@@ -125,50 +122,32 @@ def render_front_matter(
       {keywords}
     </section>
   </div>
-  {note_html}
-  <div class="working-note">{html.escape(LABEL)}</div>
+  <div class="working-note">{html.escape(label)}</div>
 </header>
 """.strip()
 
 
-def render_single_figure(src: str, alt: str, caption: str) -> str:
+def render_image(line: str) -> str:
+    match = re.fullmatch(r"!\[(.*?)\]\((.*?)\)", line.strip())
+    if not match:
+        return ""
+    alt, src = match.groups()
+    alt_html = html.escape(alt)
+    src_html = html.escape(src)
     return f"""
 <section class="inline-figure">
   <figure>
-    <img src="{src}" alt="{alt}"/>
-    <figcaption>{caption}</figcaption>
+    <img src="{src_html}" alt="{alt_html}"/>
+    <figcaption>{alt_html}</figcaption>
   </figure>
 </section>
 """.strip()
-
-
-def render_main_figure_panel() -> str:
-    cards = [
-        ("../figures/theory_framework_map.svg", "Theory framework map", "Figure 1. Theoretical Framework and Group-Chat Game."),
-        ("../figures/latency_diligence_curve.svg", "Latency diligence curve", "Figure 2. Latency-Diligence Curve."),
-        ("../figures/hierarchy_window_chart.svg", "Hierarchy delay window chart", "Figure 3. Hierarchy-Specific Acceptable Delay Window."),
-        ("../figures/publication_burden_u_curve.svg", "Publication burden U-shape", "Figure 4. Publication Position and Reply Enthusiasm."),
-    ]
-    figures = []
-    for src, alt, caption in cards:
-        figures.append(
-            "\n".join(
-                [
-                    "<figure>",
-                    f'  <img src="{src}" alt="{alt}"/>',
-                    f"  <figcaption>{caption}</figcaption>",
-                    "</figure>",
-                ]
-            )
-        )
-    return '<section class="figure-panel">' + "".join(figures) + "</section>"
 
 
 def build_body(lines: list[str]) -> str:
     out = []
     i = 0
     abstract_wrapped = False
-    inserted_main_panel = False
 
     while i < len(lines):
         stripped = lines[i].strip()
@@ -188,43 +167,10 @@ def build_body(lines: list[str]) -> str:
             abstract_wrapped = True
             continue
 
-        if not inserted_main_panel and stripped.startswith("## 4."):
-            out.append(render_main_figure_panel())
-            inserted_main_panel = True
-
-        if stripped.startswith("### 4.3"):
-            out.append(
-                render_single_figure(
-                    "../figures/first_responder_discount.svg",
-                    "First-responder discount chart",
-                    "Figure 5. First-Responder Discount.",
-                )
-            )
-
-        if stripped.startswith("### 4.4"):
-            out.append(
-                render_single_figure(
-                    "../figures/role_species_windows.svg",
-                    "Role species response windows",
-                    "Figure 6. Laboratory Species Response Windows.",
-                )
-            )
-            out.append(
-                render_single_figure(
-                    "../figures/role_obligation_matrix.svg",
-                    "Role obligation matrix",
-                    "Figure 7. Role Obligation Matrix.",
-                )
-            )
-
-        if stripped.startswith("### 4.5"):
-            out.append(
-                render_single_figure(
-                    "../figures/red_envelope_shock.svg",
-                    "Advisor red-envelope effect chart",
-                    "Figure 8. Advisor Red-Envelope Shock.",
-                )
-            )
+        if re.fullmatch(r"!\[(.*?)\]\((.*?)\)", stripped):
+            out.append(render_image(stripped))
+            i += 1
+            continue
 
         if stripped.startswith("#"):
             out.append(render_heading(stripped))
@@ -261,7 +207,7 @@ def build_body(lines: list[str]) -> str:
         i += 1
         while i < len(lines):
             nxt = lines[i].strip()
-            if not nxt or nxt.startswith("#") or nxt.startswith("- ") or nxt.startswith("|") or re.match(r"^\d+\.\s", nxt):
+            if not nxt or nxt.startswith("#") or nxt.startswith("- ") or nxt.startswith("|") or re.match(r"^\d+\.\s", nxt) or re.fullmatch(r"!\[(.*?)\]\((.*?)\)", nxt):
                 break
             para.append(nxt)
             i += 1
@@ -270,9 +216,9 @@ def build_body(lines: list[str]) -> str:
     return "\n".join(out)
 
 
-def render_doc(title: str, front: str, body: str) -> str:
+def render_doc(title: str, front: str, body: str, lang: str) -> str:
     return f"""<!DOCTYPE html>
-<html lang="en">
+<html lang="{lang}">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -331,19 +277,13 @@ def render_doc(title: str, front: str, body: str) -> str:
       line-height: 1.1;
       text-wrap: balance;
     }}
-    .paper-subtitle {{
-      margin-top: 12px;
-      font-size: 1.12rem;
-      color: var(--muted);
-      font-family: Arial, sans-serif;
-    }}
     .meta-grid {{
       display: grid;
       grid-template-columns: 1fr;
       gap: 16px;
       margin-top: 10px;
     }}
-    .meta-card, .editor-note {{
+    .meta-card {{
       background: var(--soft);
       border: 1px solid var(--line);
       padding: 16px 18px;
@@ -358,12 +298,6 @@ def render_doc(title: str, front: str, body: str) -> str:
     }}
     .meta-line, .keyword-line {{
       font-size: 1rem;
-    }}
-    .editor-note {{
-      margin-top: 16px;
-    }}
-    .editor-note p {{
-      margin: 0.5rem 0;
     }}
     .working-note {{
       margin-top: 16px;
@@ -412,12 +346,6 @@ def render_doc(title: str, front: str, body: str) -> str:
       border-top: none;
       font-size: 1.25rem;
     }}
-    .figure-panel {{
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 22px;
-      margin: 2.2rem 0;
-    }}
     .inline-figure {{
       margin: 1.8rem 0 1.6rem;
     }}
@@ -460,11 +388,6 @@ def render_doc(title: str, front: str, body: str) -> str:
         grid-template-columns: 1fr 1fr;
       }}
     }}
-    @media (min-width: 960px) {{
-      .figure-panel {{
-        grid-template-columns: 1.15fr 1fr;
-      }}
-    }}
   </style>
 </head>
 <body>
@@ -479,14 +402,118 @@ def render_doc(title: str, front: str, body: str) -> str:
 """
 
 
-def main() -> None:
-    lines = SOURCE.read_text().splitlines()
-    title, subtitle, note_lines, author_lines, keyword_lines, body_lines = parse_front_matter(lines)
-    front = render_front_matter(title, subtitle, note_lines, author_lines, keyword_lines)
+def build_document(config: dict[str, object]) -> None:
+    lines = Path(config["source"]).read_text().splitlines()
+    title, author_lines, keyword_lines, body_lines = parse_front_matter(lines)
+    front = render_front_matter(title, author_lines, keyword_lines, str(config["label"]))
     body = build_body(body_lines)
-    doc = render_doc(title, front, body)
-    TARGET.write_text(doc)
-    print(f"Wrote {TARGET}")
+    doc = render_doc(title, front, body, str(config["lang"]))
+    Path(config["target"]).write_text(doc)
+
+
+def build_landing_page() -> None:
+    landing = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Read, Seen, Ignored</title>
+  <style>
+    :root {
+      --ink: #171717;
+      --muted: #5e594f;
+      --line: #d7cebf;
+      --panel: rgba(255,255,255,0.85);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(173, 131, 71, 0.10), transparent 28%),
+        linear-gradient(180deg, #efe6d4 0%, #f5efe4 26%, #f9f6ef 100%);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    main {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+    }
+    .shell {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 50px rgba(52, 45, 32, 0.08);
+      padding: 30px 34px;
+    }
+    .eyebrow {
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 22px;
+    }
+    .card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: #fbf7ee;
+      border: 1px solid var(--line);
+      padding: 18px 20px;
+    }
+    .card strong {
+      display: block;
+      font-size: 1.08rem;
+      margin-bottom: 6px;
+    }
+    @media (min-width: 760px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="shell">
+      <div class="eyebrow">VIBE SHITTING Submission Pack</div>
+      <h1>Read, Seen, Ignored</h1>
+      <div class="grid">
+        <a class="card" href="read-seen-ignored_submission_en.html">
+          <strong>English manuscript preview</strong>
+          Clean HTML built from <code>read-seen-ignored_submission_en.md</code>.
+        </a>
+        <a class="card" href="read-seen-ignored_submission_zh.html">
+          <strong>中文稿件预览</strong>
+          从 <code>read-seen-ignored_submission_zh.md</code> 生成的正文预览。
+        </a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+"""
+    LANDING_TARGET.write_text(landing)
+
+
+def main() -> None:
+    for config in DOCUMENTS:
+        build_document(config)
+        print(f"Wrote {config['target']}")
+    build_landing_page()
+    print(f"Wrote {LANDING_TARGET}")
 
 
 if __name__ == "__main__":
