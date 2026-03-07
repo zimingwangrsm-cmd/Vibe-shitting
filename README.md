@@ -20,6 +20,9 @@
 4. [phases/phase-01-shit-style-study/summary.md](phases/phase-01-shit-style-study/summary.md)  
    SHIT 风格研究结论：它到底好笑在哪。  
    The SHIT style study: what actually makes it funny.
+5. [SYNC_TO_GITHUB.md](SYNC_TO_GITHUB.md)  
+   发布到 GitHub 的最短路径。  
+   The shortest path to publish this repo on GitHub.
 
 ## Current Phase / 当前阶段
 
