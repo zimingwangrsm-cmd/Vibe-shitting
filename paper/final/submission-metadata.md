@@ -39,6 +39,7 @@ An academic satire paper modeling how graduate students strategically time their
 ## Files / 文件清单
 
 - manuscript: `read-seen-ignored_submission-ready.md`
+- html preview: `read-seen-ignored_submission-ready.html`
 - references: `../references/read-seen-ignored-references.md`
 - figures: `../figures/*.csv`
 - rendered figures: `../figures/latency_diligence_curve.svg`, `../figures/hierarchy_window_chart.svg`

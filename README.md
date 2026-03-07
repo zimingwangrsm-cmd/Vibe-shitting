@@ -3,6 +3,8 @@
 > Build in public a SHIT-style paper with vibe coding.  
 > 用 vibe coding 公开创作一篇 SHIT 风格论文，并把每一步完整留档。
 
+![VIBE SHITTING hero](assets/covers/repo-hero.svg)
+
 `VIBE SHITTING` 是一个双语公开创作项目，不是旧 `codex` 仓库的分支、子目录或换皮版本。  
 `VIBE SHITTING` is a bilingual public-creation project. It is not a branch, subfolder, or reskin of the old `codex` repo.
 
@@ -31,6 +33,7 @@
 - Lead paper locked: `Read, Seen, Ignored: A Signaling-Game Analysis of Reply Latency in Advisor Group Chats`
 - Proposal: [paper/proposal/read-seen-ignored-proposal.md](paper/proposal/read-seen-ignored-proposal.md)
 - Final manuscript: [paper/final/read-seen-ignored_submission-ready.md](paper/final/read-seen-ignored_submission-ready.md)
+- HTML preview: [paper/final/read-seen-ignored_submission-ready.html](paper/final/read-seen-ignored_submission-ready.html)
 - Submission metadata: [paper/final/submission-metadata.md](paper/final/submission-metadata.md)
 
 当前主稿已经从选题推进到可提交草稿。  
