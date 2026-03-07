@@ -97,6 +97,93 @@ def render_theory_map() -> None:
     (FIGURES / "theory_framework_map.svg").write_text("\n".join(parts))
 
 
+def render_first_responder_discount() -> None:
+    width, height = 940, 500
+    margin_left, margin_top, chart_w, chart_h = 100, 90, 680, 270
+    labels = ["1st reply", "2nd reply", "3rd+", "silent"]
+    diligence = [9.2, 5.9, 3.4, 0.0]
+    hazard = [8.6, 4.1, 1.7, 0.4]
+    step = chart_w / (len(labels) - 1)
+
+    def points(values: list[float]) -> str:
+        pts = []
+        for i, value in enumerate(values):
+            x = margin_left + i * step
+            y = scale(value, 0.0, 10.0, margin_top + chart_h, margin_top)
+            pts.append(f"{x:.1f},{y:.1f}")
+        return " ".join(pts)
+
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+        '<rect width="100%" height="100%" fill="#faf8f2"/>',
+        '<text x="100" y="40" font-family="Georgia, serif" font-size="24" fill="#111">Figure 4. First-Responder Discount</text>',
+        '<text x="100" y="60" font-family="Arial, sans-serif" font-size="12" fill="#555">The first visible reply earns the most diligence credit and the highest downstream extraction risk.</text>',
+    ]
+
+    for value in range(0, 11, 2):
+        y = scale(value, 0.0, 10.0, margin_top + chart_h, margin_top)
+        parts.append(f'<line x1="{margin_left}" y1="{y:.1f}" x2="{margin_left + chart_w}" y2="{y:.1f}" stroke="#e2ddd2" stroke-width="1"/>')
+        parts.append(f'<text x="68" y="{y + 4:.1f}" font-family="Arial, sans-serif" font-size="12" fill="#666">{value}</text>')
+
+    parts.append(f'<line x1="{margin_left}" y1="{margin_top}" x2="{margin_left}" y2="{margin_top + chart_h}" stroke="#333" stroke-width="2"/>')
+    parts.append(f'<line x1="{margin_left}" y1="{margin_top + chart_h}" x2="{margin_left + chart_w}" y2="{margin_top + chart_h}" stroke="#333" stroke-width="2"/>')
+
+    for i, label in enumerate(labels):
+        x = margin_left + i * step
+        parts.append(f'<text x="{x:.1f}" y="{margin_top + chart_h + 28}" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">{escape(label)}</text>')
+
+    parts.extend(
+        [
+            f'<polyline fill="none" stroke="#111" stroke-width="4" points="{points(diligence)}"/>',
+            f'<polyline fill="none" stroke="#b35c1e" stroke-width="4" points="{points(hazard)}"/>',
+            '<text x="800" y="110" font-family="Arial, sans-serif" font-size="13" fill="#111">Diligence credit</text>',
+            '<line x1="760" y1="105" x2="790" y2="105" stroke="#111" stroke-width="4"/>',
+            '<text x="800" y="135" font-family="Arial, sans-serif" font-size="13" fill="#b35c1e">Assignment hazard</text>',
+            '<line x1="760" y1="130" x2="790" y2="130" stroke="#b35c1e" stroke-width="4"/>',
+            '<text x="100" y="435" font-family="Arial, sans-serif" font-size="12" fill="#555">Interpretation: once one acceptable “received” has appeared, later replies become mostly ceremonial.</text>',
+            '</svg>',
+        ]
+    )
+    (FIGURES / "first_responder_discount.svg").write_text("\n".join(parts))
+
+
+def render_role_obligation_matrix() -> None:
+    width, height = 960, 540
+    margin_left, margin_top, chart_w, chart_h = 120, 90, 660, 320
+    roles = [
+        ("First-author junior", 2.2, 9.1, "#7a1f1f"),
+        ("Procurement steward", 7.1, 8.2, "#8b5e34"),
+        ("Experiment operator", 4.0, 8.8, "#3d6e70"),
+        ("Postdoc proxy", 6.1, 7.0, "#5d4d8c"),
+        ("Generic bystander", 2.4, 4.0, "#6b6b6b"),
+        ("Muddy-water fish", 1.2, 2.1, "#4f6d42"),
+    ]
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+        '<rect width="100%" height="100%" fill="#faf8f2"/>',
+        '<text x="120" y="40" font-family="Georgia, serif" font-size="24" fill="#111">Figure 5. Role Obligation Matrix</text>',
+        '<text x="120" y="60" font-family="Arial, sans-serif" font-size="12" fill="#555">The funniest roles often combine high obligation with low veto power.</text>',
+        f'<rect x="{margin_left}" y="{margin_top}" width="{chart_w}" height="{chart_h}" fill="#fffdf8" stroke="#d9d0c2"/>',
+        f'<line x1="{margin_left + chart_w/2}" y1="{margin_top}" x2="{margin_left + chart_w/2}" y2="{margin_top + chart_h}" stroke="#d4c5ae" stroke-width="1.5" stroke-dasharray="6 6"/>',
+        f'<line x1="{margin_left}" y1="{margin_top + chart_h/2}" x2="{margin_left + chart_w}" y2="{margin_top + chart_h/2}" stroke="#d4c5ae" stroke-width="1.5" stroke-dasharray="6 6"/>',
+        f'<line x1="{margin_left}" y1="{margin_top + chart_h}" x2="{margin_left + chart_w}" y2="{margin_top + chart_h}" stroke="#333" stroke-width="2"/>',
+        f'<line x1="{margin_left}" y1="{margin_top}" x2="{margin_left}" y2="{margin_top + chart_h}" stroke="#333" stroke-width="2"/>',
+        f'<text x="{margin_left + chart_w/2}" y="{margin_top + chart_h + 38}" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#333">Veto power</text>',
+        f'<text x="42" y="{margin_top + chart_h/2}" transform="rotate(-90 42 {margin_top + chart_h/2})" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#333">Obligation intensity</text>',
+        f'<text x="{margin_left + 26}" y="{margin_top + 24}" font-family="Arial, sans-serif" font-size="12" fill="#666">High obligation / low veto = default tragedy</text>',
+        f'<text x="{margin_left + chart_w - 182}" y="{margin_top + chart_h - 14}" font-family="Arial, sans-serif" font-size="12" fill="#666">Low obligation / high veto = pleasant habitat</text>',
+    ]
+
+    for title, x_value, y_value, color in roles:
+        x = scale(x_value, 0.0, 10.0, margin_left, margin_left + chart_w)
+        y = scale(y_value, 0.0, 10.0, margin_top + chart_h, margin_top)
+        parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="9" fill="{color}" stroke="#111" stroke-width="1.2"/>')
+        parts.append(f'<text x="{x + 14:.1f}" y="{y - 10:.1f}" font-family="Arial, sans-serif" font-size="12" fill="#222">{escape(title)}</text>')
+
+    parts.append('</svg>')
+    (FIGURES / "role_obligation_matrix.svg").write_text("\n".join(parts))
+
+
 def render_latency_curve() -> None:
     rows = list(csv.DictReader((FIGURES / "latency_diligence_curve.csv").open()))
     width, height = 960, 540
@@ -197,6 +284,8 @@ def render_hierarchy_chart() -> None:
 
 def main() -> None:
     render_theory_map()
+    render_first_responder_discount()
+    render_role_obligation_matrix()
     render_latency_curve()
     render_hierarchy_chart()
     print("Rendered SVG figures to paper/figures/")

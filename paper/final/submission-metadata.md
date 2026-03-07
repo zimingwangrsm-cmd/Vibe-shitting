@@ -39,11 +39,13 @@ An academic satire paper modeling advisor-group-chat reply delay as a signaling 
 
 ## Files / 文件清单
 
-- manuscript: `read-seen-ignored_submission-ready.md`
+- working manuscript: `read-seen-ignored_submission-ready.md`
+- English submission: `read-seen-ignored_submission_en.md`
+- Chinese submission: `read-seen-ignored_submission_zh.md`
 - html preview: `read-seen-ignored_submission-ready.html`
 - references: `../references/read-seen-ignored-references.md`
 - figures: `../figures/*.csv`
-- rendered figures: `../figures/theory_framework_map.svg`, `../figures/latency_diligence_curve.svg`, `../figures/hierarchy_window_chart.svg`
+- rendered figures: `../figures/theory_framework_map.svg`, `../figures/latency_diligence_curve.svg`, `../figures/hierarchy_window_chart.svg`, `../figures/first_responder_discount.svg`, `../figures/role_obligation_matrix.svg`
 
 ## Safety Statement / 安全说明
 

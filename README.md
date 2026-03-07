@@ -33,8 +33,12 @@
 - Lead paper locked: `Read, Seen, Ignored: A Signaling-Game Analysis of Reply Latency in Advisor Group Chats`
 - Proposal: [paper/proposal/read-seen-ignored-proposal.md](paper/proposal/read-seen-ignored-proposal.md)
 - Final manuscript: [paper/final/read-seen-ignored_submission-ready.md](paper/final/read-seen-ignored_submission-ready.md)
+- English submission: [paper/final/read-seen-ignored_submission_en.md](paper/final/read-seen-ignored_submission_en.md)
+- Chinese submission: [paper/final/read-seen-ignored_submission_zh.md](paper/final/read-seen-ignored_submission_zh.md)
 - HTML preview: [paper/final/read-seen-ignored_submission-ready.html](paper/final/read-seen-ignored_submission-ready.html)
 - Theory framework figure: [paper/figures/theory_framework_map.svg](paper/figures/theory_framework_map.svg)
+- Visual explainer plan: [paper/figures/visual-explainer-plan.md](paper/figures/visual-explainer-plan.md)
+- SHIT fit review: [paper/review/shit-fit-review-2026-03-07.md](paper/review/shit-fit-review-2026-03-07.md)
 - Submission metadata: [paper/final/submission-metadata.md](paper/final/submission-metadata.md)
 - Latest social draft: [social/xiaohongshu/post-06-theory-upgrade.md](social/xiaohongshu/post-06-theory-upgrade.md)
 

@@ -141,6 +141,17 @@ def figure_panel() -> str:
 """.strip()
 
 
+def single_figure(src: str, alt: str, caption: str) -> str:
+    return f"""
+<section class="inline-figure">
+  <figure>
+    <img src="{src}" alt="{alt}"/>
+    <figcaption>{caption}</figcaption>
+  </figure>
+</section>
+""".strip()
+
+
 def build_body(lines: list[str], allow_figures: bool = True) -> str:
     out = []
     i = 0
@@ -166,6 +177,24 @@ def build_body(lines: list[str], allow_figures: bool = True) -> str:
         if allow_figures and not inserted_figures and stripped.startswith("## 4. Results"):
             out.append(figure_panel())
             inserted_figures = True
+
+        if allow_figures and stripped.startswith("### 4.4"):
+            out.append(
+                single_figure(
+                    "../figures/first_responder_discount.svg",
+                    "First-responder discount chart",
+                    "Figure 4. First-Responder Discount.",
+                )
+            )
+
+        if allow_figures and stripped.startswith("### 4.5"):
+            out.append(
+                single_figure(
+                    "../figures/role_obligation_matrix.svg",
+                    "Role obligation matrix",
+                    "Figure 5. Role Obligation Matrix.",
+                )
+            )
 
         if stripped.startswith("#"):
             out.append(render_heading(stripped))
@@ -365,6 +394,9 @@ def main() -> None:
       grid-template-columns: 1fr;
       gap: 22px;
       margin: 2.2rem 0;
+    }}
+    .inline-figure {{
+      margin: 1.8rem 0 1.6rem;
     }}
     figure {{
       margin: 0;

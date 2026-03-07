@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="500" viewBox="0 0 940 500">
+<rect width="100%" height="100%" fill="#faf8f2"/>
+<text x="100" y="40" font-family="Georgia, serif" font-size="24" fill="#111">Figure 4. First-Responder Discount</text>
+<text x="100" y="60" font-family="Arial, sans-serif" font-size="12" fill="#555">The first visible reply earns the most diligence credit and the highest downstream extraction risk.</text>
+<line x1="100" y1="360.0" x2="780" y2="360.0" stroke="#e2ddd2" stroke-width="1"/>
+<text x="68" y="364.0" font-family="Arial, sans-serif" font-size="12" fill="#666">0</text>
+<line x1="100" y1="306.0" x2="780" y2="306.0" stroke="#e2ddd2" stroke-width="1"/>
+<text x="68" y="310.0" font-family="Arial, sans-serif" font-size="12" fill="#666">2</text>
+<line x1="100" y1="252.0" x2="780" y2="252.0" stroke="#e2ddd2" stroke-width="1"/>
+<text x="68" y="256.0" font-family="Arial, sans-serif" font-size="12" fill="#666">4</text>
+<line x1="100" y1="198.0" x2="780" y2="198.0" stroke="#e2ddd2" stroke-width="1"/>
+<text x="68" y="202.0" font-family="Arial, sans-serif" font-size="12" fill="#666">6</text>
+<line x1="100" y1="144.0" x2="780" y2="144.0" stroke="#e2ddd2" stroke-width="1"/>
+<text x="68" y="148.0" font-family="Arial, sans-serif" font-size="12" fill="#666">8</text>
+<line x1="100" y1="90.0" x2="780" y2="90.0" stroke="#e2ddd2" stroke-width="1"/>
+<text x="68" y="94.0" font-family="Arial, sans-serif" font-size="12" fill="#666">10</text>
+<line x1="100" y1="90" x2="100" y2="360" stroke="#333" stroke-width="2"/>
+<line x1="100" y1="360" x2="780" y2="360" stroke="#333" stroke-width="2"/>
+<text x="100.0" y="388" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">1st reply</text>
+<text x="326.7" y="388" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">2nd reply</text>
+<text x="553.3" y="388" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">3rd+</text>
+<text x="780.0" y="388" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">silent</text>
+<polyline fill="none" stroke="#111" stroke-width="4" points="100.0,111.6 326.7,200.7 553.3,268.2 780.0,360.0"/>
+<polyline fill="none" stroke="#b35c1e" stroke-width="4" points="100.0,127.8 326.7,249.3 553.3,314.1 780.0,349.2"/>
+<text x="800" y="110" font-family="Arial, sans-serif" font-size="13" fill="#111">Diligence credit</text>
+<line x1="760" y1="105" x2="790" y2="105" stroke="#111" stroke-width="4"/>
+<text x="800" y="135" font-family="Arial, sans-serif" font-size="13" fill="#b35c1e">Assignment hazard</text>
+<line x1="760" y1="130" x2="790" y2="130" stroke="#b35c1e" stroke-width="4"/>
+<text x="100" y="435" font-family="Arial, sans-serif" font-size="12" fill="#555">Interpretation: once one acceptable “received” has appeared, later replies become mostly ceremonial.</text>
+</svg>
