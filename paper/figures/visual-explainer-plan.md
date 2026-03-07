@@ -36,10 +36,10 @@ A self-drawn two-panel diagram with:
 **Note / 备注**  
 Do not paste the original aircraft image directly. Keep it as structural inspiration only.
 
-### Slot B: after Section 3.5
+### Slot B: after Section 2.6
 
 **Purpose / 用途**  
-Explain the folk taxonomy behind `muddy-water fish`, `first-author junior`, and `procurement steward`.
+Explain the folk taxonomy behind `gatekeeping dog`, `muddy-water fish`, `dragging bottle`, `first-author junior`, and `procurement steward`.
 
 **Best format / 最佳形式**  
 `Role Constitution Plate`  
@@ -52,11 +52,12 @@ A 4-cell diagram with:
 
 **Note / 备注**  
 Do not paste platform screenshots directly into the paper body. Redraw the typology in your own style.
+For source leads, see `../references/vernacular-scenes-and-memes-2026-03-07.md`.
 
 ### Slot C: before or inside Section 4.3
 
 **Purpose / 用途**  
-Explain the `first-responder discount` and why large groups produce strategic waiting.
+Explain the `first-responder discount`, the `call-out effect`, and why large groups produce strategic waiting.
 
 **Best format / 最佳形式**  
 `First-Responder Discount Curve`  
@@ -94,7 +95,7 @@ This is one of the funniest explanatory plates because the roles instantly look 
 ### Slot E: inside Section 4.5
 
 **Purpose / 用途**  
-Explain `holiday fog` and the temporary rightward shift of acceptable delay.
+Explain `advisor red-envelope effect`, `holiday fog`, and the temporary rightward shift of acceptable delay.
 
 **Best format / 最佳形式**  
 `Holiday-Fog Shift Chart`
@@ -103,6 +104,7 @@ Show two windows:
 
 - ordinary-time acceptable latency
 - first-72-hours-after-holiday acceptable latency
+- advisor-red-envelope shock window
 
 **Source context / 语境来源**
 

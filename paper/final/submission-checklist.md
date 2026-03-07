@@ -2,6 +2,7 @@
 
 - [x] Canonical English manuscript prepared
 - [x] Canonical Chinese manuscript prepared
+- [x] Flavor-first bilingual working manuscript prepared
 - [x] References inlined in both canonical manuscripts
 - [x] English HTML preview generated
 - [x] Chinese HTML preview generated

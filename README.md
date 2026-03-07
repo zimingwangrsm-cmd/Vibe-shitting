@@ -30,10 +30,11 @@
 
 **Phase 05 - Canonical Submission Pack / 正式投稿包**
 
-- Lead paper locked: `"Received, Professor": Performative Presence Survivorship Bias in Advisor Group Chats`
+- Lead paper locked: `Read, Seen, Ignored: A Signaling-Game Analysis of Reply Latency in Advisor Group Chats`
+- Flavor-first bilingual working draft: [paper/final/read-seen-ignored_submission-ready.md](paper/final/read-seen-ignored_submission-ready.md)
 - Proposal: [paper/proposal/read-seen-ignored-proposal.md](paper/proposal/read-seen-ignored-proposal.md)
-- English canonical manuscript: [paper/final/read-seen-ignored_submission_en.md](paper/final/read-seen-ignored_submission_en.md)
-- Chinese canonical manuscript: [paper/final/read-seen-ignored_submission_zh.md](paper/final/read-seen-ignored_submission_zh.md)
+- English translation snapshot: [paper/final/read-seen-ignored_submission_en.md](paper/final/read-seen-ignored_submission_en.md)
+- Chinese translation snapshot: [paper/final/read-seen-ignored_submission_zh.md](paper/final/read-seen-ignored_submission_zh.md)
 - English HTML preview: [paper/final/read-seen-ignored_submission_en.html](paper/final/read-seen-ignored_submission_en.html)
 - Chinese HTML preview: [paper/final/read-seen-ignored_submission_zh.html](paper/final/read-seen-ignored_submission_zh.html)
 - Submission pack landing: [paper/final/read-seen-ignored_submission-ready.html](paper/final/read-seen-ignored_submission-ready.html)

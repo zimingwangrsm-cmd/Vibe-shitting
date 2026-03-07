@@ -2,8 +2,8 @@
 
 ## Title / 标题
 
-"Received, Professor": Performative Presence Survivorship Bias in Advisor Group Chats  
-“收到老师”：导师群聊中的体面在场幸存者偏差
+Read, Seen, Ignored: A Signaling-Game Analysis of Reply Latency in Advisor Group Chats  
+已读、不回、稍后回复：导师群聊响应延迟的信号博弈分析
 
 ## Author / 作者
 
@@ -35,13 +35,14 @@ hardcore academic satire / 硬核学术整活
 
 ## Short Description / 简介
 
-An academic satire paper package with canonical English and Chinese manuscripts proposing performative presence survivorship bias to explain why advisor group chats look more orderly than they feel.  
-一套学术讽刺投稿包，以中英双主稿形式提出“体面在场幸存者偏差”，解释为什么导师群聊看起来总比参与者真实感受的更有秩序。
+An academic satire paper package centered on advisor-group-chat reply delay as a signaling game, a chronemic cue, and a multi-person volunteer's dilemma. The current rewrite cycle uses the bilingual working draft as the main comparative manuscript.  
+一套学术讽刺投稿包，将导师群聊回复时延建模为“信号博弈 + 时间线索 + 多人志愿者困境”。当前改稿轮次以双语工作稿作为主对照文本。
 
 ## Files / 文件清单
 
-- canonical English manuscript: `read-seen-ignored_submission_en.md`
-- canonical Chinese manuscript: `read-seen-ignored_submission_zh.md`
+- English translation snapshot: `read-seen-ignored_submission_en.md`
+- Chinese translation snapshot: `read-seen-ignored_submission_zh.md`
+- flavor-first bilingual working manuscript: `read-seen-ignored_submission-ready.md`
 - English HTML preview: `read-seen-ignored_submission_en.html`
 - Chinese HTML preview: `read-seen-ignored_submission_zh.html`
 - submission pack landing: `read-seen-ignored_submission-ready.html`
