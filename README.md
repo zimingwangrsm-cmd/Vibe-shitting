@@ -41,6 +41,7 @@
 - Theory framework figure: [paper/figures/theory_framework_map.svg](paper/figures/theory_framework_map.svg)
 - Visual explainer plan: [paper/figures/visual-explainer-plan.md](paper/figures/visual-explainer-plan.md)
 - SHIT fit review: [paper/review/shit-fit-review-2026-03-07.md](paper/review/shit-fit-review-2026-03-07.md)
+- Named effects glossary: [paper/review/named-effects-glossary-2026-03-07.md](paper/review/named-effects-glossary-2026-03-07.md)
 - Submission metadata: [paper/final/submission-metadata.md](paper/final/submission-metadata.md)
 - Latest social draft: [social/xiaohongshu/post-06-theory-upgrade.md](social/xiaohongshu/post-06-theory-upgrade.md)
 

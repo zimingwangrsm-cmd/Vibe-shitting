@@ -9,7 +9,7 @@ advisor group chats; signaling; chronemics; communication visibility; volunteer'
 
 ## Abstract
 
-This paper studies reply latency in advisor group chats as a hybrid signaling game, chronemic cue, and multi-person volunteer's dilemma. Graduate students do not optimize for immediate response. They search for a narrow delay band that simultaneously signals diligence, preserves reliability, limits assignment hazard, and remains legible to a heterogeneous audience. Drawing on signaling theory, reputation models, computer-mediated communication, communication visibility, expectation states, and volunteer's-dilemma logic, the paper analyzes 4,236 message-response dyads across 28 reconstructed research groups. The results show an inverse-U relation between latency and perceived diligence: replies that are too fast imply suspicious idleness, while replies that are too slow imply neglect, collapse, or soft refusal disguised as infrastructure. Group size widens the initial waiting game until ownership becomes salient, at which point diffusion of responsibility collapses. The paper names five stylized effects: the **Advisor-Visible Peer Compression Effect**, the **Default Volunteer Trap**, the **First-Responder Discount**, the **Procurement Sovereignty Principle**, and the **Holiday Intelligence Drawdown**. Together they show that advisor-group-chat latency is not mere etiquette but a small technology of reputational labor under public asymmetry.
+This paper studies reply latency in advisor group chats as a hybrid signaling game, chronemic cue, and multi-person volunteer's dilemma. Graduate students do not optimize for immediate response. They search for a narrow delay band that simultaneously signals diligence, preserves reliability, limits assignment hazard, and remains legible to a heterogeneous audience. Drawing on signaling theory, reputation models, computer-mediated communication, communication visibility, expectation states, and volunteer's-dilemma logic, the paper analyzes 4,236 message-response dyads across 28 reconstructed research groups. The results show an inverse-U relation between latency and perceived diligence: replies that are too fast imply suspicious idleness, while replies that are too slow imply neglect, collapse, or soft refusal disguised as infrastructure. Group size widens the initial waiting game until ownership becomes salient, at which point diffusion of responsibility collapses. The paper names six stylized effects: the **Advisor-Visible Peer Compression Effect**, the **Default Volunteer Trap**, the **First-Responder Discount**, the **Procurement Sovereignty Principle**, the **Holiday Intelligence Drawdown**, and the **Advisor Red-Envelope Effect**. Together they show that advisor-group-chat latency is not mere etiquette but a small technology of reputational labor under public asymmetry.
 
 ## 1. Introduction
 
@@ -47,6 +47,8 @@ Group chats also instantiate a volunteer's dilemma. Everybody benefits if somebo
 ### 2.6 Vernacular Lab Politics
 
 Chinese platform discourse contributes a useful folk vocabulary here. The paper uses figures such as the `muddy-water fish`, the `first-author junior`, the `procurement senior`, and MBTI-style duty-keeper talk not as psychometrics, but as vernacular role descriptors. They work because they are lay theories of unequal obligation. They are memes with job descriptions.
+
+This vernacular logic also explains why rare symbolic gifts behave so strangely in lab chats. When an advisor sends a small red envelope during a holiday or after a deadline, the packet is never just money. It becomes a mixed signal of benevolence, surveillance, and attendance-taking. We call the resulting acceleration the **Advisor Red-Envelope Effect**: a tiny transfer that produces a disproportionately fast return of gratitude, visibility, and previously missing lab members.
 
 ## 3. Research Design
 
@@ -103,7 +105,13 @@ The paper finds that the procurement steward often carries one of the earliest r
 
 For the first 72 hours after a long holiday, low- and medium-urgency messages tolerate an additional `6-11 min` before sharp suspicion emerges. Yet direct summons still demand rapid acknowledgment. The result is not freedom but degraded compliance. This is the **Holiday Intelligence Drawdown**: the lab becomes collectively slower before it becomes institutionally forgiven.
 
-### 4.6 Emoji Reparations
+### 4.6 Advisor Red-Envelope Effect
+
+When advisors distribute a small holiday red envelope in the group chat, the latency curve briefly stops behaving like the ordinary work curve. Dormant members revive, ceremonial gratitude multiplies, and even the muddy-water fish develops sudden finger strength. We call this the **Advisor Red-Envelope Effect**: micro-monetary generosity triggers a temporary spike in visibility, loyalty performance, and reply speed that far exceeds the packet's cash value.
+
+The mechanism is not purely economic. A red envelope in an advisor group chat behaves simultaneously as reward, roll call, and affection audit. To open it slowly is not just to lose money, but to risk looking emotionally absent at the exact moment when everyone else is publicly present.
+
+### 4.7 Emoji Reparations
 
 Light emoji use can mildly repair moderate delay in low-urgency contexts. Under strong hierarchy, however, emoji cease to function as warmth and begin to risk functioning as evidence.
 
@@ -119,6 +127,8 @@ The lab therefore appears less as a flat communication network than as a constit
 - the muddy-water fish: low initiative, high survival intelligence
 
 These are funny figures because they are precise. The joke is not that they exist. The joke is that almost every lab immediately recognizes them.
+
+The same is true of the advisor red envelope. It appears generous, but it also works like a brief mass resurrection ritual. Students who have ignored fifteen ordinary messages can suddenly materialize in less than four seconds when symbolic benevolence becomes both visible and claimable.
 
 ## 6. Outrageous but Plausible Corollaries
 
@@ -142,6 +152,10 @@ After long holidays, the advisor's scheduling curve recovers faster than the lab
 
 The best way to look hardworking in a group chat is often to avoid looking available to everyone at the same time.
 
+### Corollary 6
+
+The fastest way to improve group-chat responsiveness is not to improve morale, but to attach a very small amount of money to public gratitude.
+
 ## 7. Conclusion
 
 The graduate student in an advisor group chat does not simply reply. The student performs reliability under unequal observation, before a visible audience, inside a game in which somebody must answer first and nobody wants the role too often. Reply latency is therefore both signal and shield: a small interval in which diligence, fear, ownership, extractability, and hierarchy negotiate in public.
@@ -158,6 +172,7 @@ The apparently trivial question “Why didn't you just answer?” therefore has 
 | Administrative reminder | Medium | 9-21 min | 5.2 | Moderate delay implies active processing |
 | Reimbursement request | Medium | 4-12 min | 7.4 | Procurement ownership is publicly legible |
 | Public praise trap | Medium | 4-12 min | 9.1 | Visible competence invites future extraction |
+| Advisor red-envelope drop | Low | 0-3 min | 6.6 | Gratitude, greed, and attendance collapse into one gesture |
 | Soft ping | Low | 14-37 min | 4.7 | Too fast appears suspiciously idle |
 | Holiday roll call | Low | 18-46 min | 5.9 | Everyone is slower, but nobody is forgiven equally |
 
@@ -181,6 +196,7 @@ The apparently trivial question “Why didn't you just answer?” therefore has 
 | First-Responder Discount | Once one person replies correctly, everyone else becomes optional |
 | Procurement Sovereignty Principle | The least celebrated worker may control the most practical power |
 | Holiday Intelligence Drawdown | People recover from holidays slower than institutions expect |
+| Advisor Red-Envelope Effect | A tiny public gift can revive dormant members faster than ordinary supervision |
 
 ## References
 

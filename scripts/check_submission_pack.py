@@ -19,6 +19,7 @@ REQUIRED_FILES = [
     FINAL / "submission-metadata.md",
     FINAL / "submission-checklist.md",
     ROOT / "paper" / "review" / "shit-fit-review-2026-03-07.md",
+    ROOT / "paper" / "review" / "named-effects-glossary-2026-03-07.md",
     ROOT / "paper" / "figures" / "visual-explainer-plan.md",
 ]
 
