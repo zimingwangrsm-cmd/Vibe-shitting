@@ -26,15 +26,16 @@ hardcore academic satire / 硬核学术整活
 
 - advisor group chats
 - signaling
-- reputational labor
+- chronemics
+- communication visibility
+- volunteer's dilemma
+- expectation states
 - graduate student life
-- reply latency
-- digital etiquette
 
 ## Short Description / 简介
 
-An academic satire paper modeling how graduate students strategically time their replies in advisor group chats in order to look diligent without attracting more work.  
-一篇学术讽刺论文：研究研究生如何通过策略性控制导师群聊的回复时延，既显得勤奋又尽量少接新活。
+An academic satire paper modeling advisor-group-chat reply delay as a signaling game, a chronemic cue, and a multi-person volunteer's dilemma in which students try to look diligent without becoming the lab's default volunteer.  
+一篇学术讽刺论文：将导师群聊中的回复时延建模为“信号博弈 + 时间线索 + 多人志愿者困境”，解释研究生如何既显得勤奋，又尽量避免沦为实验室默认接活人。
 
 ## Files / 文件清单
 
