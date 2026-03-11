@@ -9,7 +9,7 @@ advisor group chats; signaling; chronemics; communication visibility; volunteer'
 
 ## Abstract
 
-This paper examines reply latency in advisor group chats as a hybrid signaling game, chronemic cue, and multi-person volunteer's dilemma. Its core claim is simple: in an advisor group chat, a reply is not just a reply, but a timed performance of reliability designed to avoid looking either negligent or dangerously free. Drawing on signaling theory, reputation models, computer-mediated communication, communication visibility, expectation states, and volunteer's-dilemma logic, the paper analyzes 4,236 reconstructed message-response dyads across 28 research groups. Four findings organize the argument. First, reply latency follows an inverse-U curve: the safest reply is neither instant nor absent. Second, explicit advisor `@` mentions create a **call-out effect** that sharply compresses delay tolerance. Third, once one credible public reply appears, everyone else's moral urgency drops sharply, producing a **first-responder discount**. Fourth, advisor red envelopes generate an **advisor red-envelope effect** that revives dormant members far faster than ordinary supervision. Around these effects, the paper maps a small laboratory constitution populated by first-author juniors, gatekeeping dogs, muddy-water fish, dragging bottles, and other bottlenecked organisms. Publication stock shows a U-shaped relation with reply enthusiasm: the least published and the most entangled reply early, while the drifting middle delays longest. Advisor-group-chat latency is therefore not mere etiquette but a small technology of reputational labor under public asymmetry.
+This paper treats reply in advisor group chats as a timed performance of reliability: answer too fast and you look idle, answer too slowly and you look missing. Drawing on signaling theory, chronemics, communication visibility, and the volunteer's dilemma, the paper analyzes 4,236 reconstructed message-response dyads across 28 research groups and foregrounds only four main findings. First, reply latency follows a clear inverse-U curve, with the fitted peak in Figure 2 landing at roughly `12 min`; the fastest reply is not the safest reply. Second, explicit advisor `@` mentions create a **call-out effect** that rapidly disables group camouflage, holiday excuses, and role-based hiding. Third, once one credible public reply appears, everyone else's moral urgency is sharply discounted, producing a **first-responder discount**. Fourth, advisor red envelopes generate an **advisor red-envelope effect** that punctures lurking equilibrium faster than ordinary supervision. Folk species and the U-shaped relation between publication stock and reply enthusiasm appear only as supporting explanations: the least published reply early to prove value, the most entangled reply early because the task is already theirs, and the drifting middle delays because it can. Advisor-group-chat latency is therefore not mere etiquette but an invisible scheduling regime that allocates trust, obligation, and the probability of being given the next task.
 
 ## 1. Introduction
 
@@ -19,7 +19,7 @@ Common advice within student communities recommends responsiveness. Yet extreme 
 
 This paper proposes that reply latency in advisor group chats should be analyzed not as a trivial matter of etiquette, but as a signaling problem embedded in a multi-actor coordination game. The student does not simply transmit information. The student performs an equilibrium between obedience, competence, self-protection, and survivable ambiguity. The group chat is not only a communication channel; it is a public arena in which timestamps become evidence.
 
-The contribution of this paper is fourfold. First, it deepens the theoretical base for studying reply delay by combining signaling theory with chronemics in computer-mediated communication. Second, it models advisor group chats as visible multi-person settings in which group size and reply order shape incentives. Third, it introduces heterogeneous role structures, including first-author juniors, procurement-reimbursement bottlenecks, postdoc proxies, and peer-only bystanders, to show that reply latency is not judged symmetrically. Fourth, it retains the comic realism of graduate life by treating laboratory politics as analytically meaningful rather than merely anecdotal.
+The contribution of this paper is threefold. First, it defines advisor-group-chat latency as reputational labor under continuous observation rather than mere etiquette speed. Second, it places hierarchy, visibility, ownership, and reply order inside one multi-person coordination model, showing why not everybody is equally allowed to wait. Third, it treats laboratory folk taxonomy as structural diagnosis rather than decorative slang: these memes are not ornaments but vulgar names for unequal obligation.
 
 ## 2. Literature Review and Theoretical Framework
 
@@ -29,7 +29,7 @@ Signaling theory explains how observable actions communicate hidden states under
 
 Advisor group chats present exactly this structure. Supervisors cannot directly observe whether a student is productively coding, physically in transit, quietly panicking, or staring at the message while composing a more respectable version of “received, professor.” What they can observe is whether the student replies, how fast, and in what tone. Latency therefore functions as a low-cost but continuously available signal of diligence, deference, availability, and emotional intactness. Unlike job-market signaling, however, this signal is not deployed once. It is repeated dozens or hundreds of times before the same audience.
 
-The implication is that reply delay cannot be reduced to communication speed. It is better understood as reputational calibration under chronic asymmetry. Students do not simply signal competence. They signal a carefully mixed bundle: “I am responsible, I am not ignoring you, and I am hopefully not so free that you should give me three more tasks.”
+The implication is that reply delay cannot be reduced to communication speed. It is better understood as reputational calibration under chronic asymmetry. Students do not simply signal competence. They signal a carefully mixed bundle: “I am responsible, I am not ignoring you, and I am hopefully not so free that you should give me three more tasks.” This paradox of being timely but not too timely also resembles the availability escalation documented in mobile-email research, where visible connectedness raises organizational expectations of perpetual reachability (Mazmanian, Orlikowski, & Yates, 2013).
 
 ### 2.2 Chronemics and Social Information in Computer-Mediated Communication
 
@@ -37,7 +37,7 @@ Research on computer-mediated communication shows that when face-to-face cues ar
 
 Walther and Tidwell (1995) argue that relational cues survive in lean media by migrating into alternative channels such as timing and message management. Tidwell and Walther (2002) similarly show that people build impressions gradually through small mediated disclosures, even when interaction is text-heavy and asynchronous. More directly, Kalman et al. (2013) demonstrate that online chronemics convey social information, while Ziano and Wang (2021) show that response delays in email shape how senders are perceived. These lines of work imply that a timestamp in a chat window is already a socioemotional cue.
 
-For academic group chats, the consequence is sharp. A six-minute delay can be read as “currently working but attentive,” a forty-minute delay as “occupied or strategically hiding,” and a three-second delay as “alarmingly available.” The same text, sent at a different time, becomes a different self.
+For academic group chats, the consequence is sharp. A six-minute delay can be read as “currently working but attentive,” a forty-minute delay as “occupied or strategically hiding,” and a three-second delay as “alarmingly available.” The same text, sent at a different time, becomes a different self. This preoccupation with responding quickly also resembles workplace telepressure: actors begin to experience themselves as bodies expected to be on call before anyone explicitly says so (Barber & Santuzzi, 2015).
 
 ### 2.3 Communication Visibility and the Public Audience Problem
 
@@ -75,6 +75,8 @@ Advisor red envelopes sit at the center of this scene language. The packet is ne
 
 Holiday periods add a final layer of comic realism. Post-holiday discourse regularly describes people as cognitively slower, emotionally softer, and less ready to resume institutional performance. In laboratory settings, this produces **holiday fog**: the felt wish to say, “Advisor, I am somehow dumber than the vacation itself; do you still want to meet?” The paper does not treat this as a clinical measure. It treats it as a socially intelligible condition that shifts acceptable delay slightly to the right without suspending hierarchy.
 
+Taken together, the paper treats reply windows as the joint product of four primary mechanisms: hierarchy compresses the left boundary, visibility magnifies the interpretive cost of delay, ownership determines who must eventually surface, and group size plus reply order determine how long collective waiting can last. Publication position and holiday state are moderators: the former changes who is read as a natural bearer of obligation, while the latter only nudges tolerance slightly to the right. Advisor red envelopes operate as an exogenous shock that briefly rewrites waiting equilibrium into attendance competition.
+
 ![Figure 1. Theoretical Framework and Group-Chat Game.](../figures/theory_framework_map.svg)
 
 ## 3. Research Design
@@ -87,9 +89,9 @@ The dataset is intentionally synthetic, but it is built to preserve the emotiona
 
 ### 3.2 Group Structure and Core Variables
 
-Each event in the corpus is coded along twelve dimensions: sender hierarchy, group size, composition profile, message type, urgency, visibility, ownership salience, reply order, holiday phase, emoji density, call-out status, and publication stock.
+Each event in the corpus is coded across four variable families. Structural variables include sender hierarchy, group size, audience composition, visibility, and ownership salience. Situational variables include message type, urgency, holiday-reentry status, and red-envelope presence. Sequential variables include call-out status and first-response position. Actor variables include publication stock, pipeline centrality, and vernacular role tags. Emoji density is retained only as a supplementary modifier for low-urgency edge cases rather than as a headline result.
 
-For interpretive purposes, coders also noted a non-inferential vernacular role tag when a composite style was highly salient, such as “gatekeeping dog,” “muddy-water fish,” “dragging bottle,” “first-author underling,” or “public bottleneck.” These tags were used for satirical description rather than statistical inference.
+For interpretive purposes, coders also noted a non-inferential vernacular role tag when a composite style was highly salient, such as “gatekeeping dog,” “muddy-water fish,” “dragging bottle,” “first-author underling,” or “public bottleneck.” These tags sharpen the satirical description of who tends to surface first and who manages to drift longer, but they are not directly entered as inferential parameters.
 
 ### 3.3 Utility Reconstruction
 
@@ -98,6 +100,8 @@ The analysis models each student actor `i` as choosing a visible delay `l_i` aft
 `U_i(l_i) = alpha*D_i(l_i | h_i, v, u) + beta*R_i(l_i | u, P_i) - gamma*A_i(l_i | N, C, O_i, P_i) - delta*B_i(l_i | h_i, v, P_i) - eta*H_i(K)`
 
 where `D_i` is perceived diligence, `R_i` is reliability, `A_i` is assignment hazard, `B_i` is blame and suspicion, `H_i` is holiday fog, and the remaining terms capture hierarchy, visibility, urgency, group size, composition, ownership, reply order, and holiday phase.
+
+In plain language, the student is not optimizing “reply as fast as possible.” The student is optimizing an awkward window in which the advisor sees them as present without the rest of the laboratory reading them as permanently available.
 
 ### 3.4 Hypotheses
 
@@ -109,11 +113,13 @@ The paper tests five linked claims:
 4. Once a credible first reply appears, later replies lose most of their diligence premium.
 5. Publication stock has a U-shaped relation with reply enthusiasm, and advisor red envelopes sharply accelerate visible return.
 
+The first four are headline findings. The fifth is a moderator-level result explaining why not every body lives on the same timing curve.
+
 ## 4. Results
 
 ### 4.1 The Inverse-U of Diligence
 
-The primary finding is an inverse-U relationship between reply latency and perceived diligence. Replies in the `8-18 min` band achieved the highest diligence score and reliability score while maintaining only moderate assignment hazard. By contrast, replies under two minutes had high reliability but substantially elevated assignment hazard, supporting the claim that extreme responsiveness is interpreted as evidence of available capacity rather than pure virtue.
+The primary finding is an inverse-U relationship between reply latency and perceived diligence. The quadratic fit in Figure 2 peaks at roughly `12 min`, while replies in the `8-18 min` band achieved the highest diligence score and reliability score with only moderate assignment hazard. By contrast, replies under two minutes had high reliability but substantially elevated assignment hazard, supporting the claim that extreme responsiveness is interpreted as evidence of available capacity rather than pure virtue.
 
 The `19-47 min` band remained viable for low- and medium-urgency exchanges, though it began to incur reliability slippage. Once delay passed 48 minutes, both diligence and reliability deteriorated sharply. Delays beyond 180 minutes were interpreted less as strategic pacing than as infrastructural failure, emotional breakdown, or soft refusal in expensive clothing.
 
@@ -141,7 +147,7 @@ Yet this diffusion collapsed rapidly when ownership became clear. In manuscript-
 
 Once a credible first reply had appeared, later responses shifted from obligatory to ornamental. The second-wave acknowledgment cluster typically arrived `11-29 min` after the first reply and generated little additional diligence credit. In plain language, once somebody has typed the correct species of “received, professor,” everyone else can safely become atmospheric.
 
-In other words, once one good organism has emitted the right `received`, the market value of everyone else’s virtue crashes.
+Once the first public attendance tax has been paid, everyone else's moral invoice depreciates immediately.
 
 ![Figure 4. First-Responder Discount.](../figures/first_responder_discount.svg)
 
@@ -151,7 +157,7 @@ Role heterogeneity substantially reshaped the response curve. The earliest windo
 
 The vernacular species sharpen the same picture. The **gatekeeping dog** replied unusually early on administrative reminders, compliance checks, and roll calls, often in the `2-8 min` range, despite not always owning the substantive task. The **muddy-water fish** remained slowest when ownership was unclear, but lost its survival advantage once a direct naming event occurred. The **dragging bottle** showed the weakest spontaneous initiative and the largest gap between soft pings and explicit `@` summons, suggesting that its main function is not refusal but tempo drag.
 
-Publication stock also mattered. Students with no visible paper yet tended to reply early to display seriousness and secure future trust. Students with `3+` visible outputs or strong authorship centrality also replied early whenever the message touched their pipeline. The slowest cluster was the middle: actors with enough legitimacy to hide, but not enough ownership to be cornered. Reply enthusiasm therefore followed a U-shaped relation to publication position rather than a simple meritocratic gradient.
+Publication stock also mattered, but the mechanism is not mysterious. The least published reply early to prove they deserve to stay; the most published reply early because the task is already moving toward them; the slowest cluster is the middle, whose members have enough legitimacy to hide but not enough ownership to be cornered. Reply enthusiasm therefore follows a U-shaped relation to publication position rather than a simple meritocratic gradient.
 
 Numerically, the `no-paper-yet` cluster concentrated around `6-13 min`, the `1-2 visible outputs` cluster drifted to `13-28 min`, and the `3+ outputs / pipeline-central` cluster moved back to `7-14 min`. The laboratory middle class enjoys the widest camouflage.
 
@@ -161,17 +167,15 @@ Numerically, the `no-paper-yet` cluster concentrated around `6-13 min`, the `1-2
 
 ![Figure 7. Role Obligation Matrix.](../figures/role_obligation_matrix.svg)
 
-### 4.5 Advisor Red-Envelope Effect, Holiday Fog, and Emoji Compensation
+### 4.5 Advisor Red-Envelope Effect and Holiday Fog
 
 The **advisor red-envelope effect** was the most compactly absurd result in the corpus. In ordinary low-urgency holiday check-ins, median first visible reply time was `17.8 min`. In advisor red-envelope events of comparable urgency, it fell to `2.4 min`. Dormant members reappeared, gratitude density spiked, and even the muddy-water fish developed sudden finger strength. Small money outperformed large principle.
 
 Holiday periods still produced a modest rightward shift in acceptable delay. During the first 72 hours after a long holiday, low- and medium-urgency messages tolerated an additional `6-11 min` before sharp suspicion emerged. In effect, the group briefly accepted that everyone had become worse at being an institutional person.
 
-This tolerance, however, was conditional. Direct summons from the principal advisor still demanded reply within roughly `12 min`, and explicit call-out events compressed the window even further. Holiday fog softened the norm; it did not repeal the constitution.
+This tolerance, however, was conditional. Direct summons from the principal advisor still demanded reply within roughly `12 min`, and explicit call-out events compressed the window even further. Holiday fog softened the norm; it did not repeal the constitution. Emoji behaved only as a weak edge modifier in low-urgency scenes and did not belong in the same explanatory tier as call-out or red-envelope effects.
 
-Emoji use showed a weaker, more conditional effect. Light emoji use softened suspicion in low-urgency contexts near the upper edge of the optimal window. However, the effect was weak and vanished under deadline escalation, explicit blame risk, or direct-task conditions. Excessive emoji use backfired, lowering perceived seriousness and generating the impression of compensatory nervousness.
-
-In advisor chat, a red envelope is rarely just a benefit. It is benevolence with attendance-tracking features.
+In advisor chat, a red envelope is rarely just a benefit. It is roll call in lottery form.
 
 ![Figure 8. Advisor Red-Envelope Shock.](../figures/red_envelope_shock.svg)
 
@@ -181,13 +185,9 @@ The findings suggest that reply latency in advisor group chats is best understoo
 
 The volunteer’s-dilemma framing clarifies why large group chats feel uniquely draining. Silence is rarely empty. It is often a collective attempt to outsource first exposure to somebody else. The muddy-water fish is therefore not lazy in a metaphysical sense; it is a rational actor waiting for a more status-legible organism to move first. Once the advisor types `@first author`, however, game theory abruptly becomes biography.
 
-The role-heterogeneity results bring laboratory politics into clearer view. The first-author junior is publicly central but institutionally weak. The procurement-reimbursement bottleneck is symbolically peripheral but administratively indispensable. The postdoc proxy appears to be “just relaying information” while actually transmitting hierarchy with local accent. The gatekeeping dog keeps order without necessarily owning the science. The muddy-water fish survives by waiting. The dragging bottle slows everything without ever formally taking the floor. These are comic figures, but they index real asymmetries in obligation, visibility, and blame.
+Role heterogeneity shows that laboratory politics is not background color but timing law. The first-author junior carries public responsibility with little veto. The procurement-reimbursement bottleneck has low symbolic glamour but controls the least deferrable material channel. The gatekeeping dog polices order without owning the science. The dragging bottle may say little, yet converts private slowness into shared scheduling pain.
 
-Publication position complicates the picture further. The least published are often eager because they still need to prove they are alive. The most published are eager because they are structurally entangled with the task. The drifting middle delays because it can. This is one reason reply enthusiasm should never be read as a pure index of diligence or academic quality.
-
-The laboratory therefore looks less like a chat group than a small constitutional regime populated by juniors, bottlenecks, dogs, fish, and bottles.
-
-Holiday fog, finally, reveals something broader about academic life. Institutions value responsiveness while pretending that responsiveness costs nothing. Yet even minor delay management requires attention, emotional regulation, and role calculation. The private post-holiday plea, “Advisor, I am more stupid than the vacation itself; do you still want to meet?”, is ridiculous precisely because it is structurally plausible. The absurdity is diagnostic.
+Taken together, the results imply that an advisor group chat is less a communication tool than an unwritten scheduling regime: those who reply early begin to look like the next bodies available for extraction, while those who remain silent begin to look like bodies waiting to be named. Courtesy here is not courtesy. It is a public price quote on how callable you are.
 
 ## 6. Limitations
 
@@ -199,7 +199,7 @@ Fourth, the vernacular role tags and MBTI-style descriptors are interpretive com
 
 The graduate student in an advisor group chat does not simply reply. The student performs reliability under unequal observation, in front of a visible audience, inside a multi-person game in which someone must answer first and nobody wants the honor too often. Reply latency therefore functions as both signal and shield: a small interval in which diligence, fear, ownership, extractability, and hierarchy are negotiated in public.
 
-If this paper is correct, then the apparently trivial question “Why didn’t you just answer?” has no trivial answer. One answers late enough to look occupied, early enough to look loyal, cautiously enough to avoid becoming tomorrow’s default volunteer, and, in the first three days after a long holiday, with whatever fragments of intelligence have survived the break.
+If this paper is correct, then the apparently trivial question “Why didn’t you just answer?” has no trivial answer. Advisor group chat is not an information system but a reputational stopwatch; reply latency is not etiquette but a public quote on loyalty, presence, and future extractability. Once a group begins allocating trust by timestamp, it is no longer merely chatting. It has become an invisible scheduling machine.
 
 ## Table 1. Message-Type Risk Matrix
 
@@ -211,10 +211,10 @@ If this paper is correct, then the apparently trivial question “Why didn’t y
 | Paper comments | Medium | 6-15 min | 7.8 | First-author ownership pulls the window left |
 | Administrative reminder | Medium | 9-21 min | 5.2 | Moderate delay implies active processing |
 | Reimbursement request | Medium | 4-12 min | 7.4 | Ownership is publicly legible |
-| Public praise trap | Medium | 4-12 min | 9.1 | Visible competence invites future extraction |
+| Public praise trap | Medium | 4-12 min | 9.1 | Once your competence is publicly visible, hiding busyness gets harder |
 | Advisor red-envelope drop | Low | 0-3 min | 6.6 | Gratitude, greed, and attendance collapse into one gesture |
-| Soft ping | Low | 14-37 min | 4.7 | Too fast appears suspiciously idle |
-| Holiday roll call | Low | 18-46 min | 5.9 | Everyone is slower, but nobody is forgiven equally |
+| Soft ping | Low | 14-37 min | 4.7 | Too fast looks idle; too slow looks half-dead |
+| Holiday roll call | Low | 18-46 min | 5.9 | Everyone is slower and somehow nobody is forgiven evenly |
 
 ## Table 2. Role-Heterogeneity Windows
 
@@ -226,12 +226,14 @@ If this paper is correct, then the apparently trivial question “Why didn’t y
 | Experiment operator | Instrument failure, sample issue | 3-11 min | Clear technical ownership |
 | Postdoc proxy | Advisor relay, coordination | 7-19 min | Hierarchical delegation |
 | Dragging bottle | Shared task chain, low-urgency follow-up | 18-41 min | Slow tempo becomes everyone else’s scheduling problem |
-| Generic junior bystander | Lab-wide reminder | 14-36 min | Can hide in audience if ownership is unclear |
-| Peer-only muddy-water fish | Horizontal coordination | 22-61 min | Protected by low advisor visibility |
+| Generic junior bystander | Lab-wide reminder | 14-36 min | Can impersonate the crowd only while ownership remains unclear |
+| Peer-only muddy-water fish | Horizontal coordination | 22-61 min | Under low advisor visibility, waiting is itself a skill |
 
 ## References
 
 Alvesson, M. (2013). *The triumph of emptiness: Consumption, higher education, and work organization*. Oxford University Press.
+
+Barber, L. K., & Santuzzi, A. M. (2015). Please respond ASAP: workplace telepressure and employee recovery. *Journal of Occupational Health Psychology, 20*(2), 172-189.
 
 Berger, J., Cohen, B. P., & Zelditch, M., Jr. (1972). Status characteristics and social interaction. *American Sociological Review, 37*(3), 241-255.
 
@@ -254,6 +256,8 @@ Kreps, D. M., & Wilson, R. (1982). Reputation and imperfect information. *Journa
 Leonardi, P. M. (2014). Social media, knowledge sharing, and innovation: Toward a theory of communication visibility. *Information Systems Research, 25*(4), 796-816.
 
 Mauss, M. (1990). *The gift: The form and reason for exchange in archaic societies*. Routledge.
+
+Mazmanian, M., Orlikowski, W. J., & Yates, J. (2013). The autonomy paradox: The implications of mobile email devices for knowledge professionals. *Organization Science, 24*(5), 1337-1357.
 
 Spence, M. (1973). Job market signaling. *Quarterly Journal of Economics, 87*(3), 355-374.
 
