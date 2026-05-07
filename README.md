@@ -17,6 +17,7 @@ A SHIT-style paper on advisor group-chat reply latency.
 
 - Final upload package: [dist/submission/shit_submission_20260507/](dist/submission/shit_submission_20260507/)
 - ZIP archive: [dist/submission/shit_submission_20260507.zip](dist/submission/shit_submission_20260507.zip)
+- Actual submitted PDF: [dist/submission/shit_submission_20260507/read-seen-ignored_submission_zh_upload-10p.pdf](dist/submission/shit_submission_20260507/read-seen-ignored_submission_zh_upload-10p.pdf)
 
 ## Figure Pack
 

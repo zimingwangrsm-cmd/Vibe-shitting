@@ -5,6 +5,7 @@ The portable archive is `../shit_submission_20260507.zip`.
 
 Primary submission:
 
+- `read-seen-ignored_submission_zh_upload-10p.pdf` (actual submitted file; 6 pages)
 - `read-seen-ignored_submission_zh.pdf`
 - `read-seen-ignored_submission_zh.docx`
 - `read-seen-ignored_submission_zh.md`
@@ -40,3 +41,5 @@ Observed upload form behavior on 2026-05-07:
 - The live maintenance flag reported `submit: false`.
 - The file field accepts PDF only.
 - Recommended form choices: `tag=hardcore`, `discipline=interdisciplinary`, `topic=default`.
+- Original full Chinese PDF was rejected because it had 13 pages; the platform limit is 10 pages.
+- The 6-page compact PDF was submitted successfully. Official response: `文章已提交，正在进行内容审核`.

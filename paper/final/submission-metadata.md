@@ -54,6 +54,8 @@ An academic satire paper package centered on advisor-group-chat reply delay as a
 - legacy snapshots archive: `../archive/2026-03-retired-snapshots/`
 - generated submission package: `../../dist/submission/shit_submission_20260507/`
 - generated ZIP archive: `../../dist/submission/shit_submission_20260507.zip`
+- actual submitted PDF: `../../dist/submission/shit_submission_20260507/read-seen-ignored_submission_zh_upload-10p.pdf`
+- live submission status: submitted on 2026-05-07; official response: `文章已提交，正在进行内容审核`
 
 ## Safety Statement / 安全说明
 

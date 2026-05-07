@@ -18,4 +18,5 @@
 - [x] DOCX backup export prepared by LibreOffice
 - [x] ZIP upload package assembled
 - [x] Official upload page inspected: requires login and accepts PDF only
-- [ ] Live upload completed on SHIT after login
+- [x] Compact 6-page upload PDF prepared for SHIT's 10-page limit
+- [x] Live upload completed on SHIT after login

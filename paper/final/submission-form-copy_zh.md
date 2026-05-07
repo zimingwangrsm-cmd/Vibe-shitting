@@ -45,9 +45,9 @@ VIBE SHITTING Institute of Minor Lab Politics
 
 ## 官方字段：PDF File / PDF 文件
 
-上传 `dist/submission/shit_submission_20260507/read-seen-ignored_submission_zh.pdf`。
+上传 `dist/submission/shit_submission_20260507/read-seen-ignored_submission_zh_upload-10p.pdf`。
 
-如果平台允许后续编辑或补充材料，再保留英文 PDF：`dist/submission/shit_submission_20260507/read-seen-ignored_submission_en.pdf`。
+说明：原完整 PDF 为 13 页，SHIT 平台限制 PDF 不能超过 10 页；实际成功提交的是 6 页紧凑上传版。
 
 ## 关键词
 
@@ -70,7 +70,7 @@ VIBE SHITTING Institute of Minor Lab Politics
 5. Tag 选择“严谨论证区 / hardcore”。
 6. Discipline 选择“交叉学科 / interdisciplinary”。
 7. Topic 保持“默认 / default”。
-8. PDF 上传 `read-seen-ignored_submission_zh.pdf`。
+8. PDF 上传 `read-seen-ignored_submission_zh_upload-10p.pdf`。
 9. 点击 Submit / 提交投稿。
 
 ## 安全与原创声明
