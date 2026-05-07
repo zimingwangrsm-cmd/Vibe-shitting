@@ -12,7 +12,9 @@ __pycache__/
 .vscode/
 
 # Render outputs
-dist/
+dist/*
+!dist/submission/
+!dist/submission/**
 build/
 tmp/
 *.mp4

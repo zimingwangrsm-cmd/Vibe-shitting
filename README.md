@@ -10,6 +10,13 @@ A SHIT-style paper on advisor group-chat reply latency.
 - English manuscript: [paper/final/read-seen-ignored_submission_en.md](paper/final/read-seen-ignored_submission_en.md)
 - Chinese HTML preview: [paper/final/read-seen-ignored_submission_zh.html](paper/final/read-seen-ignored_submission_zh.html)
 - English HTML preview: [paper/final/read-seen-ignored_submission_en.html](paper/final/read-seen-ignored_submission_en.html)
+- Submission cover letter: [paper/final/submission-cover-letter_zh.md](paper/final/submission-cover-letter_zh.md)
+- Upload form copy text: [paper/final/submission-form-copy_zh.md](paper/final/submission-form-copy_zh.md)
+
+## Submission Package
+
+- Final upload package: [dist/submission/shit_submission_20260507/](dist/submission/shit_submission_20260507/)
+- ZIP archive: [dist/submission/shit_submission_20260507.zip](dist/submission/shit_submission_20260507.zip)
 
 ## Figure Pack
 

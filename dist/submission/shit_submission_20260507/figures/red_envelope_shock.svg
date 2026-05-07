@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560">
+<rect width="100%" height="100%" fill="#faf8f2"/>
+<text x="110" y="40" font-family="Georgia, serif" font-size="24" fill="#111">Figure 8. Advisor Red-Envelope Shock</text>
+<text x="110" y="60" font-family="Arial, sans-serif" font-size="12" fill="#555">Tiny money restores visible order faster than ordinary reminders because it combines kindness, attendance, and public gratitude.</text>
+<line x1="110" y1="380.0" x2="810" y2="380.0" stroke="#e2ddd2" stroke-width="1"/>
+<text x="82" y="384.0" font-family="Arial, sans-serif" font-size="12" fill="#666">0</text>
+<line x1="110" y1="310.0" x2="810" y2="310.0" stroke="#e2ddd2" stroke-width="1"/>
+<text x="82" y="314.0" font-family="Arial, sans-serif" font-size="12" fill="#666">5</text>
+<line x1="110" y1="240.0" x2="810" y2="240.0" stroke="#e2ddd2" stroke-width="1"/>
+<text x="82" y="244.0" font-family="Arial, sans-serif" font-size="12" fill="#666">10</text>
+<line x1="110" y1="170.0" x2="810" y2="170.0" stroke="#e2ddd2" stroke-width="1"/>
+<text x="82" y="174.0" font-family="Arial, sans-serif" font-size="12" fill="#666">15</text>
+<line x1="110" y1="100.0" x2="810" y2="100.0" stroke="#e2ddd2" stroke-width="1"/>
+<text x="82" y="104.0" font-family="Arial, sans-serif" font-size="12" fill="#666">20</text>
+<line x1="110" y1="100" x2="110" y2="380" stroke="#333" stroke-width="2"/>
+<line x1="110" y1="380" x2="810" y2="380" stroke="#333" stroke-width="2"/>
+<rect x="152.5" y="130.8" width="90" height="249.2" rx="8" fill="#8f8579" stroke="#111" stroke-width="1"/>
+<text x="197.5" y="408" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Holiday check-in</text>
+<text x="197.5" y="120.8" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#222">17.8 min</text>
+<rect x="327.5" y="206.4" width="90" height="173.6" rx="8" fill="#c5b8a5" stroke="#111" stroke-width="1"/>
+<text x="372.5" y="408" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Peer reminder</text>
+<text x="372.5" y="196.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#222">12.4 min</text>
+<rect x="502.5" y="346.4" width="90" height="33.6" rx="8" fill="#b35c1e" stroke="#111" stroke-width="1"/>
+<text x="547.5" y="408" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Advisor red envelope</text>
+<text x="547.5" y="336.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#222">2.4 min</text>
+<rect x="677.5" y="357.6" width="90" height="22.4" rx="8" fill="#7a1f1f" stroke="#111" stroke-width="1"/>
+<text x="722.5" y="408" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Direct call-out</text>
+<text x="722.5" y="347.6" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#222">1.6 min</text>
+<polyline fill="none" stroke="#7a1f1f" stroke-width="4" points="197.5,293.2 372.5,307.2 547.5,111.2 722.5,189.6"/>
+<text x="838" y="114" font-family="Arial, sans-serif" font-size="13" fill="#7a1f1f">Gratitude density</text>
+<line x1="802" y1="109" x2="832" y2="109" stroke="#7a1f1f" stroke-width="4"/>
+<text x="838" y="139" font-family="Arial, sans-serif" font-size="13" fill="#333">Median first visible reply</text>
+<rect x="802" y="128" width="24" height="12" fill="#b35c1e" stroke="#111" stroke-width="1"/>
+<text x="110" y="515" font-family="Arial, sans-serif" font-size="12" fill="#555">Interpretation: a red envelope is not only money; it is benevolence with attendance-tracking features.</text>
+</svg>

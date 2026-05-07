@@ -13,4 +13,9 @@
 - [x] Retired theory branch archived
 - [x] Topic remains within known SHIT safety boundaries
 - [x] CI checks active submission-pack consistency
-- [ ] PDF or DOC export if needed by platform
+- [x] Cover letter and upload-form copy text prepared
+- [x] PDF export prepared for official upload form
+- [x] DOCX backup export prepared by LibreOffice
+- [x] ZIP upload package assembled
+- [x] Official upload page inspected: requires login and accepts PDF only
+- [ ] Live upload completed on SHIT after login

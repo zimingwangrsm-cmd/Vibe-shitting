@@ -20,6 +20,8 @@ REQUIRED_FILES = [
     FINAL / "read-seen-ignored_submission-ready.html",
     FINAL / "submission-metadata.md",
     FINAL / "submission-checklist.md",
+    FINAL / "submission-cover-letter_zh.md",
+    FINAL / "submission-form-copy_zh.md",
     ROOT / "paper" / "review" / "shit-fit-review-2026-03-07.md",
     ROOT / "paper" / "figures" / "visual-explainer-plan.md",
     ROOT / "paper" / "figures" / "banana-prompt-pack.md",
