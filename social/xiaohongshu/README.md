@@ -9,6 +9,7 @@
 | Post 03 | topic vote | `post-03-topic-vote.md` | `../../assets/covers/post-03-topic-vote-cover.svg` |
 | Post 04 | proposal reveal | `post-04-proposal.md` | `../../assets/covers/post-04-proposal-cover.svg` |
 | Post 05 | manuscript draft reveal | `post-05-paper-draft.md` | `../../assets/covers/post-05-paper-draft-cover.svg` |
+| Post 06 | five minutes from entry to publication | `post-06-five-minutes-to-publish.md` | `../../assets/covers/post-06-five-minutes-cover.svg` |
 
 ## Archived / 已归档
 
@@ -23,8 +24,9 @@
 3. `post-03-topic-vote.md`
 4. `post-04-proposal.md`
 5. `post-05-paper-draft.md`
+6. `post-06-five-minutes-to-publish.md`
 
-If only one post goes out now, use `post-05-paper-draft.md` first, because it points most directly to the current manuscript.
+If only one post goes out now, use `post-06-five-minutes-to-publish.md` first, because the article is already live and the story has a concrete payoff.
 
 Current manuscript entrypoints:
 

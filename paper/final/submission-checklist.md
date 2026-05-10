@@ -20,3 +20,7 @@
 - [x] Official upload page inspected: requires login and accepts PDF only
 - [x] Compact 6-page upload PDF prepared for SHIT's 10-page limit
 - [x] Live upload completed on SHIT after login
+- [x] Article passed review and went live on 2026-05-10
+- [x] Broken or undersized uploaded-PDF figures diagnosed
+- [x] Embedded-figure PDF revision generated and verified
+- [x] Published article PDF replaced through SHIT edit endpoint

@@ -26,6 +26,10 @@ REQUIRED_FILES = [
     ROOT / "paper" / "figures" / "visual-explainer-plan.md",
     ROOT / "paper" / "figures" / "banana-prompt-pack.md",
     ROOT / "social" / "xiaohongshu" / "README.md",
+    ROOT / "social" / "xiaohongshu" / "post-06-five-minutes-to-publish.md",
+    ROOT / "assets" / "covers" / "post-06-five-minutes-cover.svg",
+    ROOT / "dist" / "submission" / "shit_revision_20260510" / "read-seen-ignored_submission_zh_revision-fixed.pdf",
+    ROOT / "dist" / "submission" / "shit_revision_20260510.zip",
 ]
 
 REQUIRED_FIGURES = [
@@ -69,6 +73,8 @@ def check_metadata() -> bool:
         "read-seen-ignored_submission-ready.md",
         "read-seen-ignored_submission-ready.html",
         "../archive/2026-03-retired-snapshots/",
+        "b3245a90-8cb1-4275-a5a9-4ac5f3300885",
+        "shit_revision_20260510",
     ]
     ok = True
     for snippet in required_snippets:

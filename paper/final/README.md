@@ -18,6 +18,12 @@ Active files:
 Generated upload package:
 
 - `../../dist/submission/shit_submission_20260507/`
+- `../../dist/submission/shit_revision_20260510/`
+
+Published article:
+
+- `https://shitjournal.org/article/b3245a90-8cb1-4275-a5a9-4ac5f3300885`
+- Latest PDF revision: `../../dist/submission/shit_revision_20260510/read-seen-ignored_submission_zh_revision-fixed.pdf`
 
 Legacy EN/ZH snapshots and retired concept artifacts now live in:
 

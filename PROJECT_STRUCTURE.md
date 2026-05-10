@@ -8,12 +8,18 @@
 - English manuscript: `paper/final/read-seen-ignored_submission_en.md`
 - Chinese HTML preview: `paper/final/read-seen-ignored_submission_zh.html`
 - English HTML preview: `paper/final/read-seen-ignored_submission_en.html`
+- Published PDF revision: `dist/submission/shit_revision_20260510/read-seen-ignored_submission_zh_revision-fixed.pdf`
 - Metadata and checklist:
   - `paper/final/submission-metadata.md`
   - `paper/final/submission-checklist.md`
 
 This is the active submission line for the current rewrite cycle.  
 当前改稿轮次以中英文分稿作为正式投稿线。
+
+Published article:
+
+- `https://shitjournal.org/article/b3245a90-8cb1-4275-a5a9-4ac5f3300885`
+- Latest uploaded PDF URL uses `v=2`; this revision fixed the first uploaded PDF's missing or undersized figures.
 
 ### Figures / 图表
 
@@ -39,6 +45,7 @@ Current ready-to-post set:
 - `post-03-topic-vote.md`
 - `post-04-proposal.md`
 - `post-05-paper-draft.md`
+- `post-06-five-minutes-to-publish.md`
 
 Matching current covers:
 
@@ -47,6 +54,7 @@ Matching current covers:
 - `assets/covers/post-03-topic-vote-cover.svg`
 - `assets/covers/post-04-proposal-cover.svg`
 - `assets/covers/post-05-paper-draft-cover.svg`
+- `assets/covers/post-06-five-minutes-cover.svg`
 
 ## Archive Layer / 归档层
 

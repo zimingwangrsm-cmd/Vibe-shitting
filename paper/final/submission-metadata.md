@@ -55,7 +55,12 @@ An academic satire paper package centered on advisor-group-chat reply delay as a
 - generated submission package: `../../dist/submission/shit_submission_20260507/`
 - generated ZIP archive: `../../dist/submission/shit_submission_20260507.zip`
 - actual submitted PDF: `../../dist/submission/shit_submission_20260507/read-seen-ignored_submission_zh_upload-10p.pdf`
-- live submission status: submitted on 2026-05-07; official response: `文章已提交，正在进行内容审核`
+- published article ID: `b3245a90-8cb1-4275-a5a9-4ac5f3300885`
+- published article URL: `https://shitjournal.org/article/b3245a90-8cb1-4275-a5a9-4ac5f3300885`
+- published PDF revision package: `../../dist/submission/shit_revision_20260510/`
+- published PDF revision ZIP: `../../dist/submission/shit_revision_20260510.zip`
+- latest embedded-figure PDF: `../../dist/submission/shit_revision_20260510/read-seen-ignored_submission_zh_revision-fixed.pdf`
+- live submission status: passed on 2026-05-10; PDF replaced on 2026-05-10 via edit endpoint; current post-replacement status: `checking`; official response: `文章更新成功，已提交预审`
 
 ## Safety Statement / 安全说明
 

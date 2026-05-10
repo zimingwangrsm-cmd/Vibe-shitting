@@ -4,6 +4,8 @@
 
 A SHIT-style paper on advisor group-chat reply latency.
 
+Published article: [已读、不回、稍后回复：导师群聊响应延迟的信号博弈分析](https://shitjournal.org/article/b3245a90-8cb1-4275-a5a9-4ac5f3300885)
+
 ## Manuscripts
 
 - Chinese manuscript: [paper/final/read-seen-ignored_submission_zh.md](paper/final/read-seen-ignored_submission_zh.md)
@@ -18,6 +20,8 @@ A SHIT-style paper on advisor group-chat reply latency.
 - Final upload package: [dist/submission/shit_submission_20260507/](dist/submission/shit_submission_20260507/)
 - ZIP archive: [dist/submission/shit_submission_20260507.zip](dist/submission/shit_submission_20260507.zip)
 - Actual submitted PDF: [dist/submission/shit_submission_20260507/read-seen-ignored_submission_zh_upload-10p.pdf](dist/submission/shit_submission_20260507/read-seen-ignored_submission_zh_upload-10p.pdf)
+- Published PDF revision with embedded figures: [dist/submission/shit_revision_20260510/read-seen-ignored_submission_zh_revision-fixed.pdf](dist/submission/shit_revision_20260510/read-seen-ignored_submission_zh_revision-fixed.pdf)
+- Revision ZIP archive: [dist/submission/shit_revision_20260510.zip](dist/submission/shit_revision_20260510.zip)
 
 ## Figure Pack
 
@@ -31,6 +35,7 @@ A SHIT-style paper on advisor group-chat reply latency.
 ## Social Pack
 
 - Xiaohongshu-ready drafts: [social/xiaohongshu/README.md](social/xiaohongshu/README.md)
+- Launch post after publication: [social/xiaohongshu/post-06-five-minutes-to-publish.md](social/xiaohongshu/post-06-five-minutes-to-publish.md)
 - Project structure: [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)
 
 ## Archive

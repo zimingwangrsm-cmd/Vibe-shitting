@@ -8,6 +8,7 @@ Current rendered SVG covers:
 - `post-03-topic-vote-cover.svg`
 - `post-04-proposal-cover.svg`
 - `post-05-paper-draft-cover.svg`
+- `post-06-five-minutes-cover.svg`
 
 Archived covers:
 
